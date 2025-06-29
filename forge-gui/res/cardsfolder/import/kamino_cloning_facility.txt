@@ -1,0 +1,5 @@
+Kamino Cloning Facility
+Land
+{T}: Add {C}.
+{T}: Add one mana of any color. Spend this mana only to cast a Trooper spell.
+{5}, {T}: Create a 1/1 white Trooper creature token.

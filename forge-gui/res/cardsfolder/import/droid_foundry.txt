@@ -1,0 +1,5 @@
+Droid Foundry
+Land
+Droid Foundry enters the battlefield tapped.
+When Droid Foundry enters the battlefield, add {U}.
+{T}: Add {W} or {B}.

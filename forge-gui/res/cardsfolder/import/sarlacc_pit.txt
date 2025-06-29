@@ -1,0 +1,7 @@
+Sarlacc Pit
+R G
+Creature — Beast
+Defender, hexproof
+{R}{G}, Sacrifice a land: Monstrosity 1. (If this creature isn’t monstrous, put a +1/+1 counter on it and it becomes monstrous.)
+When Sarlacc Pit becomes monstrous, it loses hexproof and gains first strike and deathtouch.
+0/4

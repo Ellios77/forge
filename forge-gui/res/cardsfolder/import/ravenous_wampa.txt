@@ -1,0 +1,6 @@
+Ravenous Wampa
+2 RW RW
+Creature — Beast
+{2}{G}, Sacrifice another creature: Monstrosity 2. (If this creature isn’t monstrous, put two +1/+1 counters on it and it becomes monstrous.)
+When Ravenous Wampa becomes monstrous, you gain life equal to the sacrificed creature’s toughness.
+4/4

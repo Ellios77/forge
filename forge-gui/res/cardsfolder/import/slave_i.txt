@@ -1,0 +1,6 @@
+Slave I
+B R G
+Legendary Artifact Creature — Starship
+First strike, spaceflight
+Whenever a creature dealt damage by Slave I this turn dies, put two +1/+1 counters on Slave I.
+3/3

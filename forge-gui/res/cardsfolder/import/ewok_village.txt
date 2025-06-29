@@ -1,0 +1,5 @@
+Ewok Village
+Land
+Ewok Village enters the battlefield tapped.
+When Ewok Village enters the battlefield, add {G}.
+{T}: Add {R} or {W}.

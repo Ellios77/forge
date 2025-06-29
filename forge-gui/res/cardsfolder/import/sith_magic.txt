@@ -1,0 +1,4 @@
+Sith Magic
+U B R
+Enchantment
+Hate — At the beginning of each combat, if an opponent lost life from a source other than combat damage this turn, you may return target creature card from a graveyard to the battlefield under your control. It gains lifelink and haste. Exile it at the beginning of the next end step or if it would leave the battlefield.
