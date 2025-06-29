@@ -1,5 +1,5 @@
 Name:Trade Federation Battleship
-ManaCost:no cost
+ManaCost:3 W U B
 Types:Artifact Creature Starship
 PT:0/6
 K:Spaceflight
