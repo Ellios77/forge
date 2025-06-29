@@ -1,0 +1,5 @@
+Salvage Squad
+W U B
+Creature — Jawa Artificer
+When Salvage Squad enters the battlefield you may sacrifice an artifact. If you do, you gain 2 life and draw two cards.
+2/2
