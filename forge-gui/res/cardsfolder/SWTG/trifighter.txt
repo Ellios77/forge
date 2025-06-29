@@ -1,5 +1,5 @@
 Name:Tri-Fighter
-ManaCost:1 U B U B
+ManaCost:1 UB UB
 Types:Artifact Creature Droid Starship
 PT:2/2
 K:Spaceflight
