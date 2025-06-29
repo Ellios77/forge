@@ -1,0 +1,5 @@
+Sith Mindseer
+U B R
+Creature — Human Sith
+Hate — When Sith Mindseer enters the battlefield, if an opponent lost life from a source other than combat damage this turn, gain control of target creature for as long as Sith Mindseer remains on the battlefield.
+3/3

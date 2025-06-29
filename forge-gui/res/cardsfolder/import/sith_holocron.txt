@@ -1,0 +1,6 @@
+Sith Holocron
+2
+Artifact
+{T}: Put a charge counter on Sith Holocron.
+{T}, Remove a charge counter from Sith Holocron: Add {U}, {B}, or {R}.
+{T}, Remove two charge counters from Sith Holocron: Add {UB} or {BR}.
