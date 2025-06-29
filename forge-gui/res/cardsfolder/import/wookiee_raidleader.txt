@@ -1,0 +1,5 @@
+Wookiee Raidleader
+2 RG RG
+Creature — Wookiee Warrior
+Whenever Wookiee Raidleader attacks, another target creature gains trample until end of turn.
+3/4

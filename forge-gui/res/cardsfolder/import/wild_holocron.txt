@@ -1,0 +1,6 @@
+Wild Holocron
+2
+Artifact
+{T}: Put a charge counter on Wild Holocron.
+{T}, Remove a charge counter from Wild Holocron: Add {R}, {G}, or {W}.
+{T}, Remove two charge counters from Wild Holocron: Add {R}{G} or {G}{W}.

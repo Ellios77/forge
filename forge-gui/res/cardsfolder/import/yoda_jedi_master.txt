@@ -1,0 +1,7 @@
+Yoda, Jedi Master
+1 G U
+Planeswalker — Yoda
++1: Look at the top two cards of your library. Put one on the bottom of your library.
+0: Exile another target permanent you own. Return that card to the battlefield under your control at the beginning of your next end step.
+-5: You get an emblem with “Hexproof, you and your creatures have.”
+Starting loyalty: 3

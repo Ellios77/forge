@@ -1,0 +1,6 @@
+Tri-Fighter
+1 UB UB
+Artifact Creature — Droid Starship
+Spaceflight (This creature can only block or be blocked by creatures with spaceflight.)
+Repair 3 (When this creature dies, you may put three repair counters on it. At the beginning of your upkeep, remove a repair counter. Whenever the last is removed, you may cast it from your graveyard until end of turn.)
+2/2

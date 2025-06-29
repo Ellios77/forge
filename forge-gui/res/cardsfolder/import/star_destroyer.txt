@@ -1,0 +1,8 @@
+Star Destroyer
+4 U B R
+Artifact Creature — Starship
+Spaceflight
+{2}{U}: Tap target artifact creature.
+{2}{B}: Create a 1/1 black Starship artifact creature token with spaceflight named TIE Fighter.
+{2}{R}: Star Destroyer deals 2 damage to target non-Starship creature, player, or planeswalker.
+6/6

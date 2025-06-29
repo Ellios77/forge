@@ -1,0 +1,5 @@
+Strike Team Commando
+2 GW GW
+Creature — Human Rebel
+When Strike Team Commando enters the battlefield, you may destroy target artifact without spaceflight.
+3/3

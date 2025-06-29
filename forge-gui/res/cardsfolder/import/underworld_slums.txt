@@ -1,0 +1,4 @@
+Underworld Slums
+Land
+{T}: Add {C}.
+{T}, Sacrifice Underworld Slums: Search your library for a basic Swamp, Mountain, or Forest card and put it onto the battlefield tapped. Then shuffle your library.
