@@ -1,4 +1,0 @@
-Sith Ruins
-Land
-{T}: Add {C}.
-{T}, Sacrifice Sith Ruins: Search your library for a basic Island, Swamp, or Mountain card and put it onto the battlefield tapped. Then shuffle your library.

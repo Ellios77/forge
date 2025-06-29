@@ -1,5 +1,0 @@
-Moisture Farm
-Land
-{T}: Add {C}.
-{T}: Put a charge counter on Moisture Farm.
-{T}: Remove a charge counter from Moisture Farm: Add one mana of any color.

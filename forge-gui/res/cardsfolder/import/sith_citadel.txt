@@ -1,5 +1,0 @@
-Sith Citadel
-Land
-Sith Citadel enters the battlefield tapped.
-When Sith Citadel enters the battlefield, add {B}.
-{T}: Add {U} or {R}.

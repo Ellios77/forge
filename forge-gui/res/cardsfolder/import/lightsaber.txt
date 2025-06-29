@@ -1,6 +1,0 @@
-Lightsaber
-1
-Artifact — Equipment
-Equipped creature gets +1/+0 and has first strike.
-Equip {3}
-Lightsaber’s equip ability costs {1} if it targets a Jedi or Sith.

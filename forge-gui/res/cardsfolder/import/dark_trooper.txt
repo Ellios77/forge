@@ -1,5 +1,0 @@
-Dark Trooper
-3
-Artifact Creature — Droid Trooper
-Repair 2 (When this creature dies, put two repair counters on it. At the beginning of your upkeep, remove a repair counter. Whenever the last is removed, you may cast it from your graveyard until end of turn.)
-2/2

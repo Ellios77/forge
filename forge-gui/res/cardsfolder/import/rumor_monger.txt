@@ -1,6 +1,0 @@
-Rumor Monger
-1 B R G
-Creature — Arcona Hunter
-When Rumor Monger enters the battlefield, put a bounty counter on up to two target creatures your opponents control.
-Bounty — Whenever a creature an opponent controls with a bounty counter on it dies, you may move a bounty counter from one target creature to another target creature.
-3/3

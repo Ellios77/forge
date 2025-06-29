@@ -1,5 +1,0 @@
-Hutt Palace
-Land
-Hutt Palace enters the battlefield tapped.
-When Hutt Palace enters the battlefield, add {R}.
-{T}: Add {B} or {G}.

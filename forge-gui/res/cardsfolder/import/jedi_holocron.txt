@@ -1,6 +1,0 @@
-Jedi Holocron
-2
-Artifact
-{T}: Put a charge counter on Jedi Holocron.
-{T}, Remove a charge counter from Jedi Holocron: Add {G}, {W}, or {U}.
-{T}, Remove two charge counters from Jedi Holocron: Add {GW} or {WU}.

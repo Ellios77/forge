@@ -1,5 +1,0 @@
-Ancient Holocron
-3
-Artifact
-{T}: Add one mana of any color.
-{T}: Add two mana of any combination of colors. Spend this mana only to cast multicolored spells.
