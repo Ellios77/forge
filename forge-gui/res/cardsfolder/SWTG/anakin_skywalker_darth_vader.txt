@@ -2,8 +2,6 @@ Name:Anakin Skywalker
 ManaCost:3 U B R
 Types:Legendary Creature Human Sith
 PT:4/4
-DFCard:True
-TransformInto:Darth Vader
 
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever another creature dies, put a +1/+1 counter on Anakin Skywalker.
 SVar:TrigCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 1 | Defined$ Self
