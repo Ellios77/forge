@@ -1,6 +1,0 @@
-Senator Lott Dod
-U B
-Legendary Creature — Neimoidian Advisor
-Spells your opponents cast that target you cost {2} more to cast.
-Spells your opponents cast that target a creature you control cost {1} more to cast.
-2/2

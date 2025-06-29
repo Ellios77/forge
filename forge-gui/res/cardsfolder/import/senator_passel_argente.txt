@@ -1,5 +1,0 @@
-Senator Passel Argente
-B R
-Legendary Creature — Koorivar Advisor
-Whenever a creature dies, each opponent loses 1 life.
-2/2
