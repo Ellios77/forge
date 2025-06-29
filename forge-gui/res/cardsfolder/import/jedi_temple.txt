@@ -1,5 +1,0 @@
-Jedi Temple
-Land
-Jedi Temple enters the battlefield tapped.
-When Jedi Temple enters the battlefield, add {W}.
-{T}: Add {G} or {U}.

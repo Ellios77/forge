@@ -1,6 +1,0 @@
-Outlaw Holocron
-2
-Artifact
-{T}: Put a charge counter on Outlaw Holocron.
-{T}, Remove a charge counter from Outlaw Holocron: Add {B}, {R}, or {G}.
-{T}, Remove two charge counters from Outlaw Holocron: Add {BR} or {RG}.

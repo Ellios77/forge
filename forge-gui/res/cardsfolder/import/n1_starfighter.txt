@@ -1,6 +1,0 @@
-N-1 Starfighter
-1 WU WU
-Artifact Creature — Starship
-Spaceflight (This creature can only block or be blocked by creatures with spaceflight.)
-Whenever N-1 Starfighter deals combat damage to a player, you may pay {WU}. If you do, exile another target creature you control, then return that card to the battlefield under its owner’s control.
-2/2
