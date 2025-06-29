@@ -1,0 +1,4 @@
+Exorcise
+{2} {W} {W} 
+Instant 
+Exile target creature. Search its controller's graveyard and library for all cards with the same name as that creature and exile them. Then that player shuffles.

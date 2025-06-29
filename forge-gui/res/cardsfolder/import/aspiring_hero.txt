@@ -1,0 +1,6 @@
+Aspiring Hero
+{W}
+Creature — Human 
+Whenever Aspiring Hero attacks alone, put a +1/+1 counter on it.
+When Aspiring Hero dies, each opponent gains life equal to its power.
+2/1

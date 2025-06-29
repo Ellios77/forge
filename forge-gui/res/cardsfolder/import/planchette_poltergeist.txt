@@ -1,0 +1,6 @@
+Planchette Poltergeist
+{1} {W} {W} 
+Creature — Spirit 
+Flying
+When Planchette Poltergeist enters the battlefield, you may exile target creature. Its owner may cast it from exile for as long as it remains exiled.
+2/2

@@ -1,0 +1,4 @@
+Swarm of the Damned
+{2} {W} {W} 
+Enchantment 
+At the beginning of each end step, create X 1/1 white Spirit creature tokens with flying, where X is the number of nontoken creatures that died this turn.

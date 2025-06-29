@@ -1,0 +1,4 @@
+Grasping Souls
+{1} {W} 
+Instant 
+Exile target creature. Return that creature to the battlefield under its owner's control at the beginning of the next end step.
