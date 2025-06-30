@@ -1,0 +1,9 @@
+Name:Frozen Over
+ManaCost:5 U
+Types:Instant
+
+A:SP$ ChangeZone | ValidTgts$ Creature | TgtPrompt$ Select target creature | Origin$ Battlefield | Destination$ Library | LibraryPosition$ -1 | SubAbility$ DBDig | SpellDescription$ Put target creature on the bottom of its owner's library. That player reveals cards from the top of their library until they reveal a creature card, then puts all cards revealed this way into their graveyard.
+
+SVar:DBDig:DB$ DigUntil | Defined$ TargetedController | Valid$ Creature | ValidDescription$ creature | FoundDestination$ Graveyard | RevealedDestination$ Graveyard
+
+Oracle:Put target creature on the bottom of its owner's library. That player reveals cards from the top of their library until they reveal a creature card, then puts all cards revealed this way into their graveyard.
