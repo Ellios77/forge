@@ -1,4 +1,0 @@
-Otherworldly Passage
-{2} {W} {W} 
-Sorcery 
-Exile any number of target creatures you control. At the beginning of the next end step, return each creature card exiled this way and each creature card put into your graveyard from the battlefield this turn to the battlefield tapped.

@@ -1,4 +1,0 @@
-Friends from the Beyond
-{2} {W} 
-Enchantment 
-At the beginning of your end step, if you own a card in exile, create a 1/1 white Spirit creature token with flying.

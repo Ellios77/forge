@@ -1,6 +1,0 @@
-Librarian of Whispers
-{1} {W} 
-Creature — Spirit 
-Lifelink
-If a creature or planeswalker would die, instead exile it and put a +1/+1 counter on Librarian of Whispers.
-1/1

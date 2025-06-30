@@ -1,5 +1,0 @@
-Maddened Preacher
-{2} {W} 
-Creature — Human Cleric 
-Players can't sacrifice creatures to cast spells or activate abilities unless they sacrifice an additional creature. The same is true for discarding cards and paying life.
-3/2

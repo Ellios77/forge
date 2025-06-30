@@ -1,6 +1,0 @@
-Lisa, the Daughter
-{1} {W} 
-Legendary Creature — Human 
-When Lisa enters the battlefield, create Mother, a legendary 4/1 black Demon creature token with flying that can't block.
-If Lisa, the Daughter would be dealt damage, that damage is dealt to a Demon you control instead.
-1/1

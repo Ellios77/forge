@@ -1,4 +1,0 @@
-Veil of Innocence
-{W} 
-Enchantment 
-As long as you control exactly one creature, no more than one creature can attack or block each combat.

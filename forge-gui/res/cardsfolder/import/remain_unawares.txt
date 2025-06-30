@@ -1,4 +1,0 @@
-Remain Unawares
-{5} {W} {W} 
-Sorcery 
-Choose a creature. Exile the rest.
