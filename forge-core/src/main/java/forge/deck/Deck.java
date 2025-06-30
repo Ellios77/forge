@@ -47,6 +47,7 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
     // Supports deferring loading a deck until we actually need its contents. This works in conjunction with
     // the lazy card load feature to ensure we don't need to load all cards on start up.
     private final Set<String> aiHints = new TreeSet<>();
+    private String aiDesireProfile = null;
     private final Map<String, String> draftNotes = new HashMap<>();
     private Map<String, List<String>> deferredSections = null;
     private Map<String, List<String>> loadedSections = null;
@@ -214,6 +215,7 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
             cp.addAll(kv.getValue());
         }
         result.setAiHints(StringUtils.join(aiHints, " | "));
+        result.setAiDesireProfile(aiDesireProfile);
         result.setDraftNotes(draftNotes);
         tags.addAll(result.getTags());
     }
@@ -542,6 +544,14 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
             }
         }
         return "";
+    }
+
+    public void setAiDesireProfile(String profile) {
+        this.aiDesireProfile = profile == null ? null : profile.trim();
+    }
+
+    public String getAiDesireProfile() {
+        return aiDesireProfile == null ? "" : aiDesireProfile;
     }
 
     public void setDraftNotes(Map<String, String> draftNotes) {
