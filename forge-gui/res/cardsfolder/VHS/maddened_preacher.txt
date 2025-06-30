@@ -1,0 +1,12 @@
+Name:Maddened Preacher
+ManaCost:2 W
+Types:Creature Human Cleric
+PT:3/2
+
+S:Mode$ CantSacrifice | ValidCard$ Creature | ValidCause$ Spell,Activated | ForCost$ True | Description$ Players can't sacrifice creatures to cast spells or activate abilities.
+S:Mode$ CantPayLife | ValidPlayer$ Player | ValidCause$ Spell,Activated | ForCost$ True | Secondary$ True | Description$ Players can't pay life to cast spells or activate abilities.
+S:Mode$ CantDiscard | ValidPlayer$ Player | ValidCause$ Spell,Activated | ForCost$ True | Secondary$ True | Description$ Players can't discard cards to cast spells or activate abilities.
+
+Oracle:Players can't sacrifice creatures to cast spells or activate abilities. The same is true for discarding cards and paying life.
+# Oracle:Players can't sacrifice creatures to cast spells or activate abilities unless they sacrifice an additional creature. The same is true for discarding cards and paying life.
+# The card is partially implemented. Need to figure out how to get the unlesscost to work with the Mode$ CantSacrifice, CantPayLife, and CantDiscard

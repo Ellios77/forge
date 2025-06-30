@@ -1,0 +1,13 @@
+Name:Exorcise VHS
+ManaCost:2 W W
+Types:Instant
+
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ ExileYard | SpellDescription$ Exile target creature. Search its controller’s graveyard and library for all cards with the same name as that creature and exile them. Then that player shuffles.
+
+SVar:ExileYard:DB$ ChangeZoneAll | Origin$ Graveyard | Destination$ Exile | Defined$ TargetedController | ChangeType$ TargetedCard.sameName | SubAbility$ ExileLib | StackDescription$ None
+
+SVar:ExileLib:DB$ ChangeZone | Origin$ Library | Destination$ Exile | DefinedPlayer$ TargetedController | ChangeType$ TargetedCard.sameName | ChangeNum$ NumInLib | Chooser$ You | Shuffle$ True | StackDescription$ None
+
+SVar:NumInLib:TargetedController$CardsInLibrary
+
+Oracle:Exile target creature. Search its controller’s graveyard and library for all cards with the same name as that creature and exile them. Then that player shuffles.
