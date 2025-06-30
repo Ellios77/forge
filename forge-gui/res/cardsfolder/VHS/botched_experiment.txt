@@ -3,9 +3,10 @@ ManaCost:1 U
 Types:Enchantment
 
 T:Mode$ DamageDone | ValidSource$ Creature.YouCtrl | ValidTarget$ Player | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigSacrifice | TriggerDescription$ Whenever a creature you control deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to that creature's power.
+SVar:TrigSacrifice:DB$ Sacrifice | Defined$ You | SacValid$ Creature.TriggeredSource | Amount$ 1 | Optional$ True | RememberSacrificed$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 
-SVar:TrigSacrifice:DB$ Sacrifice | Defined$ You | SacValid$ TriggeredCard | Amount$ 1 | Optional$ True | RememberSacrificed$ True | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ X
 SVar:X:RememberedLKI$CardPower
 
 Oracle:Whenever a creature you control deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to that creature's power.
