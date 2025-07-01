@@ -55,6 +55,9 @@ public class DeckSerializer {
         if (!d.getAiHints().isEmpty()) {
             out.add(TextUtil.concatNoSpace(DeckFileHeader.AI_HINTS, "=", StringUtils.join(d.getAiHints(), " | ")));
         }
+        if (!d.getAiDesireProfile().isEmpty()) {
+            out.add(TextUtil.concatNoSpace(DeckFileHeader.AI_DESIRE_PROFILE, "=", d.getAiDesireProfile()));
+        }
         if (!d.getDraftNotes().isEmpty()) {
             String sb = serializeDraftNotes(d.getDraftNotes());
             out.add(TextUtil.concatNoSpace(DeckFileHeader.DRAFT_NOTES, "=", sb));
@@ -98,6 +101,7 @@ public class DeckSerializer {
         Deck d = new Deck(dh.getName());
         d.setComment(dh.getComment());
         d.setAiHints(dh.getAiHints());
+        d.setAiDesireProfile(dh.getAiDesireProfile());
         d.getTags().addAll(dh.getTags());
         d.setDraftNotes(dh.getDraftNotes());
         d.setDeferredSections(sections);

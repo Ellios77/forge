@@ -31,6 +31,9 @@ import forge.game.combat.GlobalAttackRestrictions;
 import forge.game.cost.Cost;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
+import forge.ai.AiDesireState;
+import forge.ai.AiDesireProfile;
+import forge.ai.PlayerControllerAi;
 import forge.game.player.Player;
 import forge.game.player.PlayerCollection;
 import forge.game.spellability.SpellAbility;
@@ -845,6 +848,14 @@ public class AiAttackController {
 
         final boolean bAssault = doAssault();
 
+        AiDesireState desireState = null;
+        if (ai.getController() instanceof PlayerControllerAi) {
+            desireState = ((PlayerControllerAi) ai.getController()).getAi().getDesireState();
+            if (desireState != null && desireState.get(AiDesireProfile.Action.ATTACK_WITH_BIG_CREATURE) > 0) {
+                aiAggression = Math.max(aiAggression, 4);
+            }
+        }
+
         // Determine who will be attacked
         GameEntity defender = chooseDefender(combat, bAssault);
 
@@ -1352,6 +1363,9 @@ public class AiAttackController {
             }
         }
 
+        if (desireState != null && !combat.getAttackers().isEmpty()) {
+            desireState.consume(AiDesireProfile.Action.ATTACK_WITH_BIG_CREATURE);
+        }
         return aiAggression;
     }
 

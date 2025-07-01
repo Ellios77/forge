@@ -47,6 +47,7 @@ public class DeckFileHeader {
     private static final String CSTM_POOL = "Custom Pool";
     private static final String PLAYER_TYPE = "PlayerType";
     public static final String AI_HINTS = "AiHints";
+    public static final String AI_DESIRE_PROFILE = "AiDesireProfile";
 
     private final DeckFormat deckType;
     private final boolean customPool;
@@ -59,6 +60,7 @@ public class DeckFileHeader {
 
     private final boolean intendedForAi;
     private final String aiHints;
+    private final String aiDesireProfile;
 
     public boolean isIntendedForAi() {
         return intendedForAi;
@@ -68,6 +70,10 @@ public class DeckFileHeader {
         return aiHints;
     }
 
+    public String getAiDesireProfile() {
+        return aiDesireProfile;
+    }
+
     public DeckFileHeader(final FileSection kvPairs) {
         this.name = kvPairs.get(DeckFileHeader.NAME);
         this.comment = kvPairs.get(DeckFileHeader.COMMENT);
@@ -75,6 +81,7 @@ public class DeckFileHeader {
         this.customPool = kvPairs.getBoolean(DeckFileHeader.CSTM_POOL);
         this.intendedForAi = "computer".equalsIgnoreCase(kvPairs.get(DeckFileHeader.PLAYER)) || "ai".equalsIgnoreCase(kvPairs.get(DeckFileHeader.PLAYER_TYPE));
         this.aiHints = kvPairs.get(DeckFileHeader.AI_HINTS);
+        this.aiDesireProfile = kvPairs.get(DeckFileHeader.AI_DESIRE_PROFILE);
 
         this.tags = new TreeSet<>();
         

@@ -32,6 +32,8 @@ import forge.card.mana.ManaAtom;
 import forge.card.mana.ManaCost;
 import forge.deck.Deck;
 import forge.deck.DeckSection;
+import forge.ai.AiDesireProfile;
+import forge.ai.AiDesireState;
 import forge.game.*;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
@@ -62,6 +64,9 @@ import forge.game.trigger.WrappedAbility;
 import forge.game.zone.ZoneType;
 import forge.item.PaperCard;
 import forge.util.*;
+import com.google.common.eventbus.Subscribe;
+import forge.game.event.GameEventTurnBegan;
+import forge.game.event.IGameEventVisitor;
 import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
 
@@ -87,7 +92,7 @@ import static java.lang.Math.max;
  * @author Forge
  * @version $Id$
  */
-public class AiController {
+public class AiController extends IGameEventVisitor.Base<Void> {
     private final Player player;
     private final Game game;
     private final AiCardMemory memory;
@@ -99,6 +104,8 @@ public class AiController {
     private int lastAttackAggression;
     private boolean useLivingEnd;
     private List<SpellAbility> skipped;
+    private AiDesireProfile desireProfile;
+    private AiDesireState desireState;
 
     public AiController(final Player computerPlayer, final Game game0) {
         player = computerPlayer;
@@ -500,6 +507,11 @@ public class AiController {
     private Card chooseBestLandToPlay(CardCollection landList) {
         if (landList.isEmpty()) {
             return null;
+        }
+
+        if (desireState != null && desireState.get(AiDesireProfile.Action.PLAY_MANA_SOURCE) > 0) {
+            desireState.consume(AiDesireProfile.Action.PLAY_MANA_SOURCE);
+            return landList.get(0);
         }
 
         landList = ComputerUtilCard.dedupeCards(landList);
@@ -1383,6 +1395,26 @@ public class AiController {
         }
 
         return Boolean.parseBoolean(prop);
+    }
+
+    public void setDesireProfile(AiDesireProfile profile) {
+        this.desireProfile = profile;
+        if (profile != null) {
+            this.desireState = new AiDesireState(profile);
+        } else {
+            this.desireState = null;
+        }
+    }
+
+    public AiDesireState getDesireState() {
+        return desireState;
+    }
+
+    @Subscribe
+    public void receiveGameEvent(GameEventTurnBegan ev) {
+        if (ev.turnOwner == player && desireState != null) {
+            desireState.newTurn();
+        }
     }
 
     public AiPlayDecision canPlayFromEffectAI(Spell spell, boolean mandatory, boolean withoutPayingManaCost) {

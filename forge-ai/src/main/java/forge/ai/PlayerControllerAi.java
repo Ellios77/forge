@@ -65,6 +65,7 @@ public class PlayerControllerAi extends PlayerController {
         super(game, p, lp);
 
         brains = new AiController(p, game);
+        game.subscribeToEvents(brains);
     }
 
     public boolean pilotsNonAggroDeck() {
@@ -73,6 +74,10 @@ public class PlayerControllerAi extends PlayerController {
 
     public void setupAutoProfile(Deck deck) {
         pilotsNonAggroDeck = deck.getName().contains("Control") || Deck.getAverageCMC(deck) > 3;
+        String desire = deck.getAiDesireProfile();
+        if (desire != null && !desire.isEmpty()) {
+            brains.setDesireProfile(AiDesireProfile.getProfile(desire));
+        }
     }
 
     public void allowCheatShuffle(boolean value) {
