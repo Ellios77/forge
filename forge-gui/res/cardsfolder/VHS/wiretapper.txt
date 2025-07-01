@@ -1,0 +1,15 @@
+Name:Wiretapper
+ManaCost:1 U U
+Types:Creature Horror
+PT:3/1
+K:Flash
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When CARDNAME enters, choose one —
+SVar:TrigCharm:DB$ Charm | Choices$ ExileSpell,CopySpell
+SVar:ExileSpell:DB$ ChangeZone | TargetType$ Spell | ValidTgts$ Card | TgtPrompt$ Select target spell | Origin$ Stack | Destination$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile target spell. For as long as it remains exiled, its owner may cast it. Spells cast this way cost {2} more to cast.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ MayPlay,CostsMore | RememberObjects$ Remembered | Duration$ Permanent | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:MayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | MayPlayPlayer$ CardOwner | Description$ You may cast that card for as long as it remains exiled.
+SVar:CostsMore:Mode$ RaiseCost | ValidCard$ Card.IsRemembered | AffectedZone$ Exile | Type$ Spell | Amount$ 2 | Description$ Spells cast this way cost {2} more to cast.
+SVar:CopySpell:DB$ CopySpellAbility | ValidTgts$ Card | TargetType$ Spell | MayChooseTarget$ True | SpellDescription$ Copy target spell. You may cast the copy.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flash\nWhen Wiretapper enters, choose one —\n• Exile target spell. For as long as it remains exiled, its owner may cast it. Spells cast this way cost {2} more to cast.\n• Copy target spell. You may cast the copy.

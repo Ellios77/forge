@@ -1,0 +1,10 @@
+Name:Snowfield Doppelganger
+ManaCost:2 U U
+Types:Creature Shapeshifter
+PT:0/0
+
+K:ETBReplacement:Copy:DBCopy:Optional
+SVar:DBCopy:DB$ Clone | Choices$ Creature | AddStaticAbilities$ MustTarget,AddDuplicateType | SpellDescription$ You may have CARDNAME enter the battlefield as a copy of any creature on the battlefield, except it has "While a player is choosing targets as part of casting a spell, that player must choose at least one other creature with the same name as this creature if able."
+SVar:MustTarget:Mode$ MustTarget | ValidSA$ Spell | ValidTarget$ Duplicate | ValidZone$ Battlefield | Description$ While a player is choosing targets as part of casting a spell, that player must choose at least one other creature with the same name as this creature if able.
+SVar:AddDuplicateType:Mode$ Continuous | Affected$ Creature.sameName+Other | AddType$ Duplicate | Description$ Other creatures with the same name as this creature are Duplicates.
+Oracle:You may have Snowfield Doppelganger enter the battlefield as a copy of any creature on the battlefield, except it has "While a player is choosing targets as part of casting a spell, that player must choose at least one other creature with the same name as this creature if able."
