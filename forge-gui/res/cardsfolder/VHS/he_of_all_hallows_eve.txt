@@ -5,7 +5,7 @@ PT:7/7
 K:Menace
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Horrific | SVarCompare$ LE0 | Execute$ TrigDamage | TriggerDescription$ At the beginning of your end step, CARDNAME deals damage equal to its power to you unless you're horrific.
 SVar:TrigDamage:DB$ DealDamage | Defined$ You | NumDmg$ X
-SVar:X:TriggeredCard$CardPower
+SVar:X:Count$CardPower
 SVar:SacCount:PlayerCountPropertyYou$SacrificedThisTurn Permanent
 SVar:DiscardCount:PlayerCountPropertyYou$CardsDiscardedThisTurn
 SVar:Horrific:SVar$SacCount/Plus.DiscardCount
