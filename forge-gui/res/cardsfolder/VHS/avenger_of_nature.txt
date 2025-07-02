@@ -1,0 +1,8 @@
+Name:Avenger of Nature
+ManaCost:3 G G
+Types:Creature Elk Horror
+PT:5/4
+K:Trample
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ Player | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ Whenever a player casts a noncreature spell, that player sacrifices a noncreature permanent.
+SVar:TrigSac:DB$ Sacrifice | Defined$ TriggeredActivator | SacValid$ Permanent.nonCreature | SacMessage$ noncreature permanent
+Oracle:Trample\nWhenever a player casts a noncreature spell, that player sacrifices a noncreature permanent.

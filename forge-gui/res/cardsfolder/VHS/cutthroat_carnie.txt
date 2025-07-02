@@ -1,0 +1,8 @@
+Name:Cutthroat Carnie
+ManaCost:2 G G
+Types:Creature Human Horror
+PT:4/4
+K:Haste
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.DamagedBy | TriggerZones$ Battlefield | Execute$ TrigFight | OptionalDecider$ You | TriggerDescription$ Whenever a creature dealt combat damage by CARDNAME this turn dies, you may have CARDNAME fight target creature.
+SVar:TrigFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select target creature
+Oracle:Haste\nWhenever a creature dealt combat damage by Cutthroat Carnie this turn dies, you may have Cutthroat Carnie fight target creature.
