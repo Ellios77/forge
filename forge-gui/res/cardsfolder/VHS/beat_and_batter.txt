@@ -1,0 +1,8 @@
+Name:Beat & Batter
+ManaCost:R
+Types:Instant
+A:SP$ Effect | StaticAbilities$ STCantGain,STCantPrevent | AILogic$ Burn | SubAbility$ DBDamage | SpellDescription$ Players can't gain life this turn. Damage can't be prevented this turn. CARDNAME deals 2 damage to target player.
+SVar:STCantGain:Mode$ CantGainLife | ValidPlayer$ Player | Description$ Players can't gain life this turn.
+SVar:STCantPrevent:Mode$ CantPreventDamage | Description$ Damage can't be prevented.
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Player | TgtPrompt$ Select target player | NumDmg$ 2 | NoPrevention$ True
+Oracle:Damage can't be prevented this turn. Players can't gain life this turn. Beat & Batter deals 2 damage to target player.

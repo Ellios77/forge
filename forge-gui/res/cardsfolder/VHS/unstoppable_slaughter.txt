@@ -1,0 +1,30 @@
+Name:Unstoppable Slaughter
+ManaCost:1 R R
+Types:Sorcery
+A:SP$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger | SpellDescription$ CARDNAME deals 1 damage to each creature and each player. Whenever a creature dealt damage by CARDNAME this turn dies, repeat that process.
+
+# The following stops after 10 repeats but no other method has been found to make this work or not create a infinite code loop which crashes the game. As is, this should cover most possible scenarios where it needs to repeat.
+
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger2
+SVar:DBDelayedTrigger2:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage2 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage2:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger3
+SVar:DBDelayedTrigger3:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage3 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage3:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger4
+SVar:DBDelayedTrigger4:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage4 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage4:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger5
+SVar:DBDelayedTrigger5:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage5 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage5:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger6
+SVar:DBDelayedTrigger6:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage6 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage6:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger7
+SVar:DBDelayedTrigger7:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage7 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage7:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger8
+SVar:DBDelayedTrigger8:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage8 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage8:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger9
+SVar:DBDelayedTrigger9:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage9 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage9:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1 | RememberDamaged$ True | SubAbility$ DBDelayedTrigger10
+SVar:DBDelayedTrigger10:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Remembered | ValidCard$ Creature.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBRepeatDamage10 | SubAbility$ DBCleanup | TriggerDescription$ When a creature dealt damage this way dies this turn, repeat that process.
+SVar:DBRepeatDamage10:DB$ DamageAll | ValidCards$ Creature | ValidPlayers$ Player | NumDmg$ 1
+T:Mode$ Phase | Static$ True | Phase$ End of Turn | Execute$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Unstoppable Slaughter deals 1 damage to each creature and each player. Whenever a creature dealt damage by Unstoppable Slaughter this turn dies this turn, repeat that process.
