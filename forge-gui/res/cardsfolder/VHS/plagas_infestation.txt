@@ -1,0 +1,8 @@
+Name:Plagas Infestation
+ManaCost:1 G
+Types:Enchantment Aura
+K:Enchant:Creature
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | SetPower$ 3 | SetToughness$ 3 | AddType$ Horror | RemoveAllAbilities$ True | Description$ Enchanted creature loses all abilities and is a Horror creature with base power and toughness 3/3.
+T:Mode$ DamageDone | ValidSource$ Card.AttachedBy | ValidTarget$ Creature | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever enchanted creature deals combat damage to a creature, create a token that's a copy of CARDNAME and attach it to the damaged creature.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ Self | NumCopies$ 1 | AttachAfter$ True | AttachedTo$ TriggeredTargetLKICopy
+Oracle:Enchant creature\nEnchanted creature loses all abilities and is a Horror creature with base power and toughness 3/3.\nWhenever enchanted creature deals combat damage to a creature, create a token that's a copy of Plagas Infestation and attach it to the damaged creature.
