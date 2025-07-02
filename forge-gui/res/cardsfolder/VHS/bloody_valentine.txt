@@ -2,10 +2,8 @@ Name:Bloody Valentine
 ManaCost:1 R
 Types:Creature Human
 PT:2/2
-T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ Player | TriggerZones$ Battlefield | Execute$ TrigBranch | TriggerDescription$ At the beginning of each player's end step, CARDNAME deals 2 damage to that player unless they're horrific.
-SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ Horrific | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBNothing | FalseSubAbility$ DBDamage
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ Player | TriggerZones$ Battlefield | CheckSVar$ Horrific | SVarCompare$ LE0 | Execute$ DBDamage | TriggerDescription$ At the beginning of each player's end step, CARDNAME deals 2 damage to that player unless they're horrific.
 SVar:DBDamage:DB$ DealDamage | Defined$ TriggeredPlayer | NumDmg$ 2
-SVar:DBNothing:DB$ Nothing
 SVar:SacCount:PlayerCountPropertyTriggeredPlayer$SacrificedThisTurn Permanent
 SVar:DiscardCount:PlayerCountPropertyTriggeredPlayer$CardsDiscardedThisTurn
 SVar:Horrific:SVar$SacCount/Plus.DiscardCount
