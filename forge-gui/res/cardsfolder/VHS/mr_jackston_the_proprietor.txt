@@ -1,0 +1,10 @@
+Name:Mr. Jackston, the Proprietor
+ManaCost:2 B
+Types:Legendary Creature Human Horror
+PT:2/2
+S:Mode$ CantTarget | Affected$ You,Permanent.YouCtrl | ValidSource$ Spell.sharesNameWith Card.ExiledWithSource | Description$ You and permanents you control have hexproof from spells that share a name with a card exiled with CARDNAME.
+A:AB$ Dig | Cost$ Sac<1/Creature> | AlternateCost$ Discard<1/Card> | ValidTgts$ Player | TgtPrompt$ Select target player | DigNum$ 1 | ChangeNum$ 1 | DestinationZone$ Exile | ExileWithSource$ True | RememberChanged$ True | Activator$ Player | PlayerTurn$ True | ActivationLimit$ 1 | SubAbility$ DBMayPlay | SpellDescription$ Exile the top card of target player's library. You may cast that card for as long as it remains exiled.
+SVar:DBMayPlay:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Remembered | Duration$ Permanent | ExileOnMoved$ Exile | EffectOwner$ Player.Activator | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | Description$ You may cast the exiled card for as long as it remains exiled.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:You and permanents you control have hexproof from spells that share a name with a card exiled with Mr. Jackston.\nSacrifice a creature or discard a card: Exile the top card of target player's library. You may cast that card for as long as it remains exiled. Any player may activate this ability but only once each turn and only during their turn.

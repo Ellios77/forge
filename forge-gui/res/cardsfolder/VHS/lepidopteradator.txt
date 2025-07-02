@@ -1,0 +1,13 @@
+Name:Lepidopteradator
+ManaCost:2 B B
+Types:Creature Insect Horror
+PT:4/4
+K:Flying
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigBranch | TriggerDescription$ At the beginning of your end step, if you're horrific, put a +1/+1 counter on CARDNAME. Otherwise, sacrifice it.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ Horrific | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBPutCounter | FalseSubAbility$ DBSac
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:DBSac:DB$ Sacrifice | Defined$ Self
+SVar:SacCount:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+SVar:DiscardCount:PlayerCountPropertyYou$CardsDiscardedThisTurn
+SVar:Horrific:SVar$SacCount/Plus.DiscardCount
+Oracle:Flying\nAt the beginning of your end step, if you're horrific, put a +1/+1 counter on Lepidopteradator. Otherwise, sacrifice it. (You're horrific as long as you've sacrificed a permanent or discarded a card this turn.)
