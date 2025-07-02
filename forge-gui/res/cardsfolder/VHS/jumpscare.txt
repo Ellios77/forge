@@ -1,0 +1,10 @@
+Name:Jumpscare
+ManaCost:1 B B
+Types:Instant
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature | Static$ True | Execute$ DeathNote
+SVar:DeathNote:DB$ Effect | StaticAbilities$ MarkFresh | RememberObjects$ TriggeredCard | Duration$ UntilEndOfTurn
+SVar:MarkFresh:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Graveyard,Battlefield | AddKeyword$ Fresh
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature | TgtPrompt$ Return target creature from a graveyard | RememberChanged$ True | SubAbility$ DBExileIfNotFresh
+SVar:DBExileIfNotFresh:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | Defined$ Remembered.withoutFresh | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Return target creature card from a graveyard to the battlefield. Then if it wasn't put into a graveyard from the battlefield this turn, exile it.
