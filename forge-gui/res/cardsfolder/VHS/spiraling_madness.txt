@@ -8,5 +8,5 @@ SVar:DBDiscard:DB$ Discard | Defined$ TriggeredPlayer | NumCards$ 1 | Mode$ TgtC
 SVar:DBSac:DB$ Sacrifice | Defined$ TriggeredPlayer | SacValid$ Permanent | Amount$ 1
 SVar:DBLose:DB$ LosesGame | Defined$ TriggeredPlayer
 SVar:HandCount:TriggeredPlayer$CardsInHand
-SVar:PermCount:Count$Valid Permanent+ControlledBy TriggeredPlayer
+SVar:PermCount:Count$Valid Permanent.ControlledBy TriggeredPlayer
 Oracle:At the beginning of each player's upkeep, that player discards a card. If that player has no cards in hand, they instead sacrifice a permanent. If they control no permanents, they instead lose the game.
