@@ -4,7 +4,7 @@ Types:Land
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters the battlefield tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ R | SpellDescription$ Add {R}.
-A:AB$ Animate | Cost$ 2 R | ConditionCheckSVar$ HorrificYou | ConditionSVarCompare$ GE1 | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Devil | Keywords$ Menace | SpellDescription$ Until end of turn, CARDNAME becomes a 3/3 Devil creature with menace. It's still a land.
+A:AB$ Animate | Cost$ 2 R | CheckSVar$ HorrificYou | SVarCompare$ GE1 | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Devil | Keywords$ Menace | SpellDescription$ Until end of turn, CARDNAME becomes a 3/3 Devil creature with menace. It's still a land.
 SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
 SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
 SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
