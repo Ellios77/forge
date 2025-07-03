@@ -3,7 +3,7 @@ ManaCost:2 U R
 Types:Creature Reflection Shapeshifter
 PT:0/0
 K:ETBReplacement:Copy:DBCopy:Optional
-SVar:DBCopy:DB$ Clone | Choices$ Creature | AddTrigger$ TrigFight | SpellDescription$ You may have CARDNAME enter the battlefield as a copy of any creature on the battlefield, except it has "When this creature enters the battlefield, it fights another target creature with the same name as it."
+SVar:DBCopy:DB$ Clone | Choices$ Creature | AddSVars$ DBFight | AddTriggers$ TrigFight | SpellDescription$ You may have CARDNAME enter the battlefield as a copy of any creature on the battlefield, except it has "When this creature enters the battlefield, it fights another target creature with the same name as it."
 SVar:TrigFight:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ DBFight | TriggerDescription$ When this creature enters the battlefield, it fights another target creature with the same name as it.
-SVar:DBFight:DB$ Fight | ValidTgts$ Creature.sameName+Other | TgtPrompt$ Select another target creature with the same name as this creature
+SVar:DBFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature.sameName+Other | TgtPrompt$ Select another target creature with the same name as this creature
 Oracle:You may have Raging Reflection enter the battlefield as a copy of any creature on the battlefield, except it has "When this creature enters the battlefield, it fights another target creature with the same name as it."
