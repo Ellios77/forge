@@ -4,7 +4,9 @@ Types:Land
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters the battlefield tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ B | SpellDescription$ Add {B}.
-A:AB$ Animate | Cost$ 2 B | ConditionCheckSVar$ HorrificYou | ConditionSVarCompare$ GE1 | Defined$ Self | Power$ 2 | Toughness$ 2 | Types$ Creature,Zombie | Keywords$ DiesReturn | SpellDescription$ Until end of turn, CARDNAME becomes a 2/2 Zombie creature with "When this creature dies, return it to the battlefield." It's still a land.
+A:AB$ Animate | Cost$ 2 B | CheckSVar$ HorrificYou | SVarCompare$ GE1 | Defined$ Self | Power$ 2 | Toughness$ 2 | Types$ Creature,Zombie | SpellDescription$ Until end of turn, CARDNAME becomes a 2/2 Zombie creature with "When this creature dies, return it to the battlefield." It's still a land.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self+Creature | Execute$ TrigChangeZone | TriggerDescription$ When this creature dies, return it to the battlefield.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | Defined$ TriggeredNewCardLKICopy
 SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
 SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
 SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
