@@ -1,0 +1,11 @@
+Name:Misty Churchyard
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters the battlefield tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T | Produced$ W | SpellDescription$ Add {W}.
+A:AB$ Animate | Cost$ 1 W W | ConditionCheckSVar$ HorrificYou | ConditionSVarCompare$ GE1 | Defined$ Self | Power$ 1 | Toughness$ 4 | Types$ Creature,Cleric | Keywords$ DamageToCounter | SpellDescription$ Until end of turn, CARDNAME becomes a 1/4 Cleric creature with "Whenever this creature is dealt damage, put that many +1/+1 counters on it." It's still a land.
+SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
+SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
+Oracle:Misty Churchyard enters the battlefield tapped.\n{T}: Add {W}.\n{1}{W}{W}: Until end of turn, Misty Churchyard becomes a 1/4 Cleric creature with "Whenever this creature is dealt damage, put that many +1/+1 counters on it." Activate only if you're horrific.

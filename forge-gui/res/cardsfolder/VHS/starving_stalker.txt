@@ -1,0 +1,10 @@
+Name:Starving Stalker
+ManaCost:B G
+Types:Creature Horror
+PT:1/1
+K:Menace
+A:AB$ GenericChoice | Choices$ DoDiscard,DoSacrifice,DoExile | ActivationLimit$ 1 | SpellDescription$ Put a +1/+1 counter on CARDNAME. Activate only once each turn.
+SVar:DoDiscard:AB$ PutCounter | Cost$ Discard<1/Creature> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Discard a creature card.
+SVar:DoSacrifice:AB$ PutCounter | Cost$ Sac<1/Creature> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Sacrifice a creature.
+SVar:DoExile:AB$ PutCounter | Cost$ ExileFromGrave<1/Creature/creature card> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Exile a creature card from your graveyard.
+Oracle:Menace\nDiscard a creature card or sacrifice a creature or exile a creature card from your graveyard: Put a +1/+1 counter on Starving Stalker. Activate only once each turn.

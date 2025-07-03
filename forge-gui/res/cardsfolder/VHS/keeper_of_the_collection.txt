@@ -1,0 +1,12 @@
+Name:Keeper of the Collection
+ManaCost:2 U B
+Types:Legendary Artifact Creature Illusion
+PT:2/4
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromExile | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever you cast a spell from exile, copy that spell. You may choose new targets for the copy.
+SVar:TrigCopy:AB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+A:AB$ Effect | Cost$ B Discard<1/Card> | StaticAbilities$ GrantRerun | Triggers$ RemoveEffect | SpellDescription$ When you next cast a spell from your hand this turn, it gains rerun. Activate only once each turn. | GameActivationLimit$ 1
+SVar:GrantRerun:Mode$ Continuous | Affected$ Card.YouCtrl | AffectedZone$ Stack | AddKeyword$ Rerun | Description$ The next spell you cast this turn gains rerun.
+SVar:RemoveEffect:Mode$ SpellCast | EffectZone$ Command | ValidCard$ Card.YouCtrl | Execute$ ExileEffect | Static$ True
+SVar:ExileEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile | Defined$ Self
+# TODO: Full rerun implementation on arbitrary spells may require engine support.
+Oracle:Whenever you cast a spell from exile, copy that spell. You may choose new targets for the copy.\n{B}, Discard a card: When you next cast a spell from your hand this turn, it gains rerun. Activate only once each turn.
