@@ -4,7 +4,10 @@ Types:Land
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters the battlefield tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ W | SpellDescription$ Add {W}.
-A:AB$ Animate | Cost$ 1 W W | ConditionCheckSVar$ HorrificYou | ConditionSVarCompare$ GE1 | Defined$ Self | Power$ 1 | Toughness$ 4 | Types$ Creature,Cleric | Keywords$ DamageToCounter | SpellDescription$ Until end of turn, CARDNAME becomes a 1/4 Cleric creature with "Whenever this creature is dealt damage, put that many +1/+1 counters on it." It's still a land.
+A:AB$ Animate | Cost$ 1 W W | CheckSVar$ HorrificYou | SVarCompare$ GE1 | Defined$ Self | Power$ 1 | Toughness$ 4 | Types$ Creature,Cleric | SpellDescription$ Until end of turn, CARDNAME becomes a 1/4 Cleric creature with "Whenever this creature is dealt damage, put that many +1/+1 counters on it." It's still a land.
+T:Mode$ DamageDoneOnce | ValidTarget$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME is dealt damage, put that many +1/+1 counters on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ Y
+SVar:Y:TriggerCount$DamageAmount
 SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
 SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
 SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
