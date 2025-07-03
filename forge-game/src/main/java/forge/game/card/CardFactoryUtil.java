@@ -2509,6 +2509,33 @@ public class CardFactoryUtil {
             re.setOverridingAbility(saExile);
 
             inst.addReplacement(re);
+        } else if (keyword.equals("Rerun")) {
+            String repeffstr = "Event$ Moved | ValidLKI$ Card.Self+wasCastFromHand+YouOwn+YouCtrl "
+                    + "| Origin$ Stack | Destination$ Graveyard | Fizzle$ False "
+                    + "| Description$ Rerun (" + inst.getReminderText() + ")";
+
+            String abExile = "DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Stack | Destination$ Exile | RememberChanged$ True";
+            String delTrig = "DB$ DelayedTrigger | Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard "
+                    + "| ValidCard$ Creature.YouCtrl | TriggerZones$ Exile | OptionalDecider$ You "
+                    + "| RememberObjects$ Remembered | TriggerDescription$ Whenever a creature you control dies, you may cast "
+                    + card.toString() + " from exile without paying its mana cost.";
+            String abPlay = "DB$ Play | Defined$ DelayTriggerRememberedLKI | WithoutManaCost$ True | Optional$ True";
+
+            SpellAbility saExile = AbilityFactory.getAbility(abExile, card);
+            AbilitySub delsub = (AbilitySub) AbilityFactory.getAbility(delTrig, card);
+            AbilitySub saPlay = (AbilitySub) AbilityFactory.getAbility(abPlay, card);
+            delsub.setAdditionalAbility("Execute", saPlay);
+            saExile.setSubAbility(delsub);
+
+            if (!intrinsic) {
+                saExile.setIntrinsic(false);
+            }
+
+            ReplacementEffect re = ReplacementHandler.parseReplacement(repeffstr, host, intrinsic, card);
+
+            re.setOverridingAbility(saExile);
+
+            inst.addReplacement(re);
         } else if (keyword.startsWith("Reflect:")) {
             final String[] k = keyword.split(":");
 

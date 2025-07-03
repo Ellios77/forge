@@ -1,0 +1,14 @@
+Name:Damned Detective
+ManaCost:W U
+Types:Creature Human Advisor
+PT:2/2
+K:First Strike
+S:Mode$ RaiseCost | ValidCard$ Card.nonCreature | Type$ Spell | Activator$ You | Amount$ 1 | CheckSVar$ HorrificYou | SVarCompare$ GE1 | Description$ Noncreature spells you cast cost {1} more to cast as long as you're horrific.
+S:Mode$ RaiseCost | ValidCard$ Card.nonCreature | Type$ Spell | Activator$ Opponent | Amount$ 1 | CheckSVar$ HorrificOpp | SVarCompare$ GE1 | Description$ Noncreature spells your opponents cast cost {1} more to cast as long as they're horrific.
+SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
+SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
+SVar:SacCountOpp:PlayerCountPropertyOpponents$SacrificedThisTurn Permanent
+SVar:DiscardCountOpp:PlayerCountPropertyOpponents$CardsDiscardedThisTurn
+SVar:HorrificOpp:SVar$SacCountOpp/Plus.DiscardCountOpp
+Oracle:First strike\nNoncreature spells cost {1} more to cast as long as their controller is horrific. (A player is horrific as long as they've sacrificed a permanent or discarded a card this turn.)

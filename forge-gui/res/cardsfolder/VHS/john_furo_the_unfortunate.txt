@@ -1,0 +1,11 @@
+Name:John Furo, the Unfortunate
+ManaCost:R W
+Types:Legendary Creature Human
+PT:2/2
+R:Event$ Moved | ActiveZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidLKI$ Creature.YouCtrl+Other | ReplaceWith$ ExileWithJohn | Description$ If another creature you control would die, exile it instead.
+SVar:ExileWithJohn:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Battlefield | Destination$ Exile | ExileWithSource$ True | RememberChanged$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPlay | TriggerDescription$ When CARDNAME dies, until your next end step, you may play cards exiled with CARDNAME.
+SVar:TrigPlay:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Card.ExiledWithSource | ForgetOnMoved$ Exile | Duration$ UntilYourNextEndStep | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until your next end step, you may play cards exiled with CARDNAME.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:If another creature you control would die, exile it instead.\nWhen John Furo, the Unfortunate dies, until your next end step, you may play cards exiled with John Furo.
