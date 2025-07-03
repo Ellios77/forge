@@ -4,7 +4,8 @@ Types:Land
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters the battlefield tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ U | SpellDescription$ Add {U}.
-A:AB$ Animate | Cost$ U U | ConditionCheckSVar$ HorrificYou | ConditionSVarCompare$ GE1 | Defined$ Self | Power$ 2 | Toughness$ 2 | Types$ Creature,Horror | Keywords$ CantBeBlockedBy CREATURE | SpellDescription$ Until end of turn, CARDNAME becomes a 2/2 Horror creature that can't be blocked. It's still a land.
+A:AB$ Animate | Cost$ U U | CheckSVar$ HorrificYou | SVarCompare$ GE1 | Defined$ Self | Power$ 2 | Toughness$ 2 | Types$ Creature,Horror | staticAbilities$ CantBeBlockedBy | SpellDescription$ Until end of turn, CARDNAME becomes a 2/2 Horror creature that can't be blocked. It's still a land.
+SVar:CantBeBlockedBy:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | Description$ CARDNAME can't be blocked.
 SVar:SacCountYou:PlayerCountPropertyYou$SacrificedThisTurn Permanent
 SVar:DiscardCountYou:PlayerCountPropertyYou$CardsDiscardedThisTurn
 SVar:HorrificYou:SVar$SacCountYou/Plus.DiscardCountYou
