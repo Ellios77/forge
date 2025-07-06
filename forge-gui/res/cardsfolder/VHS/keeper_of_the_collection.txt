@@ -1,0 +1,15 @@
+Name:Keeper of the Collection
+ManaCost:2 U B
+Types:Legendary Artifact Creature Illusion
+PT:2/4
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromExile | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever you cast a spell from exile, copy that spell. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+
+A:AB$ DelayedTrigger | Cost$ B Discard<1/Card> | Mode$ SpellCast | ValidCard$ Card.wasCastFromHand | ValidActivatingPlayer$ You | ThisTurn$ True | Execute$ ExileSpell | ActivationLimit$ 1 | TriggerDescription$ When you next cast a spell from your hand this turn, it gains rerun. Activate only once each turn.
+SVar:ExileSpell:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ All | Destination$ Exile | RememberChanged$ True | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Remembered | Triggers$ RerunTrig | sVars$ CastRerun | Duration$ Perpetual
+
+SVar:RerunTrig:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | TriggerZones$ Exile | Execute$ CastRerun | TriggerDescription$ Rerun — Whenever a creature you control dies, you may cast this card from exile without paying its mana cost.
+SVar:CastRerun:DB$ Play | Defined$ Self | Amount$ 1 | Controller$ You | WithoutManaCost$ True | Optional$ True | ActivationZone$ Exile
+
+Oracle:Whenever you cast a spell from exile, copy that spell. You may choose new targets for the copy.\n{B}, Discard a card: When you next cast a spell from your hand this turn, it gains rerun. Activate only once each turn.
