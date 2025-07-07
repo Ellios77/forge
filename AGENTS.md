@@ -85,7 +85,7 @@ Using the structure and vocabulary of the reference cards, Open AI Codex should:
 ## Agent Constraints
 
     
-- **No Java Editing**: The agent is not to modify source code in `/src`.
+- **No Java Editing**: The agent is not to modify source code in `/src` unless specified that it is allowed to do so.
     
 
 ## Summary
