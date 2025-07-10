@@ -1,0 +1,9 @@
+Name:Familial Aumakua
+ManaCost:5
+Types:Creature Bird Spirit
+PT:3/3
+K:Flying
+K:ETBReplacement:Other:ChooseColor
+SVar:ChooseColor:DB$ ChooseColor | Defined$ You | SpellDescription$ As CARDNAME enters, choose a color.
+S:Mode$ Continuous | Affected$ Card.Self | SetColor$ ChosenColor | Description$ CARDNAME is the chosen color.
+Oracle:As Familial Aumakua enters the battlefield, choose a color.\nFamilial Aumakua is the chosen color.

@@ -1,0 +1,10 @@
+Name:Avatar of the Expanse
+ManaCost:2 W W W
+Types:Creature Avatar
+PT:4/5
+K:Vigilance
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Plains | Execute$ TrigPutCounters | TriggerDescription$ Whenever CARDNAME or a Plains enters the battlefield under your control, put a +1/+1 counter on each other creature you control.
+SVar:TrigPutCounters:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+StrictlyOther | CounterType$ P1P1 | CounterNum$ 1
+
+Oracle:Vigilance\nWhenever Avatar of the Expanse or a Plains enters the battlefield under your control, put a +1/+1 counter on each other creature you control.

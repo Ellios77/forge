@@ -1,0 +1,6 @@
+Name:Foretold Renewal
+ManaCost:3 W
+Types:Sorcery
+
+A:SP$ DestroyAll | ValidCards$ Enchantment | SpellDescription$ Destroy all enchantments.
+Oracle:Destroy all enchantments.

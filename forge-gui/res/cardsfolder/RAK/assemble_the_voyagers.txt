@@ -1,0 +1,7 @@
+Name:Assemble the Voyagers
+ManaCost:3 W
+Types:Sorcery
+
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ w_2_2_warrior | TokenOwner$ You | SpellDescription$ Create two 2/2 white Warrior creature tokens.
+
+Oracle:Create two 2/2 white Warrior creature tokens.

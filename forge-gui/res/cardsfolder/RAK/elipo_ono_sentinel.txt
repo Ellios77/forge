@@ -1,0 +1,9 @@
+Name:Elipo Ono Sentinel
+ManaCost:3 W
+Types:Creature Elf Warrior
+PT:4/3
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Plains.YouCtrl | PresentCompare$ GE3 | Execute$ TrigLife | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Plains, you gain 4 life.
+SVar:TrigLife:DB$ GainLife | LifeAmount$ 4 | SpellDescription$ You gain 1 life.
+
+Oracle:Homeland — When Elipo Ono Sentinel enters the battlefield, if you control three or more Plains, you gain 4 life.

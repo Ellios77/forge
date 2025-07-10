@@ -1,0 +1,13 @@
+Name:Devourer Tanifa
+ManaCost:5 W W
+Types:Creature Spirit Leviathan
+PT:5/5
+K:Flash
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigExile | TriggerDescription$ When Devourer Tanifa enters the battlefield, if you cast it, exile all tapped creatures until Devourer Tanifa leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZoneAll | ChangeType$ Creature.tapped | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Any | Execute$ TrigReturn | TriggerDescription$ When CARDNAME leaves the battlefield, return the exiled cards to the Battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+
+Oracle:Flash\nWhen Devourer Tanifa enters the battlefield, if you cast it, exile all tapped creatures until Devourer Tanifa leaves the battlefield.

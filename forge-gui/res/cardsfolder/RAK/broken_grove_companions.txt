@@ -1,0 +1,8 @@
+Name:Broken Grove Companions
+ManaCost:2 W W
+Types:Creature Human Warrior Spirit
+PT:3/3
+K:Double Strike
+K:Ward:tapXType<2/Creature>
+
+Oracle:Ward—Tap two untapped creatures you control. (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player taps two untapped creatures they control.)\nDouble strike

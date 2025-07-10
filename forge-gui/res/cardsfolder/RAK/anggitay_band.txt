@@ -1,0 +1,6 @@
+Name:Anggitay Band
+ManaCost:2 G
+Types:Creature Centaur Archer
+PT:3/3
+K:Reach
+Oracle:Reach

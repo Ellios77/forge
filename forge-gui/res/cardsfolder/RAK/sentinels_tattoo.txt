@@ -1,0 +1,11 @@
+Name:Sentinel’s Tattoo
+ManaCost:W
+Types:Enchantment Aura Tattoo
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | IsPresent$ Creature.EnchantedBy+White | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, if enchanted creature is white, draw a card.
+SVar:TrigDraw:DB$ Draw | SpellDescription$ Draw a card.
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ 1 | AddToughness$ 2 | Description$ Enchanted creature gets +1/+2.
+
+Oracle:When Sentinel's Tattoo enters the battlefield, if enchanted creature is white, draw a card.\nEnchanted creature gets +1/+2.

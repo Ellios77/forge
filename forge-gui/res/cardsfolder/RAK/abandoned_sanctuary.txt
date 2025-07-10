@@ -1,0 +1,4 @@
+Name:Abandoned Sanctuary
+ManaCost:2 W
+Types:Creature Turtle
+PT:1/5

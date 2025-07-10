@@ -1,0 +1,13 @@
+Name:Craftland Dwelling
+ManaCost:2 W
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters the battlefield, create a 2/2 white Warrior creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_2_2_warrior | TokenOwner$ You
+
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddAbility$ ABLife
+SVar:ABLife:AB$ GainLife | Cost$ T | LifeAmount$ 1 | SpellDescription$ You gain 1 life.
+
+Oracle:Enchant land\nWhen Craftland Dwelling enters the battlefield, create a 2/2 white Warrior creature token.\nEnchanted land has "{T}: You gain 1 life."

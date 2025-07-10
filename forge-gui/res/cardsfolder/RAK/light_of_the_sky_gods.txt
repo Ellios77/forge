@@ -1,0 +1,7 @@
+Name:Light of the Sky Gods
+ManaCost:1 W
+Types:Instant
+K:Awaken:2:3 W
+A:SP$ Tap | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Choose target creature | ValidTgts$ Creature | SpellDescription$ Tap up to two target creatures.
+
+Oracle:Tap up to two target creatures.\nAwaken 2—{3}{W} (If you cast this spell for {3}{W}, also put two +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
