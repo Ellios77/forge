@@ -1,8 +1,7 @@
 Name:Disrupting Vortex
 ManaCost:1 U
 Types:Instant
-A:SP$ Branch | TargetType$ Spell | ValidTgts$ Card | TgtPrompt$ Select target spell | BranchConditionSVar$ X | BranchConditionSVarCompare$ GE3 | TrueSubAbility$ DBCounter3 | FalseSubAbility$ DBCounter1 | SpellDescription$ Homeland — Counter target spell unless its controller pays {1}. If you control three or more Islands, counter that spell unless its controller pays {3} instead.
-SVar:DBCounter1:DB$ Counter | Defined$ Targeted | UnlessCost$ 1
-SVar:DBCounter3:DB$ Counter | Defined$ Targeted | UnlessCost$ 3
-SVar:X:Count$Valid Island.YouCtrl
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ Y | SpellDescription$ Counter target spell unless its controller pays {2}. If you control a Bird, counter that spell unless its controller pays {4} instead.
+SVar:Y:Count$Compare Z GE3.3.1
+SVar:Z:Count$Valid Island.YouCtrl
 Oracle:Homeland — Counter target spell unless its controller pays {1}. If you control three or more Islands, counter that spell unless its controller pays {3} instead.
