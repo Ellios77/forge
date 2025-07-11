@@ -1,0 +1,9 @@
+Name:Rousing Wavebreaker
+ManaCost:1 U
+Types:Creature Merfolk Warrior
+PT:2/1
+K:Flash
+S:Mode$ Continuous | Affected$ Creature.Merfolk+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Merfolk you control get +1/+1.
+SVar:BuffedBy:Merfolk
+DeckHints:Type$Merfolk
+Oracle:Flash\nOther Merfolk you control get +1/+1.
