@@ -1,0 +1,7 @@
+Name:Tanifa's Judgement
+ManaCost:2 W
+Types:Instant
+A:SP$ Charm | Choices$ DBDestroyTapped,DBDestroyAE
+SVar:DBDestroyTapped:DB$ Destroy | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | SpellDescription$ Destroy target tapped creature.
+SVar:DBDestroyAE:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | SpellDescription$ Destroy target artifact or enchantment.
+Oracle:Choose one—\n• Destroy target tapped creature.\n• Destroy target artifact or enchantment.

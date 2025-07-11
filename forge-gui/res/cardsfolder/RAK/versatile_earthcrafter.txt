@@ -1,0 +1,7 @@
+Name:Versatile Earthcrafter
+ManaCost:1 W
+Types:Creature Elf Shaman
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, search your library for an Aura card with enchant land, reveal it, put it into your hand, then shuffle your library.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Aura.hasKeywordEnchant:Land | ChangeNum$ 1 | Reveal$ True | Shuffle$ True
+Oracle:When Versatile Earthcrafter enters the battlefield, search your library for an Aura card with enchant land, reveal it, put it into your hand, then shuffle.

@@ -1,0 +1,8 @@
+Name:Set in Stone
+ManaCost:3 W
+Types:Enchantment Aura
+K:Enchant:Creature
+K:Awaken:3:6 W
+SVar:AttachAILogic:Curse
+S:Mode$ CantAttack,CantBlock | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature can't attack or block.
+Oracle:Enchant creature\nEnchanted creature can't attack or block.\nAwaken 3—{6}{W} (When you cast this spell for {6}{W}, put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

@@ -1,0 +1,7 @@
+Name:Whale Token
+ManaCost:no cost
+Colors:white
+Types:Creature Whale
+PT:4/4
+K:Flying
+Oracle:Flying

@@ -1,0 +1,8 @@
+Name:Starweaver Manta
+ManaCost:1 W
+Types:Creature Fish Spirit
+PT:2/1
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Aura | ValidActivatingPlayer$ You | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast an Aura spell, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Flying\nWhenever you cast an Aura spell, draw a card.
