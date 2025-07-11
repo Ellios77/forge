@@ -1,0 +1,6 @@
+Name:Reverent Fisher
+ManaCost:1 GU
+Types:Creature Elf Warrior
+PT:2/1
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ CARDNAME can't be blocked by creatures with power 2 or less.
+Oracle:Reverent Fisher can't be blocked by creatures with power 2 or less.

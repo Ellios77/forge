@@ -1,0 +1,7 @@
+Name:Wavebreaker Adept
+ManaCost:2 UB
+Types:Creature Merfolk Shaman
+PT:2/2
+K:Flash
+K:Flying
+Oracle:Flash\nFlying

@@ -1,0 +1,9 @@
+Name:Sporewatch Nuno
+ManaCost:2 BG
+Types:Creature Ouphe
+PT:2/2
+K:Deathtouch
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill three cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You
+DeckHas:Ability$Graveyard|Mill
+Oracle:Deathtouch\nWhen Sporewatch Nuno enters, mill three cards.

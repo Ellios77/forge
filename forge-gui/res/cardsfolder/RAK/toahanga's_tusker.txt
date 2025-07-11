@@ -1,0 +1,6 @@
+Name:Toahanga's Tusker
+ManaCost:4
+Types:Artifact Creature Boar Construct
+PT:4/3
+S:Mode$ MustAttack | ValidCreature$ Card.Self | Description$ CARDNAME attacks each combat if able.
+Oracle:Toahanga's Tusker attacks each combat if able.

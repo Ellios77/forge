@@ -1,0 +1,6 @@
+Name:Conch-Caller Sentry
+ManaCost:6
+Types:Artifact Creature Golem
+PT:5/5
+K:Vigilance
+Oracle:Vigilance
