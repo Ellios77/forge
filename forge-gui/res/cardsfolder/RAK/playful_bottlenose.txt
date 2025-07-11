@@ -1,0 +1,19 @@
+Name:Playful Bottlenose
+ManaCost:W
+Types:Creature Dolphin
+PT:2/1
+A:AB$ Pump | Cost$ 0 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | RememberTargets$ True | SubAbility$ DBFlying | SpellDescription$ Choose target creature you control. CARDNAME gains flying until end of turn if that creature has flying. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.
+SVar:DBFlying:DB$ Pump | Defined$ Self | KW$ Flying | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withFlying | SubAbility$ DBFirstStrike
+SVar:DBFirstStrike:DB$ Pump | Defined$ Self | KW$ First Strike | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withFirst Strike | SubAbility$ DBDoubleStrike
+SVar:DBDoubleStrike:DB$ Pump | Defined$ Self | KW$ Double Strike | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withDouble Strike | SubAbility$ DBDeathtouch
+SVar:DBDeathtouch:DB$ Pump | Defined$ Self | KW$ Deathtouch | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withDeathtouch | SubAbility$ DBHaste
+SVar:DBHaste:DB$ Pump | Defined$ Self | KW$ Haste | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withHaste | SubAbility$ DBHexproof
+SVar:DBHexproof:DB$ Pump | Defined$ Self | KW$ Hexproof | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withHexproof | SubAbility$ DBIndestructible
+SVar:DBIndestructible:DB$ Pump | Defined$ Self | KW$ Indestructible | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withIndestructible | SubAbility$ DBLifelink
+SVar:DBLifelink:DB$ Pump | Defined$ Self | KW$ Lifelink | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withLifelink | SubAbility$ DBMenace
+SVar:DBMenace:DB$ Pump | Defined$ Self | KW$ Menace | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withMenace | SubAbility$ DBReach
+SVar:DBReach:DB$ Pump | Defined$ Self | KW$ Reach | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withReach | SubAbility$ DBTrample
+SVar:DBTrample:DB$ Pump | Defined$ Self | KW$ Trample | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withTrample | SubAbility$ DBVigilance
+SVar:DBVigilance:DB$ Pump | Defined$ Self | KW$ Vigilance | Duration$ EndOfTurn | ConditionPresent$ Card.IsRemembered+withVigilance | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:{0}: Choose target creature you control. Playful Bottlenose gains flying until end of turn if that creature has flying. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.

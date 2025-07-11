@@ -1,0 +1,9 @@
+Name:New-Shore Claimer
+ManaCost:1 W
+Types:Creature Human Scout
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | CheckSVar$ Y | SVarCompare$ GTX | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, if an opponent controls more lands than you, you may search your library for a Plains card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Plains | ChangeNum$ 1 | Reveal$ True | ShuffleNonMandatory$ True
+SVar:X:Count$Valid Land.YouCtrl
+SVar:Y:PlayerCountOpponents$HighestValid Land.YouCtrl
+Oracle:When New-Shore Claimer enters the battlefield, if an opponent controls more lands than you, you may search your library for a Plains card, reveal it, put it into your hand, then shuffle.

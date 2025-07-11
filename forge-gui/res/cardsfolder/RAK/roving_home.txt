@@ -1,0 +1,9 @@
+Name:Roving Home
+ManaCost:4 W
+Types:Creature Turtle
+PT:3/5
+A:AB$ Token | Cost$ 2 U | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You | SpellDescription$ Create a 1/1 blue Bird creature token with flying.
+A:AB$ Token | Cost$ 2 B | TokenAmount$ 1 | TokenScript$ b_1_1_merfolk_drain | TokenOwner$ You | SpellDescription$ Create a 1/1 black Merfolk creature token with "Whenever this creature attacks, each opponent loses 1 life."
+A:AB$ Token | Cost$ 1 R | TokenAmount$ 1 | TokenScript$ r_1_1_elemental | TokenOwner$ You | SpellDescription$ Create a 1/1 red Elemental creature token.
+A:AB$ Token | Cost$ 8 G | TokenAmount$ 1 | TokenScript$ g_5_5_beast | TokenOwner$ You | SpellDescription$ Create a 5/5 green Beast creature token.
+Oracle:{2}{U}: Create a 1/1 blue Bird creature token with flying.\n{2}{B}: Create a 1/1 black Merfolk creature token with "Whenever this creature attacks, each opponent loses 1 life."\n{1}{R}: Create a 1/1 red Elemental creature token.\n{8}{G}: Create a 5/5 green Beast creature token.

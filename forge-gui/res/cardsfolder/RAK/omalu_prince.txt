@@ -1,0 +1,7 @@
+Name:Omalu Prince
+ManaCost:2 W
+Types:Creature Human Noble
+PT:3/3
+T:Mode$ Attacks | ValidCard$ Card.Self | IsPresent$ Plains.YouCtrl | PresentCompare$ GE3 | Execute$ TrigTap | TriggerDescription$ Homeland — Whenever CARDNAME attacks, if you control three or more Plains, tap target creature an opponent controls.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | SpellDescription$ Tap target creature an opponent controls.
+Oracle:Homeland — Whenever Omalu Prince attacks, if you control three or more Plains, tap target creature an opponent controls.
