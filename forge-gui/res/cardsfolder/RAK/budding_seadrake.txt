@@ -1,0 +1,10 @@
+Name:Budding Seadrake
+ManaCost:4 U
+Types:Creature Drake
+PT:2/2
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | CheckSVar$ X | SVarCompare$ GE1 | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ At the beginning of your end step, if you control Paradise, create a token that's a copy of CARDNAME.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ Self | NumCopies$ 1
+DeckHas:Ability$Token
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAt the beginning of your end step, if you control Paradise, create a token that's a copy of Budding Seadrake.

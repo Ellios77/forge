@@ -1,0 +1,5 @@
+Name:Deep Dive
+ManaCost:1 U
+Types:Instant
+A:SP$ Draw | Cost$ 1 U Return<1/Land> | NumCards$ 2 | SpellDescription$ Draw two cards.
+Oracle:As an additional cost to cast this spell, return a land you control to its owner's hand.\nDraw two cards.

@@ -1,0 +1,7 @@
+Name:Arcane Torrent
+ManaCost:3 U
+Types:Instant
+A:SP$ Charm | Choices$ DBCounter,DBTop
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Creature | TgtPrompt$ Select target creature spell | SpellDescription$ Counter target creature spell.
+SVar:DBTop:DB$ ChangeZone | ValidTgts$ Creature | TgtPrompt$ Select target creature | Origin$ Battlefield | Destination$ Library | LibraryPosition$ 0 | SpellDescription$ Put target creature on top of its owner's library.
+Oracle:Choose one—\n• Counter target creature spell.\n• Put target creature on top of its owner's library.

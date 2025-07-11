@@ -1,0 +1,7 @@
+Name:Atoll Lurker
+ManaCost:5 U
+Types:Creature Coral Elemental
+PT:6/6
+S:Mode$ CantAttack | ValidCard$ Card.Self | IsPresent$ Land.YouCtrl | PresentCompare$ LT8 | Description$ CARDNAME can't attack unless you control eight or more lands.
+K:TypeCycling:Island:2
+Oracle:Atoll Lurker can't attack unless you control eight or more lands.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)
