@@ -1,0 +1,6 @@
+Name:Exiled Mender
+ManaCost:1 WB
+Types:Creature Human Cleric Warrior
+PT:2/2
+K:Lifelink
+Oracle:Lifelink

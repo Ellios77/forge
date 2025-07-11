@@ -1,0 +1,4 @@
+Name:Trained Kiwi
+ManaCost:1 G
+Types:Creature Bird
+PT:3/1

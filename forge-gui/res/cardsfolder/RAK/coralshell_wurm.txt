@@ -1,0 +1,6 @@
+Name:Coralshell Wurm
+ManaCost:5 RG
+Types:Creature Coral Wurm
+PT:6/5
+K:Trample
+Oracle:Trample

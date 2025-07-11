@@ -1,0 +1,7 @@
+Name:Brutish Buwaya
+ManaCost:1 G
+Types:Creature Crocodile
+PT:*/3
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ CARDNAME's power is equal to the number of creature cards in your graveyard.
+SVar:X:Count$ValidGraveyard Creature.YouOwn
+Oracle:Brutish Buwaya power is equal to the number of creature cards in your graveyard.

@@ -1,0 +1,6 @@
+Name:Pristine Creation
+ManaCost:GU GU GU GU
+Types:Creature Shark Elemental
+PT:4/4
+K:Ward:4
+Oracle:Ward {4} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {4}.)

@@ -1,0 +1,6 @@
+Name:Grounded Kakapo
+ManaCost:4 GW
+Types:Creature Griffin
+PT:4/4
+K:Vigilance
+Oracle:Vigilance

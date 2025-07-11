@@ -1,0 +1,7 @@
+Name:Palm-Neck Crocodile
+ManaCost:4 G
+Types:Creature Crocodile
+PT:2/5
+K:Reach
+K:TypeCycling:Forest:2
+Oracle:Reach\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)

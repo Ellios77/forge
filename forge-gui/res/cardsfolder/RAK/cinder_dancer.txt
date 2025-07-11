@@ -1,0 +1,8 @@
+Name:Cinder Dancer
+ManaCost:3 BR
+Types:Creature Human Bard Shaman
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerDescription$ When CARDNAME enters, it deals 1 damage to any target.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 1
+SVar:PlayMain1:TRUE
+Oracle:When Cinder Dancer enters, it deals 1 damage to any target.

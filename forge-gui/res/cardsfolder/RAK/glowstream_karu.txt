@@ -1,0 +1,6 @@
+Name:Glowstream Karu
+ManaCost:UR
+Types:Creature Jellyfish
+PT:0/3
+A:AB$ Pump | Cost$ 1 | Defined$ Self | NumAtt$ +1 | NumDef$ -1 | SpellDescription$ CARDNAME gets +1/-1 until end of turn.
+Oracle:{1}: Glowstream Karu gets +1/-1 until end of turn.
