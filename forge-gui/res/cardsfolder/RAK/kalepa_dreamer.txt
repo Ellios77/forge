@@ -1,0 +1,8 @@
+Name:Kalepa Dreamer
+ManaCost:2 U
+Types:Creature Human Shaman
+PT:2/3
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Flying | IsPresent$ Land.YouCtrl+namedParadise | PresentCompare$ GE1 | Description$ As long as you control Paradise, CARDNAME gets +1/+1 and has flying.
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAs long as you control Paradise, Kalepa Dreamer gets +1/+1 and has flying.

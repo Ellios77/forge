@@ -1,0 +1,7 @@
+Name:Long-Head Coward
+ManaCost:1 U
+Types:Creature Merfolk Scout
+PT:3/2
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ Spell | TriggerZones$ Battlefield | Execute$ TrigExile | TriggerDescription$ Homeland — Whenever CARDNAME becomes the target of a spell, exile CARDNAME unless you control three or more Islands.
+SVar:TrigExile:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Exile | ConditionPresent$ Island.YouCtrl | ConditionCompare$ LT3
+Oracle:Homeland — Whenever Long-Head Coward becomes the target of a spell, exile it unless you control three or more Islands.
