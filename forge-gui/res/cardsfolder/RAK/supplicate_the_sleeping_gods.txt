@@ -1,0 +1,7 @@
+Name:Supplicate the Sleeping Gods
+ManaCost:W
+Types:Sorcery
+K:Awaken:3:3 W
+A:SP$ AnimateAll | ValidCards$ Creature.YouCtrl | Abilities$ ABPutCounter | SpellDescription$ Until end of turn, creatures you control have "{T}: Put a +1/+1 counter on target land you control."
+SVar:ABPutCounter:AB$ PutCounter | Cost$ T | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land you control | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on target land you control.
+Oracle:Until end of turn, creatures you control have "{T}: Put a +1/+1 counter on target land you control."\nAwaken 3—{3}{W} (If you cast this spell for {3}{W}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

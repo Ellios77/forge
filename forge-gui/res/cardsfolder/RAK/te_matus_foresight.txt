@@ -1,0 +1,7 @@
+Name:Te Matu's Foresight
+ManaCost:1 W
+Types:Enchantment
+K:Awaken:4:5 W
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Vigilance | Description$ Creatures you control have vigilance.
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | CanBlockAmount$ 1 | Description$ Each creature you control can block an additional creature each combat.
+Oracle:Creatures you control have vigilance. Each creature you control can block an additional creature each combat.\nAwaken 4—{5}{W} (If you cast this spell for {5}{W}, also put four +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

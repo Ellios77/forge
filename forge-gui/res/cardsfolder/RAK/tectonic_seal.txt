@@ -1,0 +1,8 @@
+Name:Tectonic Seal
+ManaCost:2 W
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters the battlefield, exile target nonland permanent an opponent controls until CARDNAME leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls | Duration$ UntilHostLeavesPlay
+Oracle:Enchant land\nWhen Tectonic Seal enters the battlefield, exile target nonland permanent an opponent controls until Tectonic Seal leaves the battlefield.

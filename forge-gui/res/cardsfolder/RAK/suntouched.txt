@@ -1,0 +1,10 @@
+Name:Suntouched
+ManaCost:3 W
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a Plains card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Plains | ChangeNum$ 1 | Reveal$ True | ShuffleNonMandatory$ True
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddAbility$ ABTap | Description$ Enchanted land has "{W}, {T}: Tap target creature."
+SVar:ABTap:AB$ Tap | Cost$ W T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
+Oracle:Enchant land\nWhen Suntouched enters the battlefield, you may search your library for a Plains card, reveal it, put it into your hand, then shuffle.\nEnchanted land has "{W}, {T}: Tap target creature."

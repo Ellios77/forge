@@ -1,0 +1,8 @@
+Name:Skywhale Migration
+ManaCost:1 W
+Types:Enchantment
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever you gain life, put that many ascent counters on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ ASCENT | CounterNum$ GainAmount
+SVar:GainAmount:TriggerCount$LifeAmount
+A:AB$ Token | Cost$ SubCounter<6/ASCENT> | TokenAmount$ 1 | TokenScript$ w_4_4_whale_flying | TokenOwner$ You | SpellDescription$ Remove six ascent counters from CARDNAME: Create a 4/4 white Whale creature token with flying.
+Oracle:Whenever you gain life, put that many ascent counters on Skywhale Migration.\nRemove six ascent counters from Skywhale Migration: Create a 4/4 white Whale creature token with flying.
