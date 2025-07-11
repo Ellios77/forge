@@ -2,7 +2,6 @@ Name:Hupiri's Trespass
 ManaCost:1 U
 Types:Enchantment
 T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast an instant or sorcery spell, put a +1/+1 counter on target land you control. You may have that land become a 0/0 Elemental creature with haste that's still a land.
-SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land you control | CounterType$ P1P1 | CounterNum$ 1 | RememberChanged$ True | SubAbility$ DBAnimate
-SVar:DBAnimate:DB$ Animate | Defined$ Remembered | Power$ 0 | Toughness$ 0 | Types$ Creature,Elemental | Keywords$ Haste | Duration$ Permanent | Optional$ True | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land you control | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Power$ 0 | Toughness$ 0 | Types$ Creature,Elemental | Keywords$ Haste | Duration$ Permanent | Optional$ True
 Oracle:Whenever you cast an instant or sorcery spell, put a +1/+1 counter on target land you control. You may have that land become a 0/0 Elemental creature with haste that's still a land.
