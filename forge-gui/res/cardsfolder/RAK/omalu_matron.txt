@@ -3,5 +3,5 @@ ManaCost:W
 Types:Creature Human Noble
 PT:1/2
 K:Vigilance
-S:Mode$ Continuous | Affected$ Creature.namedBroken Grove Guardians+YouCtrl | AddPower$ 1 | AddToughness$ 1 | IsPresent$ Plains.YouCtrl | PresentCompare$ GE3 | Description$ Homeland — Broken Grove Guardians gets +1/+1 as long as you control three or more Plains.
-Oracle:Vigilance\nHomeland — Broken Grove Guardians gets +1/+1 as long as you control three or more Plains.
+S:Mode$ Continuous | Affected$ Creature.namedBroken Grove Companions+YouCtrl | AddPower$ 1 | AddToughness$ 1 | IsPresent$ Plains.YouCtrl | PresentCompare$ GE3 | Description$ Homeland — Broken Grove Companions gets +1/+1 as long as you control three or more Plains.
+Oracle:Vigilance\nHomeland — Broken Grove Companions gets +1/+1 as long as you control three or more Plains.
