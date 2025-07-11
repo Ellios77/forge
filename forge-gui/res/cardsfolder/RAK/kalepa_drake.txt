@@ -1,0 +1,8 @@
+Name:Kalepa Drake
+ManaCost:3 U
+Types:Creature Drake
+PT:3/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Island.YouCtrl | PresentCompare$ GE3 | Execute$ TrigToken | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Islands, create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You | SpellDescription$ Create a 1/1 blue Bird creature token with flying.
+Oracle:Flying\nHomeland — When Kalepa Drake enters the battlefield, if you control three or more Islands, create a 1/1 blue Bird creature token with flying.

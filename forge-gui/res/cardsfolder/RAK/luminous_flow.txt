@@ -1,0 +1,10 @@
+Name:Luminous Flow
+ManaCost:2 U
+Types:Enchantment Aura
+K:Enchant:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for an Island card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.Island | ChangeNum$ 1 | Reveal$ True | Optional$ True
+S:Mode$ Continuous | Affected$ Land.EnchantedBy | AddAbility$ DrawDiscard | Description$ Enchanted land has "{U}, {T}: Draw a card, then discard a card."
+SVar:DrawDiscard:AB$ Draw | Cost$ U T | NumCards$ 1 | SpellDescription$ Draw a card, then discard a card. | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose
+Oracle:Enchant land\nWhen Luminous Flow enters the battlefield, you may search your library for an Island card, reveal it, put it into your hand, then shuffle.\nEnchanted land has "{U}, {T}: Draw a card, then discard a card."

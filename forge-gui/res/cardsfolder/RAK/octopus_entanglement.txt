@@ -1,0 +1,9 @@
+Name:Octopus Entanglement
+ManaCost:2 U
+Types:Enchantment
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ Opponent | TriggerZones$ Battlefield | Execute$ TrigChoose | TriggerDescription$ At the beginning of combat on each opponent's turn, tap a creature that player controls with the greatest power or tied for the greatest power among creatures that player controls. If that creature has power 8 or greater, sacrifice CARDNAME.
+SVar:TrigChoose:DB$ ChooseCard | Defined$ You | Choices$ Creature.greatestPowerControlledByTriggeredPlayer | Mandatory$ True | RememberChosen$ True | SubAbility$ DBTap
+SVar:DBTap:DB$ Tap | Defined$ Remembered | SubAbility$ DBCheck
+SVar:DBCheck:DB$ Sacrifice | Defined$ Self | ConditionDefined$ Remembered | ConditionPresent$ Card.powerGE8 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+Oracle:At the beginning of combat on each opponent's turn, tap a creature that player controls with the greatest power or tied for the greatest power among creatures that player controls. If that creature has power 8 or greater, sacrifice Octopus Entanglement.

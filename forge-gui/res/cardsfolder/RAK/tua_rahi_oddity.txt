@@ -2,6 +2,7 @@ Name:Tua Rahi Oddity
 ManaCost:W
 Types:Creature Beast
 PT:0/4
+K:Voyage:W U B R G
 A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
 SVar:X:Count$Valid Land.YouCtrl+namedParadise
 A:AB$ GainLife | Cost$ 5 T | CheckSVar$ X | SVarCompare$ GE1 | LifeAmount$ 5 | SpellDescription$ You gain 5 life. Activate this ability only if you control Paradise.

@@ -1,0 +1,6 @@
+Name:Ocean Spray
+ManaCost:2 U
+Types:Instant
+A:SP$ PumpAll | ValidCards$ Creature.OppCtrl | NumAtt$ -3 | SpellDescription$ Creatures your opponents control get -3/-0 until end of turn.
+K:Awaken:3:4 U
+Oracle:Creatures your opponents control get -3/-0 until end of turn.\nAwaken 3—{4}{U} (If you cast this spell for {4}{U}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
