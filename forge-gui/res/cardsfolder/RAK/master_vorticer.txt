@@ -6,6 +6,7 @@ K:Flash
 T:Mode$ TapsForMana | ValidCard$ Land | Execute$ AddMana | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Whenever a player taps a land for mana, that player adds one mana of any type that land produced.
 SVar:AddMana:DB$ ManaReflected | ColorOrType$ Type | ReflectProperty$ Produced | Defined$ TriggeredActivator
 A:AB$ PutCounter | Cost$ Discard<1/Land> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBUnblockable | SpellDescription$ Put a +1/+1 counter on CARDNAME. It can't be blocked this turn.
-SVar:DBUnblockable:DB$ Pump | Defined$ Self | KW$ Unblockable | Duration$ EndOfTurn
+SVar:DBUnblockable:DB$ Effect | Cost$ 2 U | RememberObjects$ Self | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | SpellDescription$ CARDNAME can't be blocked this turn.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ EFFECTSOURCE can't be blocked this turn.
 K:TypeCycling:Island:2
 Oracle:Flash\nWhenever a player taps a land for mana, that player adds one mana of any type that land produced.\nDiscard a land card: Put a +1/+1 counter on Master Vorticer. It can't be blocked this turn.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)
