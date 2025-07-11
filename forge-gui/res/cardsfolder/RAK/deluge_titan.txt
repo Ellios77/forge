@@ -1,0 +1,10 @@
+Name:Deluge Titan
+ManaCost:5 U U
+Types:Creature Elemental
+PT:7/7
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, search your library for any number of Island cards, reveal them, put them into your hand, then shuffle. For the rest of the game, you have no maximum hand size.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Island | ChangeNum$ XFetch | Reveal$ True | Shuffle$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STHandSize | Duration$ Permanent
+SVar:STHandSize:Mode$ Continuous | Affected$ You | SetMaxHandSize$ Unlimited | Description$ You have no maximum hand size.
+SVar:XFetch:Count$ValidLibrary Island.YouOwn
+Oracle:When Deluge Titan enters the battlefield, search your library for any number of Island cards, reveal them, put them into your hand, then shuffle. For the rest of the game, you have no maximum hand size.

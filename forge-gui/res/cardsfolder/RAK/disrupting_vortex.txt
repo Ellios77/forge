@@ -1,0 +1,7 @@
+Name:Disrupting Vortex
+ManaCost:1 U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ Y | SpellDescription$ Counter target spell unless its controller pays {2}. If you control a Bird, counter that spell unless its controller pays {4} instead.
+SVar:Y:Count$Compare Z GE3.3.1
+SVar:Z:Count$Valid Island.YouCtrl
+Oracle:Homeland — Counter target spell unless its controller pays {1}. If you control three or more Islands, counter that spell unless its controller pays {3} instead.

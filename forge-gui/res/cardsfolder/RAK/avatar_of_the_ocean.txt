@@ -1,0 +1,8 @@
+Name:Avatar of the Ocean
+ManaCost:2 U U U
+Types:Creature Avatar
+PT:4/5
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | Description$ CARDNAME can't be blocked.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Island | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME or an Island enters the battlefield under your control, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
+SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeValid$ Card | DestinationZone$ Hand | DestinationZone2$ Graveyard | SpellDescription$ Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
+Oracle:Avatar of the Ocean can't be blocked.\nWhenever Avatar of the Ocean or an Island enters the battlefield under your control, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
