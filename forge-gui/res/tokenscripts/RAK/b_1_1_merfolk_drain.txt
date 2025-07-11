@@ -1,0 +1,8 @@
+Name:Merfolk Token
+ManaCost:no cost
+Colors:black
+Types:Creature Merfolk
+PT:1/1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigLose | TriggerDescription$ Whenever CARDNAME attacks, each opponent loses 1 life.
+SVar:TrigLose:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1 | SpellDescription$ Each opponent loses 1 life.
+Oracle:Whenever this creature attacks, each opponent loses 1 life.

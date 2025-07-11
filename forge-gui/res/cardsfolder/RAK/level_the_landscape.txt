@@ -1,0 +1,10 @@
+Name:Level the Landscape
+ManaCost:2 W
+Types:Sorcery
+A:SP$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ ChooseCrtr | SubAbility$ SacAllOthers | SpellDescription$ Each player chooses any number of creatures they control with total power less than or equal to the number of lands they control, then sacrifices all other creatures they control.
+SVar:ChooseCrtr:DB$ ChooseCard | Defined$ Player.IsRemembered | Choices$ Creature.RememberedPlayerCtrl | WithTotalPower$ X | Reveal$ True | RememberChosen$ True | AILogic$ NegativePowerFirst
+SVar:SacAllOthers:DB$ SacrificeAll | ValidCards$ Creature.IsNotRemembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$Valid Land.RememberedPlayerCtrl
+K:TypeCycling:Plains:2
+Oracle:Each player chooses any number of creatures they control with total power less than or equal to the number of lands they control, then sacrifices all other creatures they control.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)

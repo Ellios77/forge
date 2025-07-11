@@ -1,0 +1,7 @@
+Name:Oteo's Homecoming
+ManaCost:1 W
+Types:Sorcery
+A:SP$ Effect | StaticAbilities$ STCantCast,STCantAttack | Duration$ UntilYourNextTurn | SpellDescription$ Until your next turn, players can't cast spells and creatures can't attack you or a planeswalker you control.
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card | Caster$ Player | Description$ Players can't cast spells.
+SVar:STCantAttack:Mode$ CantAttack | ValidCard$ Creature | Target$ You,Planeswalker.YouCtrl | Description$ Creatures can't attack you or a planeswalker you control.
+Oracle:Until your next turn, players can't cast spells and creatures can't attack you or a planeswalker you control.
