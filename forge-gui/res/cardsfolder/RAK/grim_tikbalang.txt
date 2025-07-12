@@ -1,0 +1,7 @@
+Name:Grim Tikbalang
+ManaCost:1 B
+Types:Creature Nightmare Horse
+PT:*/*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of Swamps you control.
+SVar:X:Count$Valid Swamp.YouCtrl
+Oracle:Grim Tikbalang's power and toughness are each equal to the number of Swamps you control.

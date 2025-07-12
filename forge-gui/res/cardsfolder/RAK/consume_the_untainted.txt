@@ -1,0 +1,6 @@
+Name:Consume the Untainted
+ManaCost:2 B B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SpellDescription$ Destroy target creature or planeswalker.
+K:TypeCycling:Swamp:PayLife<2>
+Oracle:Destroy target creature or planeswalker.\nSwampcycling—Pay 2 life. (Pay 2 life, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)

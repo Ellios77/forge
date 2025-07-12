@@ -1,0 +1,6 @@
+Name:Faithless Desecrator
+ManaCost:1 B
+Types:Creature Human Warrior
+PT:2/2
+A:AB$ ChangeZone | Cost$ 2 B ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select up to two target creature cards in your graveyard | IsPresent$ Swamp.YouCtrl | PresentCompare$ GE3 | SpellDescription$ Return up to two target creature cards from your graveyard to your hand. Activate this ability only if you control three or more Swamps.
+Oracle:Homeland — {2}{B}, Exile Faithless Desecrator from your graveyard: Return up to two target creature cards from your graveyard to your hand. Activate this ability only if you control three or more Swamps.

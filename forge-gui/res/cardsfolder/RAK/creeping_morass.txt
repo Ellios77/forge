@@ -1,0 +1,11 @@
+Name:Creeping Morass
+ManaCost:3 B
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Swamp | ChangeNum$ 1 | ShuffleNonMandatory$ True
+S:Mode$ Continuous | Affected$ Land.EnchantedBy | AddAbility$ ABDrain | Description$ Enchanted land has "{B}, {T}: Target opponent loses 1 life and you gain 1 life."
+SVar:ABDrain:AB$ LoseLife | Cost$ B T | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | LifeAmount$ 1 | SubAbility$ DBGain | SpellDescription$ Target opponent loses 1 life and you gain 1 life.
+SVar:DBGain:DB$ GainLife | Defined$ You | LifeAmount$ 1
+Oracle:Enchant land\nWhen Creeping Morass enters the battlefield, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle.\nEnchanted land has "{B}, {T}: Target opponent loses 1 life and you gain 1 life."
