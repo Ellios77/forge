@@ -1,0 +1,5 @@
+Name:Grasp the Currents
+ManaCost:1 B
+Types:Sorcery
+A:SP$ ChangeZoneAll | ChangeType$ Card.YouOwn+withTypeCycling | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return all cards with landcycling abilities from your graveyard to your hand.
+Oracle:Return all cards with landcycling abilities from your graveyard to your hand.

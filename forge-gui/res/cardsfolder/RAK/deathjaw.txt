@@ -1,0 +1,8 @@
+Name:Deathjaw
+ManaCost:4 B
+Types:Creature Lizard
+PT:3/3
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Swamp.YouCtrl | PresentCompare$ GE3 | Execute$ TrigDebuff | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Swamps, target creature an opponent controls gets -3/-3 until end of turn.
+SVar:TrigDebuff:DB$ Pump | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | NumAtt$ -3 | NumDef$ -3 | SpellDescription$ Target creature an opponent controls gets -3/-3 until end of turn.
+Oracle:Flying\nHomeland — When Deathjaw enters the battlefield, if you control three or more Swamps, target creature an opponent controls gets -3/-3 until end of turn.

@@ -1,0 +1,7 @@
+Name:Effervescent Ada
+ManaCost:1 B
+Types:Creature Shade
+PT:1/1
+A:AB$ Pump | Cost$ 2 B | NumAtt$ +2 | NumDef$ +2 | SpellDescription$ CARDNAME gets +2/+2 until end of turn.
+K:TypeCycling:Swamp:2
+Oracle:{2}{B}: Effervescent Ada gets +2/+2 until end of turn.\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)
