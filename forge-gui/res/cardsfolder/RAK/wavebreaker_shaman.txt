@@ -1,0 +1,8 @@
+Name:Wavebreaker Shaman
+ManaCost:U
+Types:Creature Merfolk Shaman
+PT:1/1
+S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | Description$ CARDNAME can't be blocked.
+SVar:X:Count$Valid Island.YouCtrl
+A:AB$ PumpAll | Cost$ U Sac<1/CARDNAME> | ValidCards$ Creature.YouCtrl | KW$ Hexproof | CheckSVar$ X | SVarCompare$ GE3 | SpellDescription$ Creatures you control gain hexproof until end of turn. Activate only if you control three or more Islands.
+Oracle:Wavebreaker Shaman can't be blocked.\nHomeland — {U}, Sacrifice Wavebreaker Shaman: Creatures you control gain hexproof until end of turn. Activate only if you control three or more Islands.

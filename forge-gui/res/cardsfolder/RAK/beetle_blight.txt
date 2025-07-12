@@ -1,0 +1,6 @@
+Name:Beetle Blight
+ManaCost:3 B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBLoseLife | SpellDescription$ Destroy target creature. You lose 3 life unless you control three or more Swamps.
+SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ 3 | ConditionPresent$ Swamp.YouCtrl | ConditionCompare$ LT3
+Oracle:Destroy target creature. Homeland — You lose 3 life unless you control three or more Swamps.
