@@ -2,6 +2,6 @@ Name:Vorticer Trainee
 ManaCost:2 U
 Types:Creature Human Shaman
 PT:2/2
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | TriggerDescription$ When CARDNAME enters the battlefield, you may return another target artifact, creature, or enchantment to its owner's hand.
-SVar:TrigBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Artifact.Other,Creature.Other,Enchantment.Other | TgtPrompt$ Select another target artifact, creature, or enchantment | Optional$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBounce | TriggerDescription$ When CARDNAME enters the battlefield, you may return another target artifact, creature, or enchantment to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Artifact.Other,Creature.Other,Enchantment.Other | TgtPrompt$ Select another target artifact, creature, or enchantment
 Oracle:When Vorticer Trainee enters the battlefield, you may return another target artifact, creature, or enchantment to its owner's hand.
