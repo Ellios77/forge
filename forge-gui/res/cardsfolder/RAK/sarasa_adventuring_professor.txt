@@ -1,0 +1,15 @@
+Name:Sarasa, Adventuring Professor
+ManaCost:2 U
+Types:Legendary Planeswalker Sarasa
+Loyalty:4
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ 1 | SubAbility$ DBDiscard | SpellDescription$ Draw a card, then discard a card unless you control Paradise.
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | ConditionPresent$ Land.YouCtrl+namedParadise | ConditionCompare$ EQ0
+A:AB$ Untap | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target permanents | SubAbility$ DBUntapMore | SpellDescription$ Untap up to two target permanents. If you control Paradise, untap up to four target permanents instead.
+SVar:DBUntapMore:DB$ Untap | ValidTgts$ Permanent | TargetMin$ 0 | TargetMax$ 4 | TgtPrompt$ Select up to four target permanents | ConditionPresent$ Land.YouCtrl+namedParadise | ConditionCompare$ GE1
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | SubAbility$ DBGet | SpellDescription$ Put up to two cards you own from outside the game into your hand. Then if you control Paradise, cast up to two cards from your hand without paying their mana costs.
+SVar:DBGet:DB$ ChangeZone | Origin$ Sideboard | Destination$ Hand | ChangeType$ Card.YouOwn | ChangeNum$ 2 | UpTo$ True | Reveal$ True | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Valid$ Card.YouOwn | ValidZone$ Hand | Amount$ 2 | WithoutManaCost$ True | Optional$ True | Controller$ You | ConditionPresent$ Land.YouCtrl+namedParadise | ConditionCompare$ GE1
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\n+1: Draw a card, then discard a card unless you control Paradise.\n-2: Untap up to two target permanents. If you control Paradise, untap up to four target permanents instead.\n-6: Put up to two cards you own from outside the game into your hand. Then if you control Paradise, cast up to two cards from your hand without paying their mana costs.

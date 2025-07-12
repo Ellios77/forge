@@ -1,0 +1,10 @@
+Name:Tua Rahi Serpent
+ManaCost:1 U
+Types:Creature Serpent
+PT:4/3
+K:Defender
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+S:Mode$ CanAttackDefender | ValidCard$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as you control Paradise, CARDNAME can attack as though it didn't have defender.
+Oracle:Defender\nVoyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAs long as you control Paradise, Tua Rahi Serpent can attack as though it didn't have defender.

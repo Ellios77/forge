@@ -1,0 +1,5 @@
+Name:Swimulacrum
+ManaCost:2 U
+Types:Sorcery
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | AddColors$ Blue | AddTypes$ Elemental | NumCopies$ 1 | SpellDescription$ Create a token that's a copy of target creature you control, except it's a blue Elemental in addition to its other colors and types.
+Oracle:Create a token that's a copy of target creature you control, except it's a blue Elemental in addition to its other colors and types.

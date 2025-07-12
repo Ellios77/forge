@@ -1,0 +1,6 @@
+Name:Sage's Shield
+ManaCost:1 U
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDef$ +3 | KW$ Hexproof | SubAbility$ DBDraw | SpellDescription$ Target creature gets +0/+3 and gains hexproof until end of turn. Draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+Oracle:Target creature gets +0/+3 and gains hexproof until end of turn.\nDraw a card.
