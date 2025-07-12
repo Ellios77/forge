@@ -1,0 +1,6 @@
+Name:Blood in the Water
+ManaCost:B
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ -1 | NumDef$ -1 | IsCurse$ True | SubAbility$ DBLoseLife | SpellDescription$ Target creature gets -1/-1 until end of turn. Its controller loses 1 life.
+SVar:DBLoseLife:DB$ LoseLife | Defined$ TargetedController | LifeAmount$ 1
+Oracle:Target creature gets -1/-1 until end of turn. Its controller loses 1 life.

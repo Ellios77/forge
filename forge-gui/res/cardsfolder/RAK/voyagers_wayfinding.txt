@@ -1,0 +1,6 @@
+Name:Voyager's Wayfinding
+ManaCost:2 U
+Types:Instant
+A:SP$ Draw | NumCards$ X | SpellDescription$ Draw a card for each color among nonland permanents you control.
+SVar:X:Count$Valid Permanent.nonLand+YouCtrl$Colors
+Oracle:Draw a card for each color among nonland permanents you control.

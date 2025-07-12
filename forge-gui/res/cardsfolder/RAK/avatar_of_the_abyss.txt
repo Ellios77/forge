@@ -1,0 +1,9 @@
+Name:Avatar of the Abyss
+ManaCost:2 B B B
+Types:Creature Avatar
+PT:5/6
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Swamp | Execute$ TrigDamageLife | TriggerDescription$ Whenever CARDNAME or a Swamp enters the battlefield under your control, CARDNAME deals 3 damage to target player or planeswalker and you gain 3 life.
+SVar:TrigDamageLife:DB$ DealDamage | ValidTgts$ Player,Planeswalker | TgtPrompt$ Select target player or planeswalker | NumDmg$ 3 | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 3 damage to target player or planeswalker and you gain 3 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+Oracle:Flash\nWhenever Avatar of the Abyss or a Swamp enters the battlefield under your control, Avatar of the Abyss deals 3 damage to target player or planeswalker and you gain 3 life.
