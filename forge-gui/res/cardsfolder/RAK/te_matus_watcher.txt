@@ -1,0 +1,8 @@
+Name:Te Matu's Watcher
+ManaCost:4 U
+Types:Creature Octopus Elemental
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters the battlefield, create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You
+Oracle:Flying\nWhen Te Matu's Watcher enters the battlefield, create a 1/1 blue Bird creature token with flying.

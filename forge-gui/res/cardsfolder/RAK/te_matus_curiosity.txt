@@ -1,0 +1,7 @@
+Name:Te Matu's Curiosity
+ManaCost:U
+Types:Sorcery
+A:SP$ Scry | ScryNum$ 1 | SubAbility$ DBDraw | SpellDescription$ Scry 1, then draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+K:Awaken:3:4 U
+Oracle:Scry 1, then draw a card.\nAwaken 3—{4}{U} (If you cast this spell for {4}{U}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

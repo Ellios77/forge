@@ -1,0 +1,6 @@
+Name:Swell of the Sea Gods
+ManaCost:1 U
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SpellDescription$ Return target nonland permanent to its owner's hand.
+K:Awaken:3:4 U
+Oracle:Return target nonland permanent to its owner's hand.\nAwaken 3—{4}{U} (If you cast this spell for {4}{U}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
