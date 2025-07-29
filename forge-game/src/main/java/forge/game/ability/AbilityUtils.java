@@ -1191,6 +1191,8 @@ public class AbilityUtils {
             if (sa.getHostCard().wasCast()) {
                 players.add((sa.getHostCard().getCastSA().getActivatingPlayer()));
             }
+        } else if (defined.equals("Exiler")) {
+            players.add(card.getExiledBy());
         } else if (defined.equals("ActivePlayer")) {
             players.add(game.getPhaseHandler().getPlayerTurn());
         } else if (defined.equals("You")) {
@@ -3001,7 +3003,8 @@ public class AbilityUtils {
         for (SpellAbility s : list) {
             if (s.isLandAbility()) {
                 s.setActivatingPlayer(controller);
-                if (controller.canPlayLand(tgtCard, true, s)) {
+                // CR 305.3
+                if (controller.getGame().getPhaseHandler().isPlayerTurn(controller) && controller.canPlayLand(tgtCard, true, s)) {
                     sas.add(s);
                 }
             } else {

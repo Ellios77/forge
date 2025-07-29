@@ -21,13 +21,12 @@ public class SurveilAi extends SpellAbilityAi {
      * @see forge.ai.SpellAbilityAi#doTriggerAINoCost(forge.game.player.Player, forge.game.spellability.SpellAbility, boolean)
      */
     @Override
-    protected boolean doTriggerAINoCost(Player ai, SpellAbility sa, boolean mandatory) {
+    protected AiAbilityDecision doTriggerAINoCost(Player ai, SpellAbility sa, boolean mandatory) {
         if (sa.usesTargeting()) { // TODO: It doesn't appear that Surveil ever targets, is this necessary?
             sa.resetTargets();
             sa.getTargets().add(ai);
         }
-
-        return true;
+        return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
     }
 
     /*
@@ -35,7 +34,7 @@ public class SurveilAi extends SpellAbilityAi {
      * @see forge.ai.SpellAbilityAi#chkAIDrawback(forge.game.spellability.SpellAbility, forge.game.player.Player)
      */
     @Override
-    public boolean chkAIDrawback(SpellAbility sa, Player ai) {
+    public AiAbilityDecision chkAIDrawback(SpellAbility sa, Player ai) {
         return doTriggerAINoCost(ai, sa, false);
     }
 
@@ -85,10 +84,10 @@ public class SurveilAi extends SpellAbilityAi {
     }
 
     @Override
-    protected boolean checkApiLogic(Player ai, SpellAbility sa) {
+    protected AiAbilityDecision checkApiLogic(Player ai, SpellAbility sa) {
         // Makes no sense to do Surveil when there's nothing in the library
         if (ai.getCardsIn(ZoneType.Library).isEmpty()) {
-            return false;
+            return new AiAbilityDecision(0, AiPlayDecision.MissingNeededCards);
         }
 
         // Only Surveil for life when at decent amount of life remaining
@@ -96,10 +95,11 @@ public class SurveilAi extends SpellAbilityAi {
         if (cost != null && cost.hasSpecificCostType(CostPayLife.class)) {
             final int maxLife = ((PlayerControllerAi)ai.getController()).getAi().getIntProperty(AiProps.SURVEIL_LIFEPERC_AFTER_PAYING_LIFE);
             if (!ComputerUtilCost.checkLifeCost(ai, cost, sa.getHostCard(), ai.getStartingLife() * maxLife / 100, sa)) {
-                return false;
+                return new AiAbilityDecision(0, AiPlayDecision.CostNotAcceptable);
             }
         }
 
+        // TODO If EOT and I'm the next turn, the percent should probably be higher
         double chance = .4; // 40 percent chance for instant speed
         if (isSorcerySpeed(sa, ai)) {
             chance = .667; // 66.7% chance for sorcery speed (since it will never activate EOT)
@@ -112,9 +112,10 @@ public class SurveilAi extends SpellAbilityAi {
 
         if (randomReturn) {
             AiCardMemory.rememberCard(ai, sa.getHostCard(), AiCardMemory.MemorySet.ACTIVATED_THIS_TURN);
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
         }
 
-        return randomReturn;
+        return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
     }
 
     @Override

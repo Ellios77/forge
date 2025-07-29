@@ -126,7 +126,7 @@ public class LifeGainAi extends SpellAbilityAi {
      * forge.game.spellability.SpellAbility)
      */
     @Override
-    protected boolean checkApiLogic(Player ai, SpellAbility sa) {
+    protected AiAbilityDecision checkApiLogic(Player ai, SpellAbility sa) {
         final Card source = sa.getHostCard();
         final String sourceName = ComputerUtilAbility.getAbilitySourceName(sa);
         final String aiLogic = sa.getParamOrDefault("AILogic", "");
@@ -148,12 +148,12 @@ public class LifeGainAi extends SpellAbilityAi {
         // Ugin AI: always use ultimate
         if (sourceName.equals("Ugin, the Spirit Dragon")) {
             // TODO: somehow link with DamageDealAi for cases where +1 = win
-            return true;
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
         }
 
         // don't use it if no life to gain
         if (!activateForCost && lifeAmount <= 0) {
-            return false;
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
         }
         // don't play if the conditions aren't met, unless it would trigger a
         // beneficial sub-condition
@@ -161,47 +161,52 @@ public class LifeGainAi extends SpellAbilityAi {
             final AbilitySub abSub = sa.getSubAbility();
             if (abSub != null && !sa.isWrapper() && "True".equals(source.getSVar("AIPlayForSub"))) {
                 if (!abSub.getConditions().areMet(abSub)) {
-                    return false;
+                    return new AiAbilityDecision(0, AiPlayDecision.ConditionsNotMet);
                 }
             } else {
-                return false;
+                return new AiAbilityDecision(0, AiPlayDecision.ConditionsNotMet);
             }
         }
 
         if (!activateForCost && !ai.canGainLife()) {
-            return false;
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
         }
 
         // prevent run-away activations - first time will always return true
         if (ComputerUtil.preventRunAwayActivations(sa)) {
-            return false;
+            return new AiAbilityDecision(0, AiPlayDecision.StopRunawayActivations);
         }
 
         if (sa.usesTargeting()) {
             if (!target(ai, sa, true)) {
-                return false;
+                return new AiAbilityDecision(0, AiPlayDecision.TargetingFailed);
             }
         }
 
         if (ComputerUtil.playImmediately(ai, sa)) {
-            return true;
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
         }
 
         if (isSorcerySpeed(sa, ai)
                 || sa.getSubAbility() != null || playReusable(ai, sa)) {
-            return true;
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
         }
 
         if (sa.getPayCosts() != null && sa.getPayCosts().hasSpecificCostType(CostSacrifice.class)) {
-            return true; // sac costs should be performed at Instant speed when able
+            // sac costs should be performed at Instant speed when able
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
         }
 
         // Save instant-speed life-gain unless it is really worth it
         final float value = 0.9f * lifeAmount / life;
         if (value < 0.2f) {
-            return false;
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
         }
-        return MyRandom.getRandom().nextFloat() < value;
+        if (MyRandom.getRandom().nextFloat() < value) {
+            return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
+        } else {
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+        }
     }
 
     /**
@@ -216,13 +221,13 @@ public class LifeGainAi extends SpellAbilityAi {
      * @return a boolean.
      */
     @Override
-    protected boolean doTriggerAINoCost(final Player ai, final SpellAbility sa, final boolean mandatory) {
+    protected AiAbilityDecision doTriggerAINoCost(final Player ai, final SpellAbility sa, final boolean mandatory) {
         // If the Target is gaining life, target self.
         // if the Target is modifying how much life is gained, this needs to be
         // handled better
         if (sa.usesTargeting()) {
             if (!target(ai, sa, mandatory)) {
-                return false;
+                return new AiAbilityDecision(0, AiPlayDecision.TargetingFailed);
             }
         }
 
@@ -233,11 +238,11 @@ public class LifeGainAi extends SpellAbilityAi {
             sa.setXManaCostPaid(xPay);
         }
 
-        return true;
+        return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
     }
     
     @Override
-    public boolean chkAIDrawback(SpellAbility sa, Player ai) {
+    public AiAbilityDecision chkAIDrawback(SpellAbility sa, Player ai) {
     	return doTriggerAINoCost(ai, sa, true);
     }
 
