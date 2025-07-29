@@ -1,0 +1,7 @@
+Name:Brewing Storm
+ManaCost:1 R
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigScry | TriggerDescription$ When CARDNAME enters the battlefield, scry 2.
+SVar:TrigScry:DB$ Scry | ScryNum$ 2
+A:AB$ CopySpellAbility | Cost$ R Sac<1/CARDNAME> | TgtPrompt$ Select target instant or sorcery spell you control | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TargetType$ Spell | MayChooseTarget$ True | SpellDescription$ Copy target instant or sorcery spell you control. You may choose new targets for the copy.
+Oracle:When Brewing Storm enters the battlefield, scry 2.\n{R}, Sacrifice Brewing Storm: Copy target instant or sorcery spell you control. You may choose new targets for the copy.

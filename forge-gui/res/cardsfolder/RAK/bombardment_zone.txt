@@ -1,0 +1,6 @@
+Name:Bombardment Zone
+ManaCost:3 R R
+Types:Enchantment
+A:AB$ DealDamage | Cost$ Discard<1/Land> | ValidTgts$ Any | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to any target.
+K:TypeCycling:Mountain:2
+Oracle:Discard a land card: Bombardment Zone deals 3 damage to any target.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

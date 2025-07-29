@@ -1,0 +1,10 @@
+Name:Devotee of Kalanua
+ManaCost:1 R
+Types:Creature Elemental Bard
+PT:2/2
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigBranch | TriggerDescription$ Whenever you cast an instant or sorcery spell, CARDNAME gets +1/+1 until end of turn. If you spent 5 or more mana to cast that spell, put a +1/+1 counter on CARDNAME instead.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ Y | BranchConditionSVarCompare$ GE5 | TrueSubAbility$ TrigCounter | FalseSubAbility$ TrigPump
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1
+SVar:Y:TriggeredCard$CastTotalManaSpent
+Oracle:Whenever you cast an instant or sorcery spell, Devotee of Kalanua gets +1/+1 until end of turn. If you spent 5 or more mana to cast that spell, put a +1/+1 counter on Devotee of Kalanua instead.
