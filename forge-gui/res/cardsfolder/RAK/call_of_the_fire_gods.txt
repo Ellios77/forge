@@ -1,0 +1,6 @@
+Name:Call of the Fire Gods
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_elemental | TokenOwner$ You | SpellDescription$ Create two 1/1 red Elemental creature tokens.
+K:Awaken:3:5 R
+Oracle:Create two 1/1 red Elemental creature tokens.\nAwaken 3—{5}{R} (If you cast this spell for {5}{R}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

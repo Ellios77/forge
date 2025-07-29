@@ -1,0 +1,10 @@
+Name:Crest the Waters
+ManaCost:2 R
+Types:Enchantment
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Haste | Description$ Creatures you control have haste.
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | CheckSVar$ X | SVarCompare$ GE1 | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ At the beginning of combat on your turn, if you control Paradise, you may put a creature card from your hand onto the battlefield.
+SVar:TrigPut:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Creature | ChangeNum$ 1 | Optional$ True
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nCreatures you control have haste.\nAt the beginning of combat on your turn, if you control Paradise, you may put a creature card from your hand onto the battlefield.

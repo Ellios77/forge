@@ -1,0 +1,10 @@
+Name:Draconic Vigor
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top three cards of your library. Until end of turn, you may play cards exiled this way. CARDNAME deals 1 damage to each opponent for each land card exiled this way.
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBDamage | ForgetOnMoved$ Exile | Duration$ EndOfTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play those cards this turn.
+SVar:X:Count$Valid Card.IsRemembered+Land
+SVar:DBDamage:DB$ DamageAll | Defined$ Opponent | NumDmg$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Exile the top three cards of your library. Until end of turn, you may play cards exiled this way. Draconic Vigor deals 1 damage to each opponent for each land card exiled this way.
