@@ -4,5 +4,5 @@ Types:Creature Elemental Giant
 PT:5/5
 K:Haste
 T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME attacks, choose a non-red, non-Mountain permanent at random. Destroy that permanent.
-SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonRed,!Mountain | TargetsAtRandom$ True
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonRed+nonMountain | TargetsAtRandom$ True
 Oracle:Haste\nWhenever Crater Walker attacks, choose a non-red, non-Mountain permanent at random. Destroy that permanent.
