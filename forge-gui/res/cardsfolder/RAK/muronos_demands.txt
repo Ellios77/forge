@@ -1,0 +1,7 @@
+Name:Murono's Demands
+ManaCost:1 B
+Types:Sorcery
+A:SP$ LoseLife | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | LifeAmount$ 3 | SubAbility$ DBGain | SpellDescription$ Target opponent loses 3 life and you gain 3 life.
+SVar:DBGain:DB$ GainLife | Defined$ You | LifeAmount$ 3
+K:Awaken:3:5 B
+Oracle:Target opponent loses 3 life and you gain 3 life.\nAwaken 3—{5}{B} (If you cast this spell for {5}{B}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

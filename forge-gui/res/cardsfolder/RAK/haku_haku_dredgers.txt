@@ -1,0 +1,7 @@
+Name:Haku Haku Dredgers
+ManaCost:2 B
+Types:Creature Human Peasant
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, you may pay 3 life. If you do, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | UnlessCost$ PayLife<3> | UnlessPayer$ You | UnlessSwitched$ True
+Oracle:When Haku Haku Dredgers enters the battlefield, you may pay 3 life. If you do, draw a card.

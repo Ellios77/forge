@@ -1,0 +1,7 @@
+Name:Kanokai's Orders
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBLoseLife | SpellDescription$ You draw two cards. You lose 4 life unless an opponent lost life this turn.
+SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ 4 | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ0
+SVar:X:Count$LifeOppsLostThisTurn
+Oracle:You draw two cards. You lose 4 life unless an opponent lost life this turn.

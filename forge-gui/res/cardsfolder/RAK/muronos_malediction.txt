@@ -1,0 +1,6 @@
+Name:Murono's Malediction
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Sacrifice | Defined$ Player.Opponent | SacValid$ Creature | SpellDescription$ Each opponent sacrifices a creature.
+K:Awaken:3:4 B
+Oracle:Each opponent sacrifices a creature.\nAwaken 3—{4}{B} (If you cast this spell for {4}{B}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

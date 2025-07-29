@@ -1,0 +1,9 @@
+Name:Kanokai, the Deep Blood
+ManaCost:1 B
+Types:Legendary Creature Merfolk Warrior
+PT:2/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGrant | TriggerDescription$ When CARDNAME enters the battlefield, Merfolk cards in your graveyard gain flash and you may cast them this turn.
+SVar:TrigGrant:DB$ Effect | StaticAbilities$ GrantFlash | Duration$ EndOfTurn
+SVar:GrantFlash:Mode$ Continuous | Affected$ Merfolk.YouOwn | AffectedZone$ Graveyard | AddKeyword$ Flash | MayPlay$ True | Description$ Merfolk cards in your graveyard gain flash and you may cast them.
+Oracle:Flash\nWhen Kanokai, the Deep Blood enters the battlefield, Merfolk cards in your graveyard gain flash and "You may cast this card from your graveyard" until end of turn.
