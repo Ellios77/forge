@@ -7,7 +7,7 @@ T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ Tr
 SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 5 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
 SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBPump | ForgetOnMoved$ Exile | Duration$ EndOfTurn
 SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play those cards this turn.
-SVar:X:Count$Valid Card.IsRemembered+Land
+SVar:X:Count$ValidExile Card.IsRemembered+Land
 SVar:DBPump:DB$ Pump | Defined$ Self | NumAtt$ +X | SubAbility$ DBCleanup | SpellDescription$ CARDNAME gets +X/+0 until end of turn.
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Flying\nWhenever Caldera Tyrant attacks, exile the top five cards of your library. Until end of turn, you may play cards exiled this way. Caldera Tyrant gets +1/+0 until end of turn for each land card exiled this way.
