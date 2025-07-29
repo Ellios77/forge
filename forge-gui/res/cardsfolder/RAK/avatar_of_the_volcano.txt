@@ -1,0 +1,8 @@
+Name:Avatar of the Volcano
+ManaCost:2 R R R
+Types:Creature Avatar
+PT:6/5
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Mountain.YouCtrl | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME or a Mountain enters the battlefield under your control, create two 1/1 red Elemental creature tokens. They gain haste until end of turn.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_elemental | TokenOwner$ You | PumpKeywords$ Haste | PumpDuration$ EOT
+Oracle:Menace\nWhenever Avatar of the Volcano or a Mountain enters the battlefield under your control, create two 1/1 red Elemental creature tokens. They gain haste until end of turn.

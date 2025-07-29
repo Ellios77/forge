@@ -1,0 +1,7 @@
+Name:Third-Tooth Ravager
+ManaCost:2 B B
+Types:Creature Merfolk Warrior
+PT:3/3
+K:etbCounter:P1P1:2:CheckSVar$ X:CARDNAME enters the battlefield with two +1/+1 counters on it if an opponent lost life this turn.
+SVar:X:Count$LifeOppsLostThisTurn
+Oracle:Third-Tooth Ravager enters the battlefield with two +1/+1 counters on it if an opponent lost life this turn.

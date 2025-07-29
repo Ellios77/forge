@@ -1,0 +1,11 @@
+Name:Shoal Swallower
+ManaCost:4 B B
+Types:Creature Leviathan
+PT:5/5
+K:Flying
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Opponent | CombatDamage$ True | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to an opponent, that player reveals the top five cards of their library. Exile each nonland card revealed this way, and that player mills the rest. For as long as those cards remain exiled, you may cast them, and you may spend mana as though it was mana of any color to cast them.
+SVar:TrigExile:DB$ Dig | DigNum$ 5 | Defined$ TriggeredTarget | Reveal$ True | ChangeNum$ All | ChangeValid$ Card.nonLand | DestinationZone$ Exile | DestinationZone2$ Graveyard | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STPlay | Duration$ Permanent | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | MayPlayIgnoreColor$ True | Affected$ Card.IsRemembered+nonLand | AffectedZone$ Exile | Description$ For as long as those cards remain exiled, you may cast them, and you may spend mana as though it was mana of any color to cast them.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flying\nWhenever Shoal Swallower deals combat damage to an opponent, that player reveals the top five cards of their library. Exile each nonland card revealed this way, and that player mills the rest. For as long as those cards remain exiled, you may cast them, and you may spend mana as though it was mana of any color to cast them.

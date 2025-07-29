@@ -1,0 +1,11 @@
+Name:Rahoke's Pact
+ManaCost:3 B
+Types:Enchantment
+K:Awaken:4:6 B
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of your upkeep, sacrifice a creature. If you do, you draw two cards. Otherwise, you lose the game.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Creature | RememberSacrificed$ True | SubAbility$ DBDraw | SpellDescription$ Sacrifice a creature. If you do, you draw two cards. Otherwise, you lose the game.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 2 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBLose
+SVar:DBLose:DB$ LosesGame | Defined$ You | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$Amount
+Oracle:At the beginning of your upkeep, sacrifice a creature. If you do, you draw two cards. Otherwise, you lose the game.\nAwaken 4—{6}{B} (When you cast this spell for {6}{B}, put four +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

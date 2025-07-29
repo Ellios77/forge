@@ -1,0 +1,8 @@
+Name:Toll of the Death Gods
+ManaCost:2 B
+Types:Enchantment Aura
+K:Enchant:Creature
+K:Awaken:2:4 B
+SVar:AttachAILogic:Curse
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ -2 | AddToughness$ -2 | Description$ Enchanted creature gets -2/-2.
+Oracle:Enchant creature\nEnchanted creature gets -2/-2.\nAwaken 2—{4}{B} (When you cast this spell for {4}{B}, put two +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
