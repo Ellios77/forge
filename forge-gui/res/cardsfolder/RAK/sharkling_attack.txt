@@ -1,0 +1,5 @@
+Name:Sharkling Attack
+ManaCost:2 B
+Types:Sorcery
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ b_1_1_merfolk_drain | TokenOwner$ You | SpellDescription$ Create two 1/1 black Merfolk creature tokens with "Whenever this creature attacks, each opponent loses 1 life."
+Oracle:Create two 1/1 black Merfolk creature tokens with "Whenever this creature attacks, each opponent loses 1 life."

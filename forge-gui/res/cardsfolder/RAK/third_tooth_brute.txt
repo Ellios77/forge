@@ -1,0 +1,9 @@
+Name:Third-Tooth Brute
+ManaCost:2 B
+Types:Creature Merfolk Warrior
+PT:2/4
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigLife | TriggerDescription$ At the beginning of your end step, each opponent that lost life this turn loses 1 life. You gain life equal to the life lost this way.
+SVar:TrigLife:DB$ LoseLife | Defined$ Opponent.LostLifeThisTurn | LifeAmount$ 1 | SubAbility$ DBGain
+SVar:DBGain:DB$ GainLife | Defined$ You | LifeAmount$ X
+SVar:X:PlayerCountRegisteredOpponents$HasPropertyLostLifeThisTurn
+Oracle:At the beginning of your end step, each opponent that lost life this turn loses 1 life. You gain life equal to the life lost this way.
