@@ -1,0 +1,6 @@
+Name:Make Prey
+ManaCost:1 B B
+Types:Instant
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.cmcLE3,Enchantment.cmcLE3 | TgtPrompt$ Select target creature or enchantment with mana value 3 or less | SubAbility$ DBGain | SpellDescription$ Exile target creature or enchantment with mana value 3 or less. You gain 3 life.
+SVar:DBGain:DB$ GainLife | Defined$ You | LifeAmount$ 3
+Oracle:Exile target creature or enchantment if it has mana value 3 or less. You gain 3 life.

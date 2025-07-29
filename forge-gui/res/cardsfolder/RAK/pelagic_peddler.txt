@@ -1,0 +1,14 @@
+Name:Pelagic Peddler
+ManaCost:1 B
+Types:Creature Merfolk Rogue
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReveal | TriggerDescription$ When CARDNAME enters the battlefield, reveal the top card of your library. Any opponent may pay 2 life. If a player does, exile it. Otherwise, put it into your hand.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigReveal | TriggerDescription$ When CARDNAME dies, reveal the top card of your library. Any opponent may pay 2 life. If a player does, exile it. Otherwise, put it into your hand.
+SVar:TrigReveal:DB$ PeekAndReveal | PeekAmount$ 1 | RevealValid$ Card | ImprintRevealed$ True | SubAbility$ DBChoice
+SVar:DBChoice:DB$ GenericChoice | Defined$ Opponent | TempRemember$ Chooser | Choices$ DBPay,DoNothing | ChoicePrompt$ Pay 2 life to exile it? | ConditionDefined$ Imprinted | ConditionPresent$ Card | ConditionCompare$ EQ1 | SubAbility$ DBToHand
+SVar:DoNothing:DB$ Cleanup | SpellDescription$ No
+SVar:DBPay:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 2 | SubAbility$ DBExile | SpellDescription$ Yes
+SVar:DBExile:DB$ ChangeZone | Origin$ Library | Destination$ Exile | Defined$ Imprinted | Unimprint$ True | SubAbility$ DBCleanup
+SVar:DBToHand:DB$ ChangeZone | Origin$ Library | Destination$ Hand | Defined$ Imprinted | Unimprint$ True | ConditionDefined$ Imprinted | ConditionPresent$ Card | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True
+Oracle:When Pelagic Peddler enters the battlefield or dies, reveal the top card of your library. Any opponent may pay 2 life. If any player does, exile it. Otherwise, put it into your hand.
