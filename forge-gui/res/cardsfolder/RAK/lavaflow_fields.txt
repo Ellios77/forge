@@ -1,0 +1,10 @@
+Name:Lavaflow Fields
+ManaCost:2 R
+Types:Enchantment Aura
+K:Enchant:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a Mountain card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Mountain | ChangeNum$ 1 | ShuffleNonMandatory$ True
+S:Mode$ Continuous | Affected$ Land.EnchantedBy | AddAbility$ Ping | Description$ Enchanted land has "{R}, {T}: This land deals 1 damage to any target."
+SVar:Ping:AB$ DealDamage | Cost$ R T | ValidTgts$ Any | NumDmg$ 1 | SpellDescription$ This land deals 1 damage to any target.
+SVar:NonStackingAttachEffect:True
+Oracle:Enchant land\nWhen Lavaflow Fields enters the battlefield, you may search your library for a Mountain card, reveal it, put it into your hand, then shuffle.\nEnchanted land has "{R}, {T}: This land deals 1 damage to any target."

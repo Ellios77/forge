@@ -1,0 +1,5 @@
+Name:Dual Destruction
+ManaCost:4 R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select target creature and/or planeswalkers | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to each of up to two target creatures and/or planeswalkers.
+Oracle:Dual Destruction deals 3 damage to each of up to two target creatures and/or planeswalkers.

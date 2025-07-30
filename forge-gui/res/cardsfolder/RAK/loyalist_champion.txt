@@ -1,0 +1,10 @@
+Name:Loyalist Champion
+ManaCost:1 R R
+Types:Creature Human Warrior
+PT:3/3
+K:First Strike
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigRetake | TriggerDescription$ At the beginning of your end step, each player gains control of all permanents they own.
+SVar:TrigRetake:DB$ GainControlVariant | AllValid$ Permanent | ChangeController$ CardOwner
+T:Mode$ CommitCrime | ValidPlayer$ Player | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ Whenever a player commits a crime, CARDNAME deals 3 damage to that player. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.)
+SVar:TrigDamage:DB$ DealDamage | Defined$ TriggeredPlayer | NumDmg$ 3
+Oracle:First strike\nAt the beginning of your end step, each player gains control of all permanents they own.\nWhenever a player commits a crime, Loyalist Champion deals 3 damage to that player.

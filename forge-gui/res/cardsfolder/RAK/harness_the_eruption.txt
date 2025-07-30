@@ -1,0 +1,10 @@
+Name:Harness the Eruption
+ManaCost:3 R R
+Types:Sorcery
+A:SP$ Dig | Defined$ You | DigNum$ 4 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top four cards of your library. Until end of turn, you may play cards exiled this way. Add {R}{R}{R} for each land card exiled this way. Until end of turn, you don't lose this mana as steps and phases end.
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBMana | ForgetOnMoved$ Exile | Duration$ EndOfTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play those cards this turn.
+SVar:X:Count$ValidExile Card.IsRemembered+Land/Times.3
+SVar:DBMana:DB$ Mana | Produced$ R | Amount$ X | PersistentMana$ True | SubAbility$ DBCleanup | SpellDescription$ Add {R}{R}{R} for each land card exiled this way. Until end of turn, you don't lose this mana as steps and phases end.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Exile the top four cards of your library. Until end of turn, you may play cards exiled this way. Add {R}{R}{R} for each land card exiled this way. Until end of turn, you don't lose this mana as steps and phases end.

@@ -1,0 +1,6 @@
+Name:Lava Blast
+ManaCost:6 R
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 7 | SpellDescription$ CARDNAME deals 7 damage to any target.
+K:TypeCycling:Mountain:2
+Oracle:Lava Blast deals 7 damage to any target.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

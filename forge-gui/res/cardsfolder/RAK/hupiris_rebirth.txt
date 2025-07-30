@@ -1,0 +1,7 @@
+Name:Hupiri's Rebirth
+ManaCost:1 R
+Types:Sorcery
+A:SP$ Discard | Mode$ TgtChoose | NumCards$ 1 | SubAbility$ DBDraw | SpellDescription$ Discard a card, then draw two cards.
+SVar:DBDraw:DB$ Draw | NumCards$ 2
+K:Awaken:3:3 R
+Oracle:Discard a card, then draw two cards.\nAwaken 3—{3}{R} (If you cast this spell for {3}{R}, also put three +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
