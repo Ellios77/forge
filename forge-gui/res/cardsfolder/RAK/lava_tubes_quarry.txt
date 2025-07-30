@@ -1,0 +1,7 @@
+Name:Lava Tubes Quarry
+ManaCost:1 R
+Types:Creature Elemental Boar
+PT:2/2
+K:Haste
+A:AB$ Token | Cost$ 1 R ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | TokenAmount$ 2 | TokenScript$ r_1_1_elemental | TokenOwner$ You | SorcerySpeed$ True | IsPresent$ Mountain.YouCtrl | PresentCompare$ GE3 | SpellDescription$ Create two 1/1 red Elemental creature tokens. Activate only as a sorcery and only if you control three or more Mountains.
+Oracle:Haste\nHomeland — {1}{R}, Exile Lava Tubes Quarry from your graveyard: Create two 1/1 red Elemental creature tokens. Activate only as a sorcery and only if you control three or more Mountains.

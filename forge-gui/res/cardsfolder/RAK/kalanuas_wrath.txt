@@ -1,0 +1,6 @@
+Name:Kalanua's Wrath
+ManaCost:3 R R
+Types:Sorcery
+A:SP$ DamageAll | NumDmg$ 5 | ValidCards$ Creature.nonLand,Planeswalker | ValidDescription$ each nonland creature and each planeswalker. | SpellDescription$ CARDNAME deals 5 damage to each nonland creature and each planeswalker.
+K:Awaken:5:5 R R R
+Oracle:Kalanua's Wrath deals 5 damage to each nonland creature and each planeswalker.\nAwaken 5—{5}{R}{R}{R} (If you cast this spell for {5}{R}{R}{R}, also put five +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
