@@ -5,6 +5,6 @@ PT:3/3
 K:First Strike
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigRetake | TriggerDescription$ At the beginning of your end step, each player gains control of all permanents they own.
 SVar:TrigRetake:DB$ GainControlVariant | AllValid$ Permanent | ChangeController$ CardOwner
-T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Player | TriggerZones$ Battlefield | ConditionPresent$ Spell.IsTargeting Valid Permanent.!ControlledBy TriggeredActivator~inZoneBattlefield | Execute$ TrigDamage | TriggerDescription$ Whenever a player casts a spell that targets a permanent they don't control, CARDNAME deals 3 damage to that player.
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Player | TriggerZones$ Battlefield | TargetsValid$ Permanent+inZoneBattlefield | ConditionPresent$ Spell.IsTargeting Valid Permanent.!ControlledBy TriggeredActivator | Execute$ TrigDamage | TriggerDescription$ Whenever a player casts a spell that targets a permanent they don't control, CARDNAME deals 3 damage to that player.
 SVar:TrigDamage:DB$ DealDamage | Defined$ TriggeredActivator | NumDmg$ 3
 Oracle:First strike\nAt the beginning of your end step, each player gains control of all permanents they own.\nWhenever a player casts a spell that targets a permanent they don't control, Loyalist Champion deals 3 damage to that player.
