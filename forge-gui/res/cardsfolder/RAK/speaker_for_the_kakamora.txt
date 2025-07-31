@@ -4,6 +4,6 @@ Types:Creature Elf Shaman
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigScry | TriggerDescription$ When CARDNAME enters, scry 2.
 SVar:TrigScry:DB$ Scry | ScryNum$ 2
-A:AB$ Mana | Cost$ T | Produced$ G | ConditionCheckSVar$ Forests | ConditionSVarCompare$ GE3 | SpellDescription$ Add {G}. Activate only if you control three or more Forests.
+A:AB$ Mana | Cost$ T | Produced$ G | CheckSVar$ Forests | SVarCompare$ GE3 | SpellDescription$ Add {G}. Activate only if you control three or more Forests.
 SVar:Forests:Count$Valid Forest.YouCtrl
 Oracle:When Speaker for the Kakamora enters, scry 2.\nHomeland — {T}: Add {G}. Activate only if you control three or more Forests.
