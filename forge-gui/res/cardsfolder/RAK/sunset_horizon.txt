@@ -1,0 +1,9 @@
+Name:Sunset Horizon
+ManaCost:2 R
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Land.AttachedBy | AddAbility$ DBLoot | Description$ Enchanted land has "{T}, Discard a card: Draw a card."
+SVar:DBLoot:AB$ Draw | Cost$ T Discard<1/Card> | NumCards$ 1 | SpellDescription$ Draw a card.
+SVar:NonStackingAttachEffect:True
+Oracle:Enchant land\nEnchanted land has "{T}, Discard a card: Draw a card."

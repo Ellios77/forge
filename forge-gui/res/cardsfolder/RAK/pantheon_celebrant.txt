@@ -1,0 +1,6 @@
+Name:Pantheon Celebrant
+ManaCost:2 R
+Types:Creature Human Shaman
+PT:2/3
+S:Mode$ ReduceCost | ValidCard$ Card | ValidSA$ Awaken | Type$ Spell | Activator$ You | Amount$ 2 | Description$ Spells you cast for their awaken costs cost {2} less to cast.
+Oracle:Spells you cast for their awaken costs cost {2} less to cast.

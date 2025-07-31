@@ -1,0 +1,5 @@
+Name:Rupture Field
+ManaCost:1 R
+Types:Enchantment
+A:AB$ DealDamage | Cost$ 1 R Sac<1/Creature> | ValidTgts$ Any | TgtPrompt$ Select any target | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to any target.
+Oracle:{1}{R}, Sacrifice a creature: Rupture Field deals 2 damage to any target.

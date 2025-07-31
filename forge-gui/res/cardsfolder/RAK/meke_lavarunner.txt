@@ -1,0 +1,6 @@
+Name:Meke Lavarunner
+ManaCost:3 R
+Types:Creature Human Warrior
+PT:4/3
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Haste | IsPresent$ Mountain.YouCtrl | PresentCompare$ GE3 | Description$ Homeland — CARDNAME has haste as long as you control three or more Mountains.
+Oracle:Homeland — Meke Lavarunner has haste as long as you control three or more Mountains.
