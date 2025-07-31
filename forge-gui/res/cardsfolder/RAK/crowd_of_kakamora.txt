@@ -1,0 +1,11 @@
+Name:Crowd of Kakamora
+ManaCost:X G G
+Types:Creature Ouphe
+PT:0/0
+K:Trample
+K:Vigilance
+K:etbCounter:P1P1:Z:no Condition:CARDNAME enters the battlefield with twice X +1/+1 counters on it.
+SVar:X:Count$xPaid
+SVar:Z:SVar$X/Twice
+K:TypeCycling:Forest:2
+Oracle:Trample, vigilance\nCrowd of Kakamora enters the battlefield with twice X +1/+1 counters on it.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)

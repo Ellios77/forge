@@ -1,0 +1,10 @@
+Name:Heart of the Gods
+ManaCost:5 G
+Types:Creature Elemental
+PT:8/8
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Vigilance & Reach & Trample & Hexproof & Haste | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as you control Paradise, CARDNAME has vigilance, reach, trample, hexproof, and haste.
+DeckHas:Ability$Token
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAs long as you control Paradise, Heart of the Gods has vigilance, reach, trample, hexproof, and haste.

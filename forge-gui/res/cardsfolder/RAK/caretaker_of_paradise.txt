@@ -1,0 +1,6 @@
+Name:Caretaker of Paradise
+ManaCost:G
+Types:Creature Human Spellshaper
+PT:0/1
+A:AB$ Token | Cost$ G T Discard<1/Card> | TokenAmount$ 1 | TokenScript$ birds_of_paradise | TokenOwner$ You | SpellDescription$ {G}, {T}, Discard a card: Create a 0/1 green Bird creature token named Birds of Paradise with flying and "{T}: Add one mana of any color."
+Oracle:{G}, {T}, Discard a card: Create a 0/1 green Bird creature token named Birds of Paradise. It has flying and "{T}: Add one mana of any color."

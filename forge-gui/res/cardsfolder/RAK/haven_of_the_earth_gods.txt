@@ -1,0 +1,9 @@
+Name:Haven of the Earth Gods
+ManaCost:2 G
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ TapsForMana | ValidCard$ Card.AttachedBy | TriggerZones$ Battlefield | Execute$ TrigMana | Static$ True | TriggerDescription$ Whenever enchanted land is tapped for mana, add an additional one mana of any color.
+SVar:TrigMana:DB$ Mana | Produced$ Any | Defined$ TriggeredCardController
+K:Awaken:4:5 G
+Oracle:Enchant land\nWhenever enchanted land is tapped for mana, add an additional one mana of any color.\nAwaken 4—{5}{G} (When you cast this spell for {5}{G}, put four +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
