@@ -1,0 +1,9 @@
+Name:Utaman Avenger
+ManaCost:2 R
+Types:Creature Elemental Warrior
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters the battlefield, create a 1/1 red Elemental creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ r_1_1_elemental | TokenOwner$ You
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self,Elemental.Other+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ Whenever an Elemental you control dies, CARDNAME deals 1 damage to any target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 1
+Oracle:When Utaman Avenger enters the battlefield, create a 1/1 red Elemental creature token.\nWhenever an Elemental you control dies, Utaman Avenger deals 1 damage to any target.

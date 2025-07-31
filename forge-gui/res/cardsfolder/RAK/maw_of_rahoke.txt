@@ -1,0 +1,7 @@
+Name:Maw of Rahoke
+ManaCost:X R
+Types:Sorcery
+K:Awaken:X:X R R R
+A:SP$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X | References$ X | SpellDescription$ CARDNAME deals X damage to target creature.
+SVar:X:Count$xPaid
+Oracle:Maw of Rahoke deals X damage to target creature.\nAwaken X—{X}{R}{R}{R} (If you cast this spell for {X}{R}{R}{R}, also put X +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

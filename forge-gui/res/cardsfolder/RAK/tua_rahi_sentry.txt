@@ -1,0 +1,11 @@
+Name:Tua Rahi Sentry
+ManaCost:2 R
+Types:Creature Elemental
+PT:3/2
+K:Reach
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | CheckSVar$ X | SVarCompare$ GE1 | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ At the beginning of your upkeep, if you control Paradise, CARDNAME deals 2 damage to each opponent.
+SVar:TrigDamage:DB$ DamageAll | ValidPlayers$ Player.Opponent | NumDmg$ 2
+Oracle:Reach\nVoyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAt the beginning of your upkeep, if you control Paradise, Tua Rahi Sentry deals 2 damage to each opponent.

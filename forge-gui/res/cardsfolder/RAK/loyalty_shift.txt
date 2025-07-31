@@ -1,0 +1,7 @@
+Name:Loyalty Shift
+ManaCost:2 R
+Types:Sorcery
+K:Awaken:2:4 R
+A:SP$ GainControl | ValidTgts$ Creature | TgtPrompt$ Select target creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste | SpellDescription$ Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.
+SVar:PlayMain1:OPPONENTCREATURES
+Oracle:Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\nAwaken 2—{4}{R} (If you cast this spell for {4}{R}, also put two +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
