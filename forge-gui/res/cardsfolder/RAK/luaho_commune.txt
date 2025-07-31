@@ -1,0 +1,5 @@
+Name:Luaho Commune
+ManaCost:1 G
+Types:Sorcery
+A:SP$ DigMultiple | DigNum$ 5 | Reveal$ True | ChangeValid$ Land,Aura | Optional$ True | RestRandomOrder$ True | ForceRevealToController$ True | SpellDescription$ Look at the top five cards of your library. Reveal up to one land card and up to one Aura card from among them, put those cards into your hand, then put the rest on the bottom of your library in a random order.
+Oracle:Look at the top five cards of your library. Reveal up to one land card and up to one Aura card from among them, put those cards into your hand, then put the rest on the bottom of your library in a random order.

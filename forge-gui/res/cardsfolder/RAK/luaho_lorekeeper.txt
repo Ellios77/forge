@@ -1,0 +1,7 @@
+Name:Luaho Lorekeeper
+ManaCost:3 G
+Types:Creature Dryad Shaman
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Forest.YouCtrl | PresentCompare$ GE3 | Execute$ TrigDraw | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Forests, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Homeland — When Luaho Lorekeeper enters the battlefield, if you control three or more Forests, draw a card.
