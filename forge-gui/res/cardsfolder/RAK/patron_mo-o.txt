@@ -1,0 +1,8 @@
+Name:Patron Mo-o
+ManaCost:2 G
+Types:Creature Elemental Lizard
+PT:3/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever CARDNAME attacks, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+A:AB$ ChangeZone | Cost$ 1 G | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | FaceDown$ True | FaceDownSetType$ Land | SpellDescription$ Return CARDNAME from your graveyard to the battlefield face down and tapped. It's a colorless land with "{T}: Add {C}."
+Oracle:Whenever Patron Mo-o attacks, look at the top card of your library. You may put that card into your graveyard.\n{1}{G}: Return Patron Mo-o from your graveyard to the battlefield face down and tapped. It's a colorless land with "{T}: Add {C}."

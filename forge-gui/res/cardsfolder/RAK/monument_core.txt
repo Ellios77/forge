@@ -1,0 +1,10 @@
+Name:Monument Core
+ManaCost:2 G
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two Treasure tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ c_a_treasure_sac | TokenOwner$ You
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddAbility$ MCAttack | Description$ Enchanted land has "{2}{G}, {T}: Put a +1/+1 counter on target creature you control. Activate only as a sorcery."
+SVar:MCAttack:AB$ PutCounter | Cost$ 2 G T | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | SorcerySpeed$ True | SpellDescription$ Put a +1/+1 counter on target creature you control. Activate only as a sorcery.
+Oracle:Enchant land\nWhen Monument Core enters, create two Treasure tokens. (They're artifacts with "{T}, Sacrifice this artifact: Add one mana of any color.")\nEnchanted land has "{2}{G}, {T}: Put a +1/+1 counter on target creature you control. Activate only as a sorcery."
