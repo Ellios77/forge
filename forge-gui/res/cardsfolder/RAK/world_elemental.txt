@@ -1,0 +1,10 @@
+Name:World Elemental
+ManaCost:2 W U B R G
+Types:Creature Elemental
+PT:*/*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME gets +1/+1 for each differently named permanent you control.
+SVar:X:Count$DifferentCardNames_Permanent.YouCtrl+inZoneBattlefield
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigGainControl | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, gain control of target permanent that doesn't share a name with a permanent you control.
+SVar:TrigGainControl:DB$ GainControl | ValidTgts$ Permanent | TgtPrompt$ Select target permanent that doesn't share a name with a permanent you control | ConditionCheckSVar$ SharesName | ConditionSVarCompare$ EQ0
+SVar:SharesName:Count$Valid Permanent.YouCtrl+sharesNameWith Targeted
+Oracle:World Elemental gets +1/+1 for each differently named permanent you control.\nWhenever World Elemental attacks, gain control of target permanent that doesn't share a name with a permanent you control.

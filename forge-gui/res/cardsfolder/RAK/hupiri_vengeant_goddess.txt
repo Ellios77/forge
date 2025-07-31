@@ -1,0 +1,10 @@
+Name:Hupiri, Vengeant Goddess
+ManaCost:4 U R
+Types:Legendary Creature Elemental Shaman
+PT:6/5
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters the battlefield, exile any number of instant and/or sorcery cards from your graveyard and put a tempest counter on each of them.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn | TargetMin$ 0 | TargetMax$ 99 | TgtPrompt$ Select target instant or sorcery card in your graveyard | WithCountersType$ TEMPEST
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | Execute$ TrigPlay | TriggerZones$ Battlefield | Optional$ True | TriggerDescription$ Whenever you cast an instant or sorcery spell, you may cast a card you own in exile with a tempest counter on it. (You still pay its cost.)
+SVar:TrigPlay:DB$ Play | ValidZone$ Exile | Valid$ Instant.YouOwn+counters_GE1_TEMPEST,Sorcery.YouOwn+counters_GE1_TEMPEST | ValidSA$ Spell | Amount$ 1 | Controller$ You | Optional$ True
+Oracle:Flying\nWhen Hupiri, Vengeant Goddess enters the battlefield, exile any number of instant and/or sorcery cards from your graveyard and put a tempest counter on each of them.\nWhenever you cast an instant or sorcery spell, you may cast a card you own in exile with a tempest counter on it. (You still pay its cost.)

@@ -1,0 +1,7 @@
+Name:Vivid Vortex
+ManaCost:1 G
+Types:Enchantment
+T:Mode$ TapsForMana | ValidCard$ Creature | Activator$ You | Execute$ TrigMana | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Whenever you tap a creature for mana, add an additional one mana of any color.
+SVar:TrigMana:DB$ Mana | Produced$ Any
+K:Awaken:2:3 G
+Oracle:Whenever you tap a creature for mana, add an additional one mana of any color.\nAwaken 2—{3}{G} (When you cast this spell for {3}{G}, put two +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

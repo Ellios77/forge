@@ -1,0 +1,7 @@
+Name:Clean Slate
+ManaCost:3 W W U U
+Types:Sorcery
+A:SP$ DestroyAll | ValidCards$ Land | SubAbility$ DBAddTurn | SpellDescription$ Destroy all lands. Take an extra turn after this one. Exile CARDNAME.
+SVar:DBAddTurn:DB$ AddTurn | NumTurns$ 1 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+Oracle:Destroy all lands. Take an extra turn after this one. Exile Clean Slate.

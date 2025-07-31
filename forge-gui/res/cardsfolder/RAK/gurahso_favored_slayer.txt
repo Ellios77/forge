@@ -1,0 +1,11 @@
+Name:Gurahso, Favored Slayer
+ManaCost:3 B R
+Types:Legendary Creature Human Warrior
+PT:5/4
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.nonHuman+OppCtrl | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever a non-Human creature an opponent controls dies, create a Treasure token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_treasure_sac | TokenOwner$ You
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+A:AB$ Destroy | Cost$ W U B R G | ValidTgts$ Creature | TgtPrompt$ Select target creature | CheckSVar$ X | SVarCompare$ GE1 | SpellDescription$ Destroy target creature. Activate this ability only if you control Paradise.
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nWhenever a non-Human creature an opponent controls dies, create a Treasure token.\n{W}{U}{B}{R}{G}: Destroy target creature. Activate this ability only if you control Paradise.
