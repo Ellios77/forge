@@ -1,10 +1,10 @@
 Name:Unwieldy Catch
 ManaCost:2 G
 Types:Sorcery
-A:SP$ Dig | DigNum$ 6 | Optional$ True | ChangeValid$ Creature | DestinationZone$ Exile | RememberChanged$ True | ForceRevealToController$ True | SubAbility$ DBChoose | SpellDescription$ Look at the top six cards of your library. You may exile a creature card from among them. If you do, any opponent may have you put that card onto the battlefield. If no player does, you draw three cards.
-SVar:DBChoose:DB$ GenericChoice | Defined$ Opponent | Choices$ DBToBattlefield,DoNothing | ChoicePrompt$ Have them put that card onto the battlefield? | ConditionDefined$ Remembered | ConditionZone$ Exile | ConditionPresent$ Card | ConditionCompare$ EQ1 | SubAbility$ DBDraw
-SVar:DBToBattlefield:DB$ ChangeZone | Origin$ Exile | Destination$ Battlefield | Defined$ Remembered | SpellDescription$ Yes
+A:SP$ Dig | DigNum$ 6 | Optional$ True | ChangeValid$ Creature | DestinationZone$ Exile | Imprint$ True | AILogic$ BestCard | ForceRevealToController$ True | SubAbility$ DBChoose | SpellDescription$ Look at the top six cards of your library. You may exile a creature card from among them. If you do, any opponent may have you put that card onto the battlefield. If no player does, you draw three cards.
+SVar:DBChoose:DB$ GenericChoice | Defined$ Opponent | Choices$ DBToBattlefield,DoNothing | ChoicePrompt$ Have them put that card onto the battlefield? | ConditionDefined$ Imprinted | ConditionZone$ Exile | ConditionPresent$ Card | ConditionCompare$ EQ1 | SubAbility$ DBDraw
+SVar:DBToBattlefield:DB$ ChangeZone | Origin$ Exile | Destination$ Battlefield | Defined$ Imprinted | Unimprint$ True | SpellDescription$ Yes
 SVar:DoNothing:DB$ Cleanup | SpellDescription$ No
-SVar:DBDraw:DB$ Draw | NumCards$ 3 | ConditionDefined$ Remembered | ConditionZone$ Exile | ConditionPresent$ Card | ConditionCompare$ GE1 | SubAbility$ DBCleanup | StackDescription$ None
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DBDraw:DB$ Draw | NumCards$ 3 | ConditionDefined$ Imprinted | ConditionZone$ Exile | ConditionPresent$ Card | ConditionCompare$ GE1 | SubAbility$ DBCleanup | StackDescription$ None
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
 Oracle:Look at the top six cards of your library. You may exile a creature card from among them. If you do, any opponent may have you put that card onto the battlefield. If no player does, you draw three cards.
