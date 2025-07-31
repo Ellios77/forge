@@ -1,0 +1,14 @@
+Name:Wild Storyteller
+ManaCost:2 G
+Types:Creature Human Bard
+PT:2/4
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | CheckSVar$ Y | SVarCompare$ EQ4 | Execute$ TrigWin | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, if you control a red enchantment, a blue token, and a white creature with mana value 5 or greater, and there's a black sorcery card in your graveyard, you win the game.
+SVar:TrigWin:DB$ WinsGame | Defined$ You
+SVar:X1:Count$Valid Enchantment.Red+YouCtrl/LimitMax.1
+SVar:X2:Count$Valid Permanent.token+Blue+YouCtrl/LimitMax.1
+SVar:X3:Count$Valid Creature.White+cmcGE5+YouCtrl/LimitMax.1
+SVar:X4:Count$ValidGraveyard Sorcery.Black+YouOwn/LimitMax.1
+SVar:Y1:SVar$X1/Plus.X2
+SVar:Y2:SVar$Y1/Plus.X3
+SVar:Y:SVar$Y2/Plus.X4
+Oracle:At the beginning of your upkeep, if you control a red enchantment, a blue token, and a white creature with mana value 5 or greater, and there's a black sorcery card in your graveyard, you win the game.

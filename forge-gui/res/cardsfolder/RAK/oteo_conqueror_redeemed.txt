@@ -1,0 +1,11 @@
+Name:Oteo, Conqueror Redeemed
+ManaCost:W U
+Types:Legendary Creature Human Warrior
+PT:2/2
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+A:AB$ ChangeZone | Cost$ 5 T | Origin$ Library | Destination$ Hand | ChangeType$ Card.hasKeywordVoyage | ChangeNum$ 1 | Reveal$ True | Shuffle$ True | SpellDescription$ Search your library for a card with voyage, reveal it, put it into your hand, then shuffle.
+SVar:X:Count$Valid Land.YouCtrl+namedParadise
+A:AB$ Draw | Cost$ W U B R G | CheckSVar$ X | SVarCompare$ GE1 | NumCards$ Y | SpellDescription$ Draw a card for each color among nonland permanents you control. Activate this ability only if you control Paradise.
+SVar:Y:Count$Valid Permanent.nonLand+YouCtrl$Colors
+Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\n{5}, {T}: Search your library for a card with voyage, reveal it, put it into your hand, then shuffle.\n{W}{U}{B}{R}{G}: Draw a card for each color among nonland permanents you control. Activate this ability only if you control Paradise.

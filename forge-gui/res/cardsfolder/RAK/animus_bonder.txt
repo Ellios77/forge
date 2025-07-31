@@ -1,0 +1,7 @@
+Name:Animus Bonder
+ManaCost:UR UR UR UR
+Types:Creature Human Shaman
+PT:3/4
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast a noncreature spell, create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You
+Oracle:Whenever you cast a noncreature spell, create a 1/1 blue Bird creature token with flying.

@@ -1,0 +1,7 @@
+Name:Elven Lifeweaver
+ManaCost:GW GW GW GW
+Types:Creature Elf Shaman
+PT:3/5
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigUntap | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, choose up to two target creatures or enchanted lands. Untap those permanents.
+SVar:TrigUntap:DB$ Untap | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature,Land.enchanted | TgtPrompt$ Select target creature or enchanted land | SpellDescription$ Untap up to two target creatures or enchanted lands.
+Oracle:Whenever Elven Lifeweaver attacks, choose up to two target creatures or enchanted lands. Untap those permanents.
