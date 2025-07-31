@@ -1,0 +1,6 @@
+Name:Utaman Challenger
+ManaCost:2 R
+Types:Creature Elemental Bard Warrior
+PT:3/2
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl | AddPower$ 1 | IsPresent$ Mountain.YouCtrl | PresentCompare$ GE3 | Description$ Homeland — Other creatures you control get +1/+0 as long as you control three or more Mountains.
+Oracle:Homeland — Other creatures you control get +1/+0 as long as you control three or more Mountains.

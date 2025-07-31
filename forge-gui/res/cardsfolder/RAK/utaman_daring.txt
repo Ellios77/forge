@@ -1,0 +1,5 @@
+Name:Utaman Daring
+ManaCost:1 R
+Types:Instant
+A:SP$ DealDamage | Cost$ 1 R Sac<1/Creature> | ValidTgts$ Any | NumDmg$ 4 | SpellDescription$ As an additional cost to cast this spell, sacrifice a creature. CARDNAME deals 4 damage to any target.
+Oracle:As an additional cost to cast this spell, sacrifice a creature.\nUtaman Daring deals 4 damage to any target.

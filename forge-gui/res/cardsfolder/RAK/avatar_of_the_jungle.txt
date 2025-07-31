@@ -1,0 +1,10 @@
+Name:Avatar of the Jungle
+ManaCost:2 G G G
+Types:Creature Avatar
+PT:5/6
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Forest.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigAnimate | TriggerDescription$ Whenever CARDNAME or a Forest enters the battlefield under your control, put three +1/+1 counters on up to one target noncreature land you control. Untap it. It becomes a 0/0 Elemental creature with haste that's still a land.
+SVar:TrigAnimate:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ 3 | ValidTgts$ Land.nonCreature+YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target noncreature land you control | SubAbility$ DBUntap
+SVar:DBUntap:DB$ Untap | Defined$ Targeted | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Power$ 0 | Toughness$ 0 | Types$ Creature,Elemental | Keywords$ Haste | Duration$ Permanent
+Oracle:Reach\nWhenever Avatar of the Jungle or a Forest enters the battlefield under your control, put three +1/+1 counters on up to one target noncreature land you control. Untap it. It becomes a 0/0 Elemental creature with haste that's still a land.

@@ -1,0 +1,8 @@
+Name:Barkskin Pummeler
+ManaCost:4 G
+Types:Creature Dryad
+PT:4/4
+S:Mode$ Continuous | CharacteristicDefining$ True | Affected$ Card.Self | AddKeyword$ Flash | IsPresent$ Forest.YouCtrl | PresentCompare$ GE3 | Description$ Homeland — This spell has flash as long as you control three or more Forests.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters the battlefield, target creature gets +3/+3 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +3 | NumDef$ +3 | SpellDescription$ Target creature gets +3/+3 until end of turn.
+Oracle:Homeland — This spell has flash as long as you control three or more Forests.\nWhen Barkskin Pummeler enters the battlefield, target creature gets +3/+3 until end of turn.
