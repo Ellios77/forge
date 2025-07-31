@@ -1,0 +1,6 @@
+Name:Kalanua's Strength
+ManaCost:1 G
+Types:Sorcery
+A:SP$ PutCounter | ValidTgts$ Permanent | TgtPrompt$ Select target permanent | CounterType$ P1P1 | CounterNum$ 2 | SpellDescription$ Put two +1/+1 counters on target permanent.
+K:Awaken:4:6 G
+Oracle:Put two +1/+1 counters on target permanent.\nAwaken 4—{6}{G} (If you cast this spell for {6}{G}, also put four +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)

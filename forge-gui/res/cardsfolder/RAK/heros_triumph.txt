@@ -1,0 +1,6 @@
+Name:Hero's Triumph
+ManaCost:1 G
+Types:Sorcery
+A:SP$ AddCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | ConditionPresent$ Forest.YouCtrl | ConditionCompare$ GE3 | SubAbility$ DBFight | SpellDescription$ Homeland — Put a +1/+1 counter on target creature you control if you control three or more Forests. Then that creature fights target creature you don't control.
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+Oracle:Homeland — Put a +1/+1 counter on target creature you control if you control three or more Forests. Then that creature fights target creature you don't control.

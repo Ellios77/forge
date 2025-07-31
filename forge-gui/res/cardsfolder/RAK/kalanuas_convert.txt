@@ -1,0 +1,6 @@
+Name:Kalanua's Convert
+ManaCost:1 G
+Types:Creature Dryad Shaman
+PT:2/2
+S:Mode$ Continuous | Affected$ Creature.Land+YouCtrl | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Ward:2 | Description$ Land creatures you control get +1/+1 and have ward {2}.
+Oracle:Land creatures you control get +1/+1 and have ward {2}. (Whenever one of those creatures becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)

@@ -1,0 +1,7 @@
+Name:Leafy Companion
+ManaCost:2 G
+Types:Creature Plant Dog
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters the battlefield, you may search your library for a Forest card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Forest | ChangeNum$ 1 | ShuffleNonMandatory$ True
+Oracle:When Leafy Companion enters the battlefield, you may search your library for a Forest card, reveal it, put it into your hand, then shuffle.

@@ -1,0 +1,7 @@
+Name:Kohea's Wisdom
+ManaCost:2 G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Card.YouCtrl | TgtPrompt$ Select target card in your graveyard | SubAbility$ DBExile | SpellDescription$ Return target card from your graveyard to your hand. Exile CARDNAME.
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+K:Awaken:4:5 G
+Oracle:Return target card from your graveyard to your hand. Exile Kohea's Wisdom.\nAwaken 4—{5}{G} (If you cast this spell for {5}{G}, also put four +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)
