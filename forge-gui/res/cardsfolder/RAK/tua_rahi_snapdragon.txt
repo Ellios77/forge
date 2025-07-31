@@ -1,0 +1,9 @@
+Name:Tua Rahi Snapdragon
+ManaCost:2 G
+Types:Creature Plant Snake
+PT:2/3
+K:Hexproof
+K:Voyage
+A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Deathtouch | IsPresent$ Land.YouCtrl+namedParadise | PresentCompare$ GE1 | Description$ As long as you control Paradise, CARDNAME gets +1/+1 and has deathtouch.
+Oracle:Hexproof\nVoyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nAs long as you control Paradise, Tua Rahi Snapdragon gets +1/+1 and has deathtouch.

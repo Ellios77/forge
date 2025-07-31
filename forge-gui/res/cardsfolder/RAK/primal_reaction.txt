@@ -1,0 +1,7 @@
+Name:Primal Reaction
+ManaCost:2 G
+Types:Instant
+A:SP$ Charm | Choices$ DBPump,DBDestroy
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ 4 | NumDef$ 4 | TgtPrompt$ Select target creature | SpellDescription$ Target creature gets +4/+4 until end of turn.
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Creature.withFlying | TgtPrompt$ Select target creature with flying | SpellDescription$ Destroy target creature with flying.
+Oracle:Choose one —\n• Target creature gets +4/+4 until end of turn.\n• Destroy target creature with flying.

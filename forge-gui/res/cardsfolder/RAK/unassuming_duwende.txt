@@ -1,0 +1,6 @@
+Name:Unassuming Duwende
+ManaCost:G
+Types:Creature Ouphe
+PT:1/1
+A:AB$ PutCounter | Cost$ 2 G ExileFromGrave<1/Card> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on CARDNAME.
+Oracle:{2}{G}, Exile a card from your graveyard: Put a +1/+1 counter on Unassuming Duwende.
