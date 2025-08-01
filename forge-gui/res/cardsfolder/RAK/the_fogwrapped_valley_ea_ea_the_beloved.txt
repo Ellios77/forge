@@ -4,10 +4,10 @@ Types:Land
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ W | SpellDescription$ Add {W}.
-A:AB$ SetState | Cost$ 3 W T TapXType<3/Creature> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
+A:AB$ SetState | Cost$ 3 W T tapXType<3/Creature> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
 SVar:DBUntap:DB$ Untap | Defined$ Self
 AlternateMode:DoubleFaced
-Oracle:CARDNAME enters tapped.\\n{T}: Add {W}.\\n{3}{W}, {T}, Tap three untapped creatures you control: Transform CARDNAME, then untap it. Activate only during your turn.
+Oracle:The Fogwrapped Valley enters tapped.\n{T}: Add {W}.\n{3}{W}, {T}, Tap three untapped creatures you control: Transform The Fogwrapped Valley, then untap it. Activate only during your turn.
 
 ALTERNATE
 
@@ -22,4 +22,5 @@ SVar:ETBTapped:DB$ Tap | ETB$ True | Defined$ ReplacedCard
 T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever CARDNAME attacks, you gain 1 life for each attacking creature.
 SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ X
 SVar:X:Count$Valid Creature.attacking
-Oracle:Flying\\nCreatures your opponents control enter the battlefield tapped.\\nWhenever CARDNAME attacks, you gain 1 life for each attacking creature.
+Oracle:Flying\nCreatures your opponents control enter the battlefield tapped.\nWhenever Ea Ea attacks, you gain 1 life for each attacking creature.
+
