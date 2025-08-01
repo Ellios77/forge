@@ -5,7 +5,7 @@ K:Voyage
 A:AB$ Token | Cost$ W U B R G | TokenAmount$ 1 | TokenScript$ paradise | TokenOwner$ You | SpellDescription$ Voyage — Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color."
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters the battlefield, draw a card.
 SVar:TrigDraw:DB$ Draw | NumCards$ 1
-A:AB$ Mana | Cost$ 1 T | Produced$ Any | Amount$ ManaAmount | SpellDescription$ Add one mana of any color. If you control Paradise, add two mana in any combination of colors instead.
+A:AB$ Mana | Cost$ 1 T | Produced$ Combo Any | Amount$ ManaAmount | SpellDescription$ Add one mana of any color. If you control Paradise, add two mana in any combination of colors instead.
 SVar:HasParadise:Count$Valid Land.YouCtrl+namedParadise
 SVar:ManaAmount:Count$Compare HasParadise GE1.2.1
 Oracle:Voyage ({W}{U}{B}{R}{G}: Create Paradise, a legendary land token with hexproof and "{T}: Add one mana of any color.")\nWhen Pearlescent Egg enters the battlefield, draw a card.\n{1}, {T}: Add one mana of any color. If you control Paradise, add two mana in any combination of colors instead.
