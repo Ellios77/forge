@@ -1,0 +1,23 @@
+Name:The Fangmarked Cave
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T | Produced$ B | SpellDescription$ Add {B}.
+A:AB$ SetState | Cost$ 3 B T PayLife<8> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
+SVar:DBUntap:DB$ Untap | Defined$ Self
+AlternateMode:DoubleFaced
+Oracle:CARDNAME enters tapped.\\n{T}: Add {B}.\\n{3}{B}, {T}, Pay 8 life: Transform CARDNAME, then untap it. Activate only during your turn.
+
+ALTERNATE
+
+Name:Hak Bora, the Voracious
+ManaCost:no cost
+Colors:black
+Types:Legendary Creature Snake Demon
+PT:5/5
+K:Menace
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever another creature dies, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+A:AB$ Draw | Cost$ 1 B Sac<1/Creature.Other> | NumCards$ 1 | SpellDescription$ Draw a card.
+Oracle:Menace\\nWhenever another creature dies, you gain 1 life.\\n{1}{B}, Sacrifice another creature: Draw a card.
