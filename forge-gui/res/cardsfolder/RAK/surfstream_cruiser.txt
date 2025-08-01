@@ -1,0 +1,11 @@
+Name:Surfstream Cruiser
+ManaCost:UB UR GU WU
+Types:Creature Human Shaman Turtle
+PT:2/5
+K:Haste
+K:Defender
+A:AB$ Dig | Cost$ T | DigNum$ 1 | ChangeNum$ 1 | ChangeValid$ Card.cmcLE2 | DestinationZone$ Hand | DestinationZone2$ Graveyard | Optional$ True | Reveal$ True | SpellDescription$ Look at the top card of your library. If it has mana value 2 or less, you may reveal it and put it into your hand. Otherwise, put it into your graveyard.
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigUntap | TriggerDescription$ Whenever you cast a spell, untap CARDNAME.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+SVar:PlayMain1:TRUE
+Oracle:Haste, defender\n{T}: Look at the top card of your library. If it has mana value 2 or less, you may reveal it and put it into your hand. Otherwise, put it into your graveyard.\nWhenever you cast a spell, untap Surfstream Cruiser.

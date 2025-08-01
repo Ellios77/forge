@@ -1,0 +1,10 @@
+Name:Rahoke's Ruiner
+ManaCost:BR BR BR BR
+Types:Creature Elemental Demon
+PT:6/6
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters, sacrifice a creature.
+SVar:TrigSac:DB$ Sacrifice | SacValid$ Creature.YouCtrl
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Sacrifice
+Oracle:Menace\nWhen Rahoke's Ruiner enters the battlefield, sacrifice a creature.

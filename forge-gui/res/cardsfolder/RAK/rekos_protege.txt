@@ -1,0 +1,9 @@
+Name:Reko's Protege
+ManaCost:2 RW
+Types:Creature Human Warrior
+PT:3/2
+T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, it gets +1/+1 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Pump
+Oracle:Whenever Reko's Protege attacks, it gets +1/+1 until end of turn.

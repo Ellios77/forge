@@ -1,0 +1,7 @@
+Name:Seeding Frenzy
+ManaCost:3 WU
+Types:Instant
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You | SubAbility$ DBScry | SpellDescription$ Create two 1/1 blue Bird creature tokens with flying. Scry 2.
+SVar:DBScry:DB$ Scry | ScryNum$ 2
+DeckHas:Ability$Token & Type$Bird|Creature
+Oracle:Create two 1/1 blue Bird creature tokens with flying. Scry 2.

@@ -1,0 +1,11 @@
+Name:Shrewd Aristocrat
+ManaCost:WB WB WB WB
+Types:Creature Human Noble
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME enters, you gain 3 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+A:AB$ RepeatEach | Cost$ T | RepeatPlayers$ Player | RepeatSubAbility$ DBPayDraw | SpellDescription$ Each player may pay 3 life. Each player that does draws a card.
+SVar:DBPayDraw:DB$ Draw | Defined$ Player.IsRemembered | NumCards$ 1 | UnlessCost$ PayLife<3> | UnlessPayer$ Player.IsRemembered | UnlessSwitched$ True
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Draw
+Oracle:When Shrewd Aristocrat enters the battlefield, you gain 3 life.\n{T}: Each player may pay 3 life. Each player that does draws a card.
