@@ -1,0 +1,8 @@
+Name:The Paradise Gem
+ManaCost:4
+Types:Legendary Artifact
+S:Mode$ Continuous | Affected$ Land.YouCtrl | AddType$ AllBasicLandType | Description$ Lands you control are every basic land type in addition to their other types.
+SVar:NonStackingEffect:True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigLife | TriggerZones$ Battlefield | TriggerDescription$ Whenever a land enters the battlefield under your control, you gain 3 life.
+SVar:TrigLife:DB$ GainLife | LifeAmount$ 3 | Defined$ You
+Oracle:Lands you control are every basic land type in addition to their other types.\nWhenever a land enters the battlefield under your control, you gain 3 life.

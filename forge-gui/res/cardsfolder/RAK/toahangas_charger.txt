@@ -1,0 +1,9 @@
+Name:Toahanga's Charger
+ManaCost:RG RG RG RG
+Types:Creature Boar
+PT:4/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPT | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may choose another target attacking creature. That creature has base power and toughness equal to CARDNAME's power and toughness until end of turn.
+SVar:TrigPT:DB$ Animate | ValidTgts$ Creature.Other+attacking | TgtPrompt$ Select another target attacking creature | Power$ X | Toughness$ Y | SpellDescription$ That creature has base power and toughness equal to CARDNAME's power and toughness until end of turn.
+SVar:X:Count$CardPower
+SVar:Y:Count$CardToughness
+Oracle:Whenever Toahanga's Charger attacks, you may choose another target attacking creature. That creature has base power and toughness equal to Toahanga's Charger's power and toughness until end of turn.
