@@ -1,0 +1,10 @@
+Name:Long-Spear Instructor
+ManaCost:RW RW RW RW
+Types:Creature Human Scout
+PT:3/3
+K:First Strike
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ At the beginning of combat on your turn, another target creature you control gets +2/+0 and gains first strike until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | NumAtt$ +2 | KW$ First Strike
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Pump
+Oracle:First strike\nAt the beginning of combat on your turn, another target creature you control gets +2/+0 and gains first strike until end of turn.

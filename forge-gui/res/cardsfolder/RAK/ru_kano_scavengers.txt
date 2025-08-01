@@ -1,0 +1,8 @@
+Name:Ru Kano Scavengers
+ManaCost:BG BG BG BG
+Types:Creature Crab
+PT:4/4
+A:AB$ PutCounter | Cost$ BG BG BG BG ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ P1P1 | CounterNum$ 4 | SorcerySpeed$ True | SpellDescription$ Put four +1/+1 counters on target creature. Activate only as a sorcery.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:{B/G}{B/G}{B/G}{B/G}, Exile Ru Kano Scavengers from your graveyard: Put four +1/+1 counters on target creature. Activate only as a sorcery.
