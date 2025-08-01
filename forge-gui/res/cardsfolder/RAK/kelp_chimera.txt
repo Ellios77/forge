@@ -1,5 +1,5 @@
 Name:Kelp Chimera
-ManaCost:GW UG BG RG
+ManaCost:GW GU BG RG
 Types:Creature Chimera
 PT:5/5
 K:Vigilance
