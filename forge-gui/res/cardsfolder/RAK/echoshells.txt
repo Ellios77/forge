@@ -1,0 +1,6 @@
+Name:Echoshells
+ManaCost:3
+Types:Artifact
+A:AB$ ManaReflected | Cost$ T | ColorOrType$ Type | Valid$ Land.YouCtrl | ReflectProperty$ Produce | SpellDescription$ Add one mana of any type that a land you control could produce.
+A:AB$ ChangeZone | Cost$ 1 T Sac<1/CARDNAME> | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land | ChangeNum$ 1 | SpellDescription$ Search your library for a land card, put it onto the battlefield tapped, then shuffle.
+Oracle:{T}: Add one mana of any type that a land you control could produce.\n{1}, {T}, Sacrifice Echoshells: Search your library for a land card, put it onto the battlefield tapped, then shuffle.

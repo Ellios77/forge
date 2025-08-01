@@ -1,0 +1,8 @@
+Name:Pounamu Keepsake
+ManaCost:2
+Types:Artifact Equipment
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 2 | Description$ Equipped creature gets +2/+0.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Creature.EquippedBy | OptionalDecider$ You | Execute$ TrigAttach | TriggerZones$ Battlefield | TriggerDescription$ Whenever equipped creature leaves the battlefield, you may attach CARDNAME to a creature you control that shares a color with that creature.
+SVar:TrigAttach:DB$ Attach | ValidTgts$ Creature.YouCtrl+SharesColorWith TriggeredCard | TgtPrompt$ Select a creature you control that shares a color with that creature
+K:Equip:2
+Oracle:Equipped creature gets +2/+0.\nWhenever equipped creature leaves the battlefield, you may attach Pounamu Keepsake to a creature you control that shares a color with that creature.\nEquip {2}

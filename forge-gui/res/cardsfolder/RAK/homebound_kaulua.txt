@@ -1,0 +1,9 @@
+Name:Homebound Kaulua
+ManaCost:2
+Types:Artifact Vehicle
+PT:4/4
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.Basic+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigAnimate | TriggerDescription$ Whenever a basic land enters the battlefield under your control, CARDNAME becomes an artifact creature until end of turn.
+SVar:TrigAnimate:DB$ Animate | Defined$ Self | Types$ Artifact,Creature | SpellDescription$ CARDNAME becomes an artifact creature until end of turn.
+K:Crew:2
+Oracle:Haste\nWhenever a basic land enters the battlefield under your control, Homebound Kaulua becomes an artifact creature until end of turn.\nCrew 2 (Tap any number of creatures you control with total power 2 or greater: This Vehicle becomes an artifact creature until end of turn.)
