@@ -7,7 +7,7 @@ A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
 A:AB$ SetState | Cost$ 3 G T ExileFromGrave<5/Creature> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
 SVar:DBUntap:DB$ Untap | Defined$ Self
 AlternateMode:DoubleFaced
-Oracle:CARDNAME enters tapped.\\n{T}: Add {G}.\\n{3}{G}, {T}, Exile five creature cards from your graveyard: Transform CARDNAME, then untap it. Activate only during your turn.
+Oracle:The Resting Place enters tapped.\n{T}: Add {G}.\n{3}{G}, {T}, Exile five creature cards from your graveyard: Transform The Resting Place, then untap it. Activate only during your turn.
 
 ALTERNATE
 
@@ -19,4 +19,4 @@ PT:6/6
 S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ CARDNAME can't be blocked by creatures with power 2 or less.
 T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME attacks, look at the top three cards of your library. Put any number of them into your graveyard and the rest back on top in any order.
 SVar:TrigDig:DB$ Dig | DigNum$ 3 | AnyNumber$ True | DestinationZone$ Graveyard | DestinationZone2$ Library | LibraryPosition2$ 0
-Oracle:CARDNAME can't be blocked by creatures with power 2 or less.\\nWhenever CARDNAME attacks, look at the top three cards of your library. Put any number of them into your graveyard, and the rest back on top in any order.
+Oracle:Namo-o can't be blocked by creatures with power 2 or less.\nWhenever Namo-o attacks, look at the top three cards of your library. Put any number of them into your graveyard, and the rest back on top in any order.
