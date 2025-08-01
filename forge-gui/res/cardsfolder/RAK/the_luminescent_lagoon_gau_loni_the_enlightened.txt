@@ -1,0 +1,23 @@
+Name:The Luminescent Lagoon
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T | Produced$ U | SpellDescription$ Add {U}.
+A:AB$ SetState | Cost$ 3 U T ExileFromGrave<5/Instant;Sorcery> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
+SVar:DBUntap:DB$ Untap | Defined$ Self
+AlternateMode:DoubleFaced
+Oracle:The Luminescent Lagoon enters tapped.\n{T}: Add {U}.\n{3}{U}, {T}, Exile five instant or sorcery cards from your graveyard: Transform The Luminescent Lagoon, then untap it. Activate only during your turn.
+
+ALTERNATE
+
+Name:Gau Loni, the Enlightened
+ManaCost:no cost
+Colors:blue
+Types:Legendary Creature Jellyfish
+PT:4/4
+K:Flying
+K:Ward:2
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Opponent | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME deals combat damage to an opponent, draw a card.
+SVar:TrigDraw:DB$ Draw
+Oracle:Flying\nWard {2}\nWhenever Gau Loni deals combat damage to an opponent, draw a card.

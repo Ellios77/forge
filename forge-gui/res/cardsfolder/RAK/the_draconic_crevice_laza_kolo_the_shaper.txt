@@ -1,0 +1,23 @@
+Name:The Draconic Crevice
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T | Produced$ R | SpellDescription$ Add {R}.
+A:AB$ SetState | Cost$ 3 R T Sac<2/Land> | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | PlayerTurn$ True | SpellDescription$ Transform CARDNAME, then untap it.
+SVar:DBUntap:DB$ Untap | Defined$ Self
+AlternateMode:DoubleFaced
+Oracle:The Draconic Crevice enters tapped.\n{T}: Add {R}.\n{3}{R}, {T}, Sacrifice two lands: Transform The Draconic Crevice, then untap it. Activate only during your turn.
+
+ALTERNATE
+
+Name:Laza Kolo, the Shaper
+ManaCost:no cost
+Colors:red
+Types:Legendary Creature Dragon
+PT:4/4
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigSacToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, you may sacrifice a land. If you do, create a 2/2 red Dragon creature token with flying.
+SVar:TrigSacToken:DB$ Sacrifice | Defined$ You | SacValid$ Land | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenAmount$ 1 | TokenScript$ r_2_2_dragon_flying | TokenOwner$ You
+Oracle:Flying\nWhenever Laza Kolo attacks, you may sacrifice a land. If you do, create a 2/2 red Dragon creature token with flying.
