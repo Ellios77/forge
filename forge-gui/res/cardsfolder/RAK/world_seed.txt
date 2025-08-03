@@ -1,8 +1,13 @@
 Name:World Seed
 ManaCost:no cost
 Types:Land
+K:Flying
+K:Vigilance
+K:Trample
+K:Menace
+K:Lifelink
 R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
 SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
-A:AB$ Animate | Cost$ 10 | Defined$ Self | Power$ 10 | Toughness$ 10 | Types$ Creature,Elemental | Keywords$ Flying & Vigilance & Trample & Menace & Lifelink | SpellDescription$ CARDNAME becomes a 10/10 Elemental creature with flying, vigilance, trample, menace, and lifelink until end of turn.
-Oracle:Flying, vigilance, trample, menace, lifelink\\nWorld Seed enters tapped.\\n{T}: Add {C}.\\n{10}: World Seed becomes a 10/10 Elemental creature with flying, vigilance, trample, menace, and lifelink until end of turn.
+A:AB$ Animate | Cost$ 10 | Defined$ Self | Power$ 10 | Toughness$ 10 | Types$ Creature,Elemental | RemoveCardTypes$ True | RemoveCreatureTypes$ True | SpellDescription$ CARDNAME becomes a 10/10 Elemental creature until end of turn.
+Oracle:Flying, vigilance, trample, menace, lifelink\nWorld Seed enters tapped.\n{T}: Add {C}.\n{10}: World Seed becomes a 10/10 Elemental creature until end of turn.
