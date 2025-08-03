@@ -1,0 +1,9 @@
+Name:Mohele Beacon
+ManaCost:no cost
+Types:Land Island
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Island.YouCtrl | PresentCompare$ GE3 | Execute$ TrigScry | OptionalDecider$ You | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Islands, you may scry 2.
+SVar:TrigScry:DB$ Scry | ScryNum$ 2 | SpellDescription$ Scry 2.
+DeckNeeds:Color$Blue
+Oracle:({T}: Add {U}.)\nMohele Beacon enters tapped.\nHomeland — When Mohele Beacon enters the battlefield, if you control three or more Islands, you may scry 2.

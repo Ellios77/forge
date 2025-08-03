@@ -1,0 +1,9 @@
+Name:Utamu Tubes
+ManaCost:no cost
+Types:Land Mountain
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Mountain.YouCtrl | PresentCompare$ GE3 | Execute$ TrigToken | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Mountains, create a 1/1 red Elemental creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ r_1_1_elemental | TokenOwner$ You | SpellDescription$ Create a 1/1 red Elemental creature token.
+DeckNeeds:Color$Red
+Oracle:({T}: Add {R}.)\nUtamu Tubes enters tapped.\nHomeland — When Utamu Tubes enters the battlefield, if you control three or more Mountains, create a 1/1 red Elemental creature token.

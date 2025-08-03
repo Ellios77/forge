@@ -1,0 +1,9 @@
+Name:Elipo Ono Craftland
+ManaCost:no cost
+Types:Land Plains
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Plains.YouCtrl | PresentCompare$ GE3 | Execute$ TrigPump | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Plains, target creature you control gets +2/+2 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | NumDef$ +2 | SpellDescription$ Target creature you control gets +2/+2 until end of turn.
+DeckNeeds:Color$White
+Oracle:({T}: Add {W}.)\nElipo Ono Craftland enters tapped.\nHomeland — When Elipo Ono Craftland enters the battlefield, if you control three or more Plains, target creature you control gets +2/+2 until end of turn.

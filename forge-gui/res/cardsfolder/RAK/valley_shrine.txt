@@ -1,0 +1,6 @@
+Name:Valley Shrine
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+S:Mode$ ReduceCost | ValidCard$ Card | ValidTarget$ Card.Self | Activator$ You | Type$ Spell | Amount$ 1 | Description$ Spells you cast that target CARDNAME cost {1} less to cast.
+Oracle:{T}: Add {C}.\nSpells you cast that target Valley Shrine cost {1} less to cast.

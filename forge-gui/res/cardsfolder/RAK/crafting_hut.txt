@@ -1,0 +1,6 @@
+Name:Crafting Hut
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ ChangeZone | Cost$ 2 T Sac<1/CARDNAME> | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Aura.YouOwn | TgtPrompt$ Select target Aura card in your graveyard | SpellDescription$ Return target Aura card from your graveyard to your hand.
+Oracle:{T}: Add {C}.\n{2}, {T}, Sacrifice Crafting Hut: Return target Aura card from your graveyard to your hand.
