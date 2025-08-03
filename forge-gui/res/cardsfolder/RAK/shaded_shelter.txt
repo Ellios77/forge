@@ -1,0 +1,6 @@
+Name:Shaded Shelter
+ManaCost:no cost
+Types:Land Plains Swamp
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control three or more other lands.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.YouCtrl+Other | ConditionCompare$ LT3
+Oracle:({T}: Add {W} or {B}.)\\nShaded Shelter enters tapped unless you control three or more other lands.

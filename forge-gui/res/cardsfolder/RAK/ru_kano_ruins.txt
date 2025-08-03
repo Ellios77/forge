@@ -1,0 +1,10 @@
+Name:Ru Kano Ruins
+ManaCost:no cost
+Types:Land Swamp
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Swamp.YouCtrl | PresentCompare$ GE3 | Execute$ TrigLose | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Swamps, each opponent loses 1 life and you gain 1 life.
+SVar:TrigLose:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1 | SubAbility$ DBGain | SpellDescription$ Each opponent loses 1 life and you gain 1 life.
+SVar:DBGain:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckNeeds:Color$Black
+Oracle:({T}: Add {B}.)\\nRu Kano Ruins enters tapped.\\nHomeland — When Ru Kano Ruins enters the battlefield, if you control three or more Swamps, each opponent loses 1 life and you gain 1 life.

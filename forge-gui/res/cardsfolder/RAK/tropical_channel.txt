@@ -1,0 +1,6 @@
+Name:Tropical Channel
+ManaCost:no cost
+Types:Land Forest Island
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control three or more other lands.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.YouCtrl+Other | ConditionCompare$ LT3
+Oracle:({T}: Add {G} or {U}.)\\nTropical Channel enters tapped unless you control three or more other lands.

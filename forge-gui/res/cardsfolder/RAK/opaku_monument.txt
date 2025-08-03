@@ -1,0 +1,9 @@
+Name:Opaku Monument
+ManaCost:no cost
+Types:Land Forest
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Forest.YouCtrl | PresentCompare$ GE3 | Execute$ TrigCounter | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Forests, put a +1/+1 counter on target creature you control.
+SVar:TrigCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on target creature you control.
+DeckNeeds:Color$Green
+Oracle:({T}: Add {G}.)\\nOpaku Monument enters tapped.\\nHomeland — When Opaku Monument enters the battlefield, if you control three or more Forests, put a +1/+1 counter on target creature you control.
