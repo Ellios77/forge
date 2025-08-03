@@ -6,4 +6,4 @@ SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Island.YouCtrl | PresentCompare$ GE3 | Execute$ TrigScry | OptionalDecider$ You | TriggerDescription$ Homeland — When CARDNAME enters the battlefield, if you control three or more Islands, you may scry 2.
 SVar:TrigScry:DB$ Scry | ScryNum$ 2 | SpellDescription$ Scry 2.
 DeckNeeds:Color$Blue
-Oracle:({T}: Add {U}.)\\nMohele Beacon enters tapped.\\nHomeland — When Mohele Beacon enters the battlefield, if you control three or more Islands, you may scry 2.
+Oracle:({T}: Add {U}.)\nMohele Beacon enters tapped.\nHomeland — When Mohele Beacon enters the battlefield, if you control three or more Islands, you may scry 2.
