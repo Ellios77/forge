@@ -2,5 +2,5 @@ Name:Coral Barrens
 ManaCost:no cost
 Types:Land
 A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
-A:AB$ Destroy | Cost$ 1 T Sac<1/CARDNAME> | ValidTgts$ Land.NonBasic | TgtPrompt$ Select target nonbasic land | IsPresent$ Land.Basic+YouCtrl | PresentCompare$ GE3 | SpellDescription$ Destroy target nonbasic land. Activate only if you control three or more basic lands.
-Oracle:{T}: Add {C}.\\n{1}, {T}, Sacrifice Coral Barrens: Destroy target nonbasic land. Activate only if you control three or more basic lands.
+A:AB$ Destroy | Cost$ 1 T Sac<1/CARDNAME> | ValidTgts$ Land.nonBasic | TgtPrompt$ Select target nonbasic land | IsPresent$ Land.Basic+YouCtrl | PresentCompare$ GE3 | SpellDescription$ Destroy target nonbasic land. Activate only if you control three or more basic lands.
+Oracle:{T}: Add {C}.\n{1}, {T}, Sacrifice Coral Barrens: Destroy target nonbasic land. Activate only if you control three or more basic lands.
