@@ -8,5 +8,3 @@ S:Mode$ CantPayLife | ValidPlayer$ Player | ValidCause$ Spell,Activated | ForCos
 S:Mode$ CantDiscard | ValidPlayer$ Player | ValidCause$ Spell,Activated | ForCost$ True | Secondary$ True | Description$ Players can't discard cards to cast spells or activate abilities.
 
 Oracle:Players can't sacrifice creatures to cast spells or activate abilities. The same is true for discarding cards and paying life.
-# Oracle:Players can't sacrifice creatures to cast spells or activate abilities unless they sacrifice an additional creature. The same is true for discarding cards and paying life.
-# The card is partially implemented. Need to figure out how to get the unlesscost to work with the Mode$ CantSacrifice, CantPayLife, and CantDiscard
