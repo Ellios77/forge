@@ -2,6 +2,6 @@ Name:Ambitious Dreams
 ManaCost:3 U
 Types:Instant
 S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ 1 U | CheckSVar$ X | SVarCompare$ GE1 | Description$ Bleed {1}{U} (You may cast this spell for its bleed cost if an opponent has lost life this turn.)
-SVar:X:PlayerCountRegisteredOpponents$LifeLostThisTurn
 A:SP$ Draw | NumCards$ 2 | SpellDescription$ Draw two cards.
+SVar:X:Count$LifeOppsLostThisTurn
 Oracle:Bleed {1}{U} (You may cast this spell for its bleed cost if an opponent has lost life this turn.)\nDraw two cards.
