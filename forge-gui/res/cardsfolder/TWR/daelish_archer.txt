@@ -1,0 +1,8 @@
+Name:Daelish Archer
+ManaCost:1 W
+Types:Creature Human Archer
+PT:2/2
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | IsPresent$ Card.Self+enchanted,Card.Self+equipped | Description$ Adorned — CARDNAME has first strike as long as it's equipped and/or enchanted.
+SVar:EnchantMe:Once
+SVar:EquipMe:Once
+Oracle:Adorned — Daelish Archer has first strike as long as it's equipped and/or enchanted.
