@@ -1,0 +1,6 @@
+Name:Lord's Griffin
+ManaCost:1 W
+Types:Creature Griffin
+PT:1/3
+K:Flying (This creature can't be blocked except by creatures with flying or reach.)
+Oracle:Flying (This creature can't be blocked except by creatures with flying or reach.)
