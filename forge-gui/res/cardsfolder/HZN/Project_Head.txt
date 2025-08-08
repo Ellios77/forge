@@ -1,0 +1,10 @@
+Name:Project Head
+ManaCost:1 U
+Types:Creature Human Artificer
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigInvestigate | TriggerDescription$ When CARDNAME enters, investigate. (Create a colorless Clue artifact token with "{2}, Sacrifice this artifact: Draw a card.")
+SVar:TrigInvestigate:DB$ Investigate
+A:AB$ ChangeZoneAll | Cost$ 2 U Exile<1/CARDNAME> | Origin$ Graveyard,Hand | Destination$ Library | ChangeType$ Card.YouOwn | Shuffle$ True | SubAbility$ DBDraw | IsPresent$ Artifact.YouCtrl | PresentCompare$ GE7 | SpellDescription$ Shuffle your hand and graveyard into your library, then draw seven cards. Activate only if you control seven or more artifacts.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 7
+DeckHas:Ability$Investigate|Token
+Oracle:When Project Head enters, investigate. (Create a colorless Clue artifact token with "{2}, Sacrifice this artifact: Draw a card.")\n{2}{U}, Exile Project Head: Shuffle your hand and graveyard into your library, then draw seven cards. Activate only if you control seven or more artifacts.

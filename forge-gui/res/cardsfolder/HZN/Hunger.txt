@@ -1,0 +1,10 @@
+Name:Hunger
+ManaCost:3 B B
+Types:Creature Elemental Incarnation
+PT:4/3
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ Player.Opponent | TriggerZones$ Battlefield | Execute$ TrigLoseLifeCreature | TriggerDescription$ At the beginning of each opponent's end step, that player loses 1 life for each creature they control unless they sacrifice a creature. Then they lose 1 life for each card in their hand unless they discard a card.
+SVar:TrigLoseLifeCreature:DB$ LoseLife | Defined$ TriggeredPlayer | UnlessCost$ Sac<1/Creature> | UnlessPayer$ TriggeredPlayer | LifeAmount$ X | SubAbility$ DBLoseLifeHand
+SVar:DBLoseLifeHand:DB$ LoseLife | Defined$ TriggeredPlayer | UnlessCost$ Discard<1/Card> | UnlessPayer$ TriggeredPlayer | LifeAmount$ Y
+SVar:X:TriggeredPlayer$Valid Creature.YouCtrl
+SVar:Y:TriggeredPlayer$CardsInHand
+Oracle:At the beginning of each opponent's end step, that player loses 1 life for each creature they control unless they sacrifice a creature. Then they lose 1 life for each card in their hand unless they discard a card.
