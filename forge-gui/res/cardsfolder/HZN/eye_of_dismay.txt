@@ -2,10 +2,9 @@ Name:Eye of Dismay
 ManaCost:1 U U
 Types:Creature Horror
 PT:3/1
-S:Mode$ Continuous | Affected$ Player.Opponent | AddKeyword$ RevealedHand | Description$ Your opponents play with their hands revealed.
-T:Mode$ Phase | Phase$ EndOfTurn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigName | TriggerDescription$ At the beginning of your end step, choose a card name.
-SVar:TrigName:DB$ NameCard | Defined$ You | RememberChosen$ True
-S:Mode$ CantTarget | ValidPlayer$ You | ValidSource$ Card.NamedCard+OpponentCtrl | Description$ You can't be the target of sources your opponents control with a name chosen by CARDNAME.
-S:Mode$ CantTarget | ValidCard$ Spell.YouCtrl | ValidSource$ Card.NamedCard+OpponentCtrl | Description$ Spells you control can't be the targets of sources your opponents control with a name chosen by CARDNAME.
-S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Protection:Card.NamedCard | Description$ CARDNAME has protection from names chosen by it.
-Oracle:Your opponents play with their hands revealed.\nAt the beginning of your end step, choose a card name.\nYou and spells you control can't be targeted by sources your opponents control with a name chosen by Eye of Dismay.\nEye of Dismay has protection from names chosen by it.
+S:Mode$ Continuous | AffectedZone$ Hand | Affected$ Card.OppOwn | MayLookAt$ Player | Description$ Your opponents play with their hands revealed.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigName | TriggerDescription$ At the beginning of your end step, choose a card name.
+SVar:TrigName:DB$ NameCard | Defined$ You
+S:Mode$ CantTarget | Affected$ You,Spell.YouCtrl | ValidSource$ Card.OppCtrl+NamedCard | Description$ You and spells you control can't be targeted by sources your opponents control with the chosen name.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Protection:ChosenName | Description$ CARDNAME has protection from the chosen name.
+Oracle:Your opponents play with their hands revealed.\nAt the beginning of your end step, choose a card name.\nYou and spells you control can't be targeted by sources your opponents control with a name chosen by CARDNAME.\nCARDNAME has protection from names chosen by it.
