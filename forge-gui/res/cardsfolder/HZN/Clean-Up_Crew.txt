@@ -1,0 +1,7 @@
+Name:Clean-Up Crew
+ManaCost:B
+Types:Creature Human
+PT:1/1
+A:AB$ Surveil | Cost$ Sac<1/Creature> | Amount$ 1 | SpellDescription$ Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)
+DeckHas:Ability$Surveil|Graveyard|Sacrifice
+Oracle:Sacrifice a creature: Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)

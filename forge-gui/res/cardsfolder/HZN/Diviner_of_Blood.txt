@@ -1,0 +1,8 @@
+Name:Diviner of Blood
+ManaCost:1 B B
+Types:Creature Vampire Demon
+PT:2/2
+K:Flying
+S:Mode$ Continuous | Affected$ Creature.Demon+YouCtrl,Creature.Vampire+YouCtrl | AddPower$ X | AddToughness$ X | Description$ Demons and Vampires you control get +1/+1 for each player that has lost life this turn.
+SVar:X:PlayerCountPlayers$HasPropertyLostLifeThisTurn
+Oracle:Flying\nDemons and Vampires you control get +1/+1 for each player that has lost life this turn.

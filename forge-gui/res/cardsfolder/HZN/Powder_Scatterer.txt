@@ -1,0 +1,10 @@
+Name:Powder Scatterer
+ManaCost:1 U U
+Types:Creature Faerie Wizard
+PT:3/1
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target noncreature spell. Its controller draws a card.
+SVar:TrigExile:DB$ ChangeZone | TargetType$ Spell | ValidTgts$ Card.nonCreature | TgtZone$ Stack | Origin$ Stack | Destination$ Exile | IsCurse$ True | TgtPrompt$ Choose target noncreature spell | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ TargetedController | NumCards$ 1
+Oracle:Flash\nFlying\nWhen Powder Scatterer enters, exile target noncreature spell. Its controller draws a card.

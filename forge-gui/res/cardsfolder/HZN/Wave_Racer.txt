@@ -1,0 +1,9 @@
+Name:Wave Racer
+ManaCost:U U
+Types:Creature Merfolk Wizard
+PT:2/1
+S:Mode$ Continuous | Affected$ Creature.Merfolk+YouCtrl+Other,Creature.Elemental+YouCtrl+Other | AddPower$ 1 | AddToughness$ 1 | Description$ Each other creature you control that's a Merfolk or an Elemental gets +1/+1.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery,Merfolk | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | Execute$ TrigToken | TriggerDescription$ Whenever you cast an instant, sorcery, or Merfolk spell, you may pay {1}. If you do, create a 1/0 blue Elemental creature token.
+SVar:TrigToken:AB$ Token | Cost$ 1 | TokenAmount$ 1 | TokenScript$ u_1_0_elemental | TokenOwner$ You
+DeckHas:Ability$Token & Type$Elemental
+Oracle:Each other creature you control that's a Merfolk or an Elemental gets +1/+1.\nWhenever you cast an instant, sorcery, or Merfolk spell, you may pay {1}. If you do, create a 1/0 blue Elemental creature token.
