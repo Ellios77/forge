@@ -1,7 +1,8 @@
 Name:Stormcaller Sentinel
 ManaCost:U U
 Types:Enchantment Deity
+PT:3/3
 K:Flying
-A:AB$ Animate | Cost$ 2 U U | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Drake | Keywords$ Flying | Duration$ Permanent | PrecostDesc$ Beckon Drake — | SpellDescription$ CARDNAME becomes a 3/3 Drake creature with flying in addition to its other types.
+A:AB$ Animate | Cost$ 2 U U | Defined$ Self | Types$ Creature,Drake | Duration$ Permanent | PrecostDesc$ Beckon Drake — | SpellDescription$ CARDNAME becomes a 3/3 Drake creature with flying in addition to its other types.
 S:Mode$ Continuous | Affected$ Creature.withFlying+YouCtrl+Other | AddPower$ 1 | AddToughness$ 1 | Description$ Other creatures you control with flying get +1/+1.
-Oracle:Beckon Drake {2}{U}{U} ({2}{U}{U}: This noncreature Deity permanently becomes a Drake creature in addition to its other types.)\nFlying\nOther creatures you control with flying get +1/+1.\n3/3
+Oracle:Beckon Drake {2}{U}{U} ({2}{U}{U}: This noncreature Deity permanently becomes a Drake creature in addition to its other types.)\nFlying\nOther creatures you control with flying get +1/+1.
