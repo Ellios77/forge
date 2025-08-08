@@ -1,0 +1,9 @@
+Name:Protective Memory
+ManaCost:W W
+Types:Creature Reflection Cleric
+PT:1/1
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+Cleric,Creature.Other+YouCtrl+Reflection | AddPower$ 1 | AddToughness$ 1 | Description$ Each other creature you control that's a Cleric or a Reflection gets +1/+1.
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 3 | AddToughness$ 3 | CheckSVar$ YouLifeGained | SVarCompare$ GE1 | Description$ CARDNAME gets +3/+3 as long as you've gained life this turn.
+SVar:YouLifeGained:Count$LifeYouGainedThisTurn
+DeckHints:Type$Knight|Reflection
+Oracle:Each other Cleric or Reflection creature you control gets +1/+1.\nCARDNAME gets +3/+3 as long as you've gained life this turn.

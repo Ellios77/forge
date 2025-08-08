@@ -1,0 +1,14 @@
+Name:Tyriel, Angelic Artisan
+ManaCost:3 W W
+Types:Legendary Creature Angel Artificer
+PT:4/4
+K:Flying
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.Equipment | ChangeNum$ 1 | Reveal$ True | ShuffleNonMandatory$ True
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigEquip | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may put an Equipment card from your hand onto the battlefield, then attach it to CARDNAME.
+SVar:TrigEquip:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Equipment | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Defined$ Self | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Equipment
+Oracle:Flying, vigilance\nWhen Tyriel, Angelic Artisan enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.\nWhenever Tyriel attacks, you may put an Equipment card from your hand onto the battlefield, then attach it to Tyriel.

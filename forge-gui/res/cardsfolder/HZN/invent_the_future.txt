@@ -1,0 +1,7 @@
+Name:Invent the Future
+ManaCost:X U U U
+Types:Instant
+K:Flashback:U U U Sac<X/Permanent>
+A:SP$ Draw | NumCards$ X | SpellDescription$ Draw X cards.
+SVar:X:Count$xPaid
+Oracle:Draw X cards.\nFlashback—{U}{U}{U}, Sacrifice X permanents. (You may cast this card from your graveyard for its flashback cost. Then exile it.)
