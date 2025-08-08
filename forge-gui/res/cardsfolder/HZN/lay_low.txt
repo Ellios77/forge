@@ -1,6 +1,6 @@
 Name:Lay Low
 ManaCost:W
 Types:Instant
-A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | TargetValidTargeting$ Permanent.YouCtrl+inRealZoneBattlefield,You | SubAbility$ DBSurveil | SpellDescription$ Counter target spell that targets you or a permanent you control. Surveil 1.
-SVar:DBSurveil:DB$ Surveil | Amount$ 1
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | TargetValidTargeting$ You,Permanent.YouCtrl+inRealZoneBattlefield | SubAbility$ DBSurveil | SpellDescription$ Counter target spell that targets you or a permanent you control. Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)
+SVar:DBSurveil:DB$ Surveil | Defined$ You | Amount$ 1
 Oracle:Counter target spell that targets you or a permanent you control.\nSurveil 1. (Look at the top card of your library. You may put that card into your graveyard.)
