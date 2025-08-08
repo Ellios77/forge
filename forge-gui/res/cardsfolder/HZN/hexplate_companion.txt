@@ -1,0 +1,8 @@
+Name:Hexplate Companion
+ManaCost:1 W
+Types:Artifact Creature Golem
+PT:2/1
+K:ETBReplacement:Other:DBNameCard
+SVar:DBNameCard:DB$ NameCard | Defined$ You | SpellDescription$ As CARDNAME enters, choose a card name.
+S:Mode$ Continuous | Affected$ You,Card.Self | AddKeyword$ Protection:ChosenName | Description$ You and CARDNAME each have protection from the chosen card name.
+Oracle:As Hexplate Companion enters, choose a card name.\nYou and Hexplate Companion each have protection from the chosen card name.

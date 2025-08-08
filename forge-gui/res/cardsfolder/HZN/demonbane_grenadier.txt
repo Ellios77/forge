@@ -1,0 +1,10 @@
+Name:Demonbane Grenadier
+ManaCost:W W
+Types:Creature Human Cleric Soldier
+PT:2/2
+T:Mode$ SearchedLibrary | ValidPlayer$ Player | SearchOwnLibrary$ True | Execute$ TrigEffect | TriggerZones$ Battlefield | TriggerDescription$ Whenever a player searches their library, that player can't untap more than two permanents during their next untap step.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STNoUntap | Triggers$ RemoveEffect | Duration$ Permanent | RememberObjects$ TriggeredPlayer | SpellDescription$ That player can't untap more than two permanents during their next untap step.
+SVar:STNoUntap:Mode$ Continuous | Affected$ Player.Remembered | AddKeyword$ UntapAdjust:Permanent:2 | Description$ Player can't untap more than two permanents during their next untap step.
+SVar:RemoveEffect:T:Mode$ Untap | ValidPlayer$ Remembered | IsPresent$ Player.Active | ValidStep$ Untap | TriggerZones$ Command | Execute$ TrigCleanup | TriggerDescription$ At the beginning of that player's next untap step, remove this effect.
+SVar:TrigCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Whenever a player searches their library, that player can't untap more than two permanents during their next untap step.
