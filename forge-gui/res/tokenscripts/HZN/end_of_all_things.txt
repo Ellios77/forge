@@ -1,6 +1,0 @@
-Name:End of All Things
-ManaCost:no cost
-Colors:green,white,blue
-Types:Creature Horror
-PT:5/4
-Oracle:
