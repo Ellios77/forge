@@ -1,0 +1,7 @@
+Name:Channel the Song
+ManaCost:1 W U
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | CheckSVar$ CreatCount | SVarCompare$ EQ1 | Execute$ TrigCopy | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a noncreature spell, if you control exactly one creature, copy that spell. You may choose new targets for the copy. (If it's a permanent, it resolves as a token.)
+SVar:CreatCount:Count$Valid Creature.YouCtrl
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:Whenever you cast a noncreature spell, if you control exactly one creature, copy that spell. You may choose new targets for the copy. (If it's a permanent, it resolves as a token.)

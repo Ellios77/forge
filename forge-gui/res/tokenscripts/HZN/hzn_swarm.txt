@@ -1,0 +1,5 @@
+Name:Swarm
+Colors:G
+Types:Enchantment
+T:Mode$ Phase | Phase$ EndStep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, create a 1/1 green Insect creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ g_1_1_insect | TokenOwner$ You

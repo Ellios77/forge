@@ -1,0 +1,10 @@
+Name:Vasille Rioters
+ManaCost:1 G
+Types:Creature Elf Citizen
+PT:1/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigConjure | TriggerDescription$ When CARDNAME enters, conjure three cards named Vasille Rioters into your library, then you get a riot counter.
+SVar:TrigConjure:DB$ MakeCard | Conjure$ True | Name$ Vasille Rioters | Zone$ Library | Amount$ 3 | SubAbility$ DBRiot
+SVar:DBRiot:DB$ PutCounter | Defined$ You | CounterType$ Riot | CounterNum$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each riot counter you have.
+SVar:X:Count$YourCountersRiot
+Oracle:When Vasille Rioters enters, conjure three cards named Vasille Rioters and shuffle them into your library, then you get a riot counter.\nVasille Rioters gets +1/+1 for each riot counter you have.
