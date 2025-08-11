@@ -2,5 +2,6 @@ Name:Brutal Blow
 ManaCost:R
 Types:Sorcery
 A:SP$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
-# Reprise ability not implemented. Requires engine support.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | Execute$ TrigReprise | OptionalDecider$ You | TriggerDescription$ Reprise {R} — Whenever you cast an instant or sorcery spell, you may pay {R} and exile CARDNAME from your graveyard. If you do, add this card's effects to that spell.
+SVar:TrigReprise:AB$ Destroy | Cost$ R ExileFromGrave<1/CARDNAME> | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
 Oracle:Destroy target artifact.\nReprise {R} (As you cast an instant or sorcery spell, you may exile one card with reprise from your graveyard and pay its reprise cost. If you do, add its effects to that spell.)
