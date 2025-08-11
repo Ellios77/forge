@@ -2,7 +2,7 @@ Name:Mystery of the Crashed Craft
 ManaCost:1 R
 Types:Enchantment Mystery
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 1/1 red Alien creature tokens with "This creature can't block."
-SVar:TrigToken:DB$ Token | TokenScript$ HZN/r_1_1_alien_noblock | TokenAmount$ 2 | TokenOwner$ You
+SVar:TrigToken:DB$ Token | TokenScript$ r_1_1_alien_noblock | TokenAmount$ 2 | TokenOwner$ You
 T:Mode$ SpellCast | ValidCard$ Instant | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_GE1_INST | PresentCompare$ EQ0 | Execute$ DecodeInst | TriggerDescription$ Condition — You cast an instant spell.
 SVar:DecodeInst:DB$ PutCounter | Defined$ Self | CounterType$ INST | CounterNum$ 1 | SubAbility$ CheckSolve
 T:Mode$ SpellCast | ValidCard$ Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_GE1_SOR | PresentCompare$ EQ0 | Execute$ DecodeSor | TriggerDescription$ Condition — You cast a sorcery spell.
@@ -19,6 +19,6 @@ Colors:red
 Types:Legendary Creature Alien
 PT:2/2
 T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast an instant or sorcery spell, create a 1/1 red Alien creature token with "This creature can't block."
-SVar:TrigToken:DB$ Token | TokenScript$ HZN/r_1_1_alien_noblock | TokenAmount$ 1 | TokenOwner$ You
+SVar:TrigToken:DB$ Token | TokenScript$ r_1_1_alien_noblock | TokenAmount$ 1 | TokenOwner$ You
 A:AB$ CopySpellAbility | Cost$ 2 R Sac<2/Alien> | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TargetType$ Spell | MayChooseTarget$ True | SpellDescription$ Copy target instant or sorcery spell you control. You may choose new targets for the copy.
 Oracle:Whenever you cast an instant or sorcery spell, create a 1/1 red Alien creature token with "This creature can't block."\n{2}{R}, Sacrifice two Aliens: Copy target instant or sorcery spell you control. You may choose new targets for the copy.
