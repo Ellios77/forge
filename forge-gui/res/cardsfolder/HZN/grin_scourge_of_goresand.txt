@@ -4,5 +4,6 @@ Types:Legendary Creature Human Berserker
 PT:3/3
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDelayed | TriggerDescription$ Whenever CARDNAME attacks, when you next cast an instant or sorcery spell with mana value 3 or less this turn, copy that spell. You may choose new targets for the copy.
 SVar:TrigDelayed:DB$ DelayedTrigger | AILogic$ SpellCopy | Mode$ SpellCast | ValidCard$ Instant.cmcLE3,Sorcery.cmcLE3 | ValidActivatingPlayer$ You | Execute$ EffTrigCopy | ThisTurn$ True
+SVar:EffTrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
 K:Dash:2 R
 Oracle:Whenever Grin, Scourge of Goresand attacks, when you next cast an instant or sorcery spell with mana value 3 or less this turn, copy that spell. You may choose new targets for the copy.\nDash {2}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)
