@@ -1,0 +1,4 @@
+Name:Ninja
+Colors:G
+Types:Creature Ninja
+PT:2/2
