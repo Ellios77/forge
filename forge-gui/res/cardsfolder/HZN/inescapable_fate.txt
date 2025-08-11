@@ -1,7 +1,7 @@
 Name:Inescapable Fate
 ManaCost:1 B
 Types:Instant
-A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ -1 | NumDef$ -1 | SubAbility$ DBDestroy | SpellDescription$ Target creature gets -1/-1 until end of turn.
-SVar:DBDestroy:DB$ Destroy | Defined$ Targeted | Optional$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE7 | SpellDescription$ Threshold — You may destroy that creature instead if seven or more cards are in your graveyard.
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | RememberTargets$ True | NumAtt$ -1 | NumDef$ -1 | SpellDescription$ Target creature gets -1/-1 until end of turn.
+A:SP$ Destroy | ValidTgts$ Creature | CheckSVar$ X | SVarCompare$ GE7 | SpellDescription$ Threshold — You may destroy that creature instead if seven or more cards are in your graveyard.
 SVar:X:Count$ValidGraveyard Card.YouOwn
 Oracle:Target creature gets -1/-1 until end of turn.\nThreshold — You may destroy that creature instead if seven or more cards are in your graveyard.
