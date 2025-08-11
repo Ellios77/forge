@@ -1,0 +1,11 @@
+Name:Ghislain, Cryptbreaker
+ManaCost:U B
+Types:Legendary Creature Vampire Rogue
+PT:1/1
+A:AB$ Draw | Cost$ T | SubAbility$ DBDiscard | SpellDescription$ Draw a card, then discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose
+A:AB$ Effect | Cost$ Sac<1/CARDNAME> | ValidTgts$ Creature.YouOwn,Instant.YouOwn,Sorcery.YouOwn | TgtZone$ Graveyard | TgtPrompt$ Select target creature, instant, or sorcery card in your graveyard | RememberObjects$ Targeted | StaticAbilities$ MayPlay | ReplacementEffects$ ReplaceGraveyard | PlayerTurn$ True | SpellDescription$ You may cast target creature, instant or sorcery card from your graveyard this turn. If that spell would be put into your graveyard, exile it instead. Activate only during your turn.
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Graveyard | Description$ You may cast the chosen card from your graveyard this turn.
+SVar:ReplaceGraveyard:Event$ Moved | ValidCard$ Card.IsRemembered | Destination$ Graveyard | ReplaceWith$ MoveExile | Description$ If that spell would be put into your graveyard, exile it instead.
+SVar:MoveExile:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ All | Destination$ Exile
+Oracle:{T}: Draw a card, then discard a card.\nSacrifice Ghislain, Cryptbreaker: You may cast target creature, instant or sorcery card from your graveyard this turn. If that spell would be put into your graveyard, exile it instead. Activate only during your turn.

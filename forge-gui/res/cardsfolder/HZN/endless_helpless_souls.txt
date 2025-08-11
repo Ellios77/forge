@@ -1,0 +1,19 @@
+Name:Endless Helpless Souls
+ManaCost:1 G W
+Types:Sorcery Revelation
+PT:4/6
+K:Flying
+K:Vigilance
+A:SP$ Mill | NumCards$ 5 | RememberMilled$ True | SubAbility$ DBToHand | SpellDescription$ Mill five cards. You may choose up to two nonland cards with mana value 2 or less milled this way. You may cast one without paying its mana cost. Put the rest into your hand.
+SVar:DBToHand:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Card.IsRemembered+nonLand+cmcLE2 | ChangeNum$ 2 | Hidden$ True | SubAbility$ DBCast
+SVar:DBCast:DB$ Play | Valid$ Card.IsRemembered+nonLand+cmcLE2 | ValidZone$ Hand | Controller$ You | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | Amount$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:SP$ Mill | Cost$ 6 G W | ActivationZone$ Graveyard | NumCards$ 5 | RememberMilled$ True | SubAbility$ DBToHand2 | SpellDescription$ Coalesce {6}{G}{W} (You may cast this from your graveyard for {6}{G}{W}. If you do, it enters as a Horror creature after it resolves. Exile it if it would leave the battlefield or not resolve.)
+SVar:DBToHand2:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Card.IsRemembered+nonLand+cmcLE2 | ChangeNum$ 2 | Hidden$ True | SubAbility$ DBCast2
+SVar:DBCast2:DB$ Play | Valid$ Card.IsRemembered+nonLand+cmcLE2 | ValidZone$ Hand | Controller$ You | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | Amount$ 1 | SubAbility$ DBCoalesce
+SVar:DBCoalesce:DB$ Animate | Defined$ Self | Types$ Creature,Horror | RemoveTypes$ Sorcery | Duration$ Permanent | SubAbility$ DBEnter
+SVar:DBEnter:DB$ ChangeZone | Origin$ Stack | Destination$ Battlefield | Defined$ Self | SubAbility$ DBCleanup
+R:Event$ Moved | ValidCard$ Card.Self+wasCastFromGraveyard | Origin$ Stack | Destination$ Graveyard | ReplaceWith$ Exile
+R:Event$ Moved | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | ReplaceWith$ Exile
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Mill five cards. You may choose up to two nonland cards with mana value 2 or less milled this way. You may cast one without paying its mana cost. Put the rest into your hand.\nCoalesce {6}{G}{W} (You may cast this from your graveyard for {6}{G}{W}. If you do, it enters as a Horror creature after it resolves. Exile it if it would leave the battlefield or not resolve.)\nFlying, vigilance

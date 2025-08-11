@@ -1,0 +1,16 @@
+Name:End of All Things
+ManaCost:G W U
+Types:Instant Revelation
+PT:5/4
+A:SP$ Charm | Defined$ You | Choices$ ExileAbility,ExilePermanent
+SVar:ExileAbility:DB$ Counter | TargetType$ Activated,Triggered | ValidTgts$ Card,Emblem | TgtPrompt$ Select target activated or triggered ability | SpellDescription$ Counter target activated or triggered ability.
+SVar:ExilePermanent:DB$ ChangeZone | Origin$ Battlefield | ValidTgts$ Card,Emblem | TargetType$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | Destination$ Exile | TgtPrompt$ Select up to one target activated ability, triggered ability, or nonland permanent | SpellDescription$ Exile up to one target activated ability, triggered ability, or nonland permanent.
+A:SP$ Charm | Cost$ 5 G W U | ActivationZone$ Graveyard | Defined$ You | Choices$ ExileAbility2,ExilePermanent2
+SVar:ExileAbility2:DB$ Counter | TargetType$ Activated,Triggered | TgtPrompt$ Select target activated or triggered ability from a noncreature source | ValidTgts$ Card,Emblem | SubAbility$ DBCoalesce | SpellDescription$ Counter target activated or triggered ability.
+SVar:ExilePermanent2:DB$ ChangeZone | Origin$ Battlefield | ValidTgts$ Card,Emblem | TargetType$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | Destination$ Exile | SubAbility$ DBCoalesce | TgtPrompt$ Select up to one target activated ability, triggered ability, or nonland permanent | SpellDescription$ Exile up to one target activated ability, triggered ability, or nonland permanent.
+SVar:DBCoalesce:DB$ Animate | Defined$ Self | Types$ Creature,Horror | RemoveTypes$ Instant | Duration$ Permanent | SubAbility$ DBEnter
+SVar:DBEnter:DB$ ChangeZone | Origin$ Stack | Destination$ Battlefield | Defined$ Self
+R:Event$ Moved | ValidCard$ Card.Self+wasCastFromGraveyard | Origin$ Stack | Destination$ Graveyard | ReplaceWith$ Exile
+R:Event$ Moved | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | ReplaceWith$ Exile
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Exile up to one target activated ability, triggered ability, or nonland permanent.\nCoalesce {5}{G}{W}{U} (You may cast this from your graveyard for {5}{G}{W}{U}. If you do, it enters as a Horror creature after it resolves. Exile it if it would leave the battlefield or not resolve.)
