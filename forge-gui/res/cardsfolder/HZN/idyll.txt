@@ -1,0 +1,9 @@
+Name:Idyll
+ManaCost:1 R G
+Types:Creature Incarnation
+PT:3/3
+S:Mode$ Continuous | Affected$ Land.nonToken+YouCtrl | EffectZone$ Battlefield | GainsAbilitiesOf$ Land.Other | Description$ Each nontoken land you control has all activated abilities of each other land on the battlefield.
+T:Mode$ LeavesBattlefield | ValidCard$ Card.Self | Execute$ TrigEffect | TriggerDescription$ When CARDNAME leaves the battlefield, until the end of your next turn, you gain "Each nontoken land you control has all activated abilities of each other land on the battlefield."
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STLands | Duration$ UntilEndOfYourNextTurn
+SVar:STLands:Mode$ Continuous | Affected$ Land.nonToken+YouCtrl | EffectZone$ Battlefield | GainsAbilitiesOf$ Land.Other | Description$ Each nontoken land you control has all activated abilities of each other land on the battlefield.
+Oracle:Each nontoken land you control has all activated abilities of each other land on the battlefield.\nWhen Idyll leaves the battlefield, until the end of your next turn, you gain "Each nontoken land you control has all activated abilities of each other land on the battlefield."

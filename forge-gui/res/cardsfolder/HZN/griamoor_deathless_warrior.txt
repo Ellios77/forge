@@ -1,0 +1,10 @@
+Name:Griamoor, Deathless Warrior
+ManaCost:2 R W
+Types:Legendary Planeswalker Griamoor
+Loyalty:5
+A:AB$ Effect | Cost$ AddCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select target creature | RememberObjects$ Targeted | StaticAbilities$ MustAttackGriamoor | Duration$ UntilYourNextTurn | SpellDescription$ Up to one target creature must attack CARDNAME during its controller's next turn if able.
+SVar:MustAttackGriamoor:Mode$ MustAttack | ValidCreature$ Card.IsRemembered | MustAttack$ CardSource | Description$ This creature attacks CARDNAME during its controller's next turn if able.
+A:AB$ Animate | Cost$ AddCounter<0/LOYALTY> | Defined$ Self | Power$ X | Toughness$ X | Keywords$ Indestructible | Types$ Creature,Human,Soldier | Planeswalker$ True | SpellDescription$ Until end of turn, CARDNAME becomes a Human Soldier creature with power and toughness each equal to the number of loyalty counters on him and gains indestructible. He's still a planeswalker.
+A:AB$ DealDamage | Cost$ SubCounter<2/LOYALTY> | ValidTgts$ Creature | NumDmg$ X | Planeswalker$ True | AILogic$ PowerDmg | SpellDescription$ CARDNAME deals damage equal to the number of loyalty counters on him to target creature.
+SVar:X:Count$CardCounters.LOYALTY
+Oracle:[+2]: Up to one target creature must attack Griamoor, Deathless Warrior during its controller's next turn if able.\n[0]: Until end of turn, Griamoor becomes a Human Soldier creature with power and toughness each equal to the number of loyalty counters on him and gains indestructible.\n[–2]: Griamoor deals damage equal to the number of loyalty counters on him to target creature.

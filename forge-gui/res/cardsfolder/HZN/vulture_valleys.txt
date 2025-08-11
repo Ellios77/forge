@@ -1,0 +1,9 @@
+Name:Vulture Valleys
+ManaCost:1 B G
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | ConditionManaSpent$ C | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Overcast — Whenever you cast a spell, if {C} was spent to cast it, create a 1/1 black Bird creature token with flying and menace.
+SVar:TrigToken:DB$ Token | TokenScript$ b_1_1_bird_flying_menace | TokenOwner$ You
+T:Mode$ DamageDoneOnce | CombatDamage$ True | ValidSource$ Creature.YouCtrl | ValidTarget$ Player | Execute$ TrigReturn | TriggerDescription$ Whenever three or more creatures you control deal combat damage to a player, return target card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Card | TgtPrompt$ Select target card in your graveyard | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3 | SpellDescription$ Return target card from your graveyard to your hand.
+SVar:X:TriggerCount$DamageSources
+Oracle:Overcast — Whenever you cast a spell, create a 1/1 black Bird creature token with flying and menace if {C} was spent to cast it.\nWhenever three or more creatures you control deal combat damage to a player, return target card from your graveyard to your hand.

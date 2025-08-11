@@ -1,0 +1,7 @@
+Name:Repent's Champion
+ManaCost:R W
+Types:Creature Human Soldier
+PT:2/2
+K:Lifelink
+K:Prowess
+Oracle:Lifelink\nProwess
