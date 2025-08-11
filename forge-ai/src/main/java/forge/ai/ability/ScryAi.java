@@ -21,7 +21,7 @@ public class ScryAi extends SpellAbilityAi {
      * @see forge.card.abilityfactory.SpellAiLogic#doTriggerAINoCost(forge.game.player.Player, java.util.Map, forge.card.spellability.SpellAbility, boolean)
      */
     @Override
-    protected AiAbilityDecision doTriggerAINoCost(Player ai, SpellAbility sa, boolean mandatory) {
+    protected AiAbilityDecision doTriggerNoCost(Player ai, SpellAbility sa, boolean mandatory) {
         if (sa.usesTargeting()) {
             // ability is targeted
             sa.resetTargets();
@@ -68,8 +68,8 @@ public class ScryAi extends SpellAbilityAi {
     } // scryTargetAI()
 
     @Override
-    public AiAbilityDecision chkAIDrawback(SpellAbility sa, Player ai) {
-        return doTriggerAINoCost(ai, sa, false);
+    public AiAbilityDecision chkDrawback(SpellAbility sa, Player ai) {
+        return doTriggerNoCost(ai, sa, false);
     }
     
     /**
@@ -88,9 +88,9 @@ public class ScryAi extends SpellAbilityAi {
         // and right before the beginning of AI's turn, if possible, to avoid mana locking the AI and also to
         // try to scry right before drawing a card. Also, avoid tapping creatures in the AI's turn, if possible,
         // even if there's no mana cost.
-        if (logic.equals("AtOppEOT") || (sa.getPayCosts().hasTapCost()
-                && (sa.getPayCosts().hasManaCost() || (sa.getHostCard() != null && sa.getHostCard().isCreature()))
-                && !isSorcerySpeed(sa, ai))) {
+        if (sa.getPayCosts().hasTapCost()
+                && (sa.getPayCosts().hasManaCost() || sa.getHostCard().isCreature())
+                && !isSorcerySpeed(sa, ai)) {
             return ph.getNextTurn() == ai && ph.is(PhaseType.END_OF_TURN);
         }
 
@@ -136,14 +136,12 @@ public class ScryAi extends SpellAbilityAi {
      */
     @Override
     protected boolean checkAiLogic(final Player ai, final SpellAbility sa, final String aiLogic) {
-        if ("Never".equals(aiLogic)) {
-            return false;
-        } else if ("BrainJar".equals(aiLogic)) {
+        if ("BrainJar".equals(aiLogic)) {
             return SpecialCardAi.BrainInAJar.consider(ai, sa);
         } else if ("MultipleChoice".equals(aiLogic)) {
             return SpecialCardAi.MultipleChoice.consider(ai, sa);
         }
-        return true;
+        return super.checkAiLogic(ai, sa, aiLogic);
     }
     
     @Override
@@ -157,7 +155,7 @@ public class ScryAi extends SpellAbilityAi {
         if (isSorcerySpeed(sa, ai)) {
             chance = .667; // 66.7% chance for sorcery speed (since it will never activate EOT)
         }
-        boolean randomReturn = MyRandom.getRandom().nextFloat() <= Math.pow(chance, sa.getActivationsThisTurn() + 1);
+        boolean randomReturn = MyRandom.getRandom().nextFloat() <= chance;
 
         if (playReusable(ai, sa)) {
             randomReturn = true;
