@@ -1,0 +1,7 @@
+Name:Forked Pillar
+ManaCost:R
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ 2 | SubAbility$ DBDelayedTrigger | SpellDescription$ CARDNAME deals 2 damage to target creature. When that creature dies this turn, CARDNAME deals 1 damage to that creature's controller.
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Targeted | ValidCard$ Card.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ DBDamage | SpellDescription$ When that creature dies this turn, CARDNAME deals 1 damage to that creature's controller.
+SVar:DBDamage:DB$ DealDamage | Defined$ RememberedController | NumDmg$ 1
+Oracle:Forked Pillar deals 2 damage to target creature. When that creature dies this turn, Forked Pillar deals 1 damage to that creature's controller.

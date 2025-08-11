@@ -1,0 +1,9 @@
+Name:Flamedaunt Courier
+ManaCost:1 R
+Types:Creature Human Knight
+PT:2/1
+K:First Strike
+K:Haste
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever you cast an instant or sorcery spell, CARDNAME gets +2/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ 0
+Oracle:First strike, haste\nWhenever you cast an instant or sorcery spell, Flamedaunt Courier gets +2/+0 until end of turn.

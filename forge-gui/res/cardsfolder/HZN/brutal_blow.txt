@@ -1,0 +1,6 @@
+Name:Brutal Blow
+ManaCost:R
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
+# Reprise ability not implemented. Requires engine support.
+Oracle:Destroy target artifact.\nReprise {R} (As you cast an instant or sorcery spell, you may exile one card with reprise from your graveyard and pay its reprise cost. If you do, add its effects to that spell.)

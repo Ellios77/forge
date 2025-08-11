@@ -1,0 +1,12 @@
+Name:Mind-Pryer
+ManaCost:B B
+Types:Creature Demon
+PT:2/1
+K:Lifelink
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | CheckSVar$ HandCount | SVarCompare$ LE1 | Description$ CARDNAME gets +1/+1 as long as an opponent has one or fewer cards in hand.
+SVar:HandCount:PlayerCountOpponents$LowestCardsInHand
+T:Mode$ Discarded | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | IsPresent$ Card.Self+withMenace | PresentCompare$ EQ0 | Execute$ TrigCounter | TriggerDescription$ Whenever an opponent discards a card, CARDNAME cackles. (Put a menace counter on it. If it already has menace, it deals 1 damage to each opponent instead.)
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ Menace | CounterNum$ 1
+T:Mode$ Discarded | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | IsPresent$ Card.Self+withMenace | PresentCompare$ GE1 | Execute$ TrigDamage | Secondary$ True
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Opponent | NumDmg$ 1
+Oracle:Lifelink\nMind-Pryer gets +1/+1 as long as an opponent has one or fewer cards in hand.\nWhenever an opponent discards a card, Mind-Pryer cackles. (Put a menace counter on it. If it already has menace, it deals 1 damage to each opponent instead.)
