@@ -1,0 +1,9 @@
+Name:Noxious Upwelling
+ManaCost:1 B B
+Types:Sorcery
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ 1 B B Sac<1/Swamp> | Description$ Reverberate — Sacrifice a Swamp. (When you cast this spell, copy it if you paid its reverberate cost.)
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -2 | NumDef$ -2 | SpellDescription$ All creatures get -2/-2 until end of turn.
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigCopy | CheckSVar$ AltCostPaid | SVarCompare$ GE1
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility
+SVar:AltCostPaid:Count$AltCost.1.0
+Oracle:Reverberate—Sacrifice a Swamp. (When you cast this spell, copy it if you paid its reverberate cost.)\nAll creatures get -2/-2 until end of turn.

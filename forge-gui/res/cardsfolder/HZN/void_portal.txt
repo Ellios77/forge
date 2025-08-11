@@ -1,0 +1,6 @@
+Name:Void Portal
+ManaCost:2 B
+Types:Enchantment
+A:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Library | Destination$ Hand | ChangeType$ Card.cmcEQX | ChangeNum$ 1 | Reveal$ True | Shuffle$ True | SorcerySpeed$ True | ActivationLimit$ 1 | SpellDescription$ Discard a card: Search your library for a card with the same mana value as the discarded card, reveal it, put it into your hand, then shuffle. Activate only as a sorcery and only once each turn.
+SVar:X:Discarded$CardManaCost
+Oracle:Discard a card: Search your library for a card with the same mana value as the discarded card, reveal it, put it into your hand, then shuffle. Activate only as a sorcery and only once each turn.
