@@ -5,7 +5,7 @@ PT:3/2
 K:Haste
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPeek | TriggerDescription$ When CARDNAME enters, look at the top four cards of your library. You may cast a red instant or sorcery spell with mana value 1 from among them without paying its mana cost. Then put the rest on the bottom of your library in any order.
 SVar:TrigPeek:DB$ PeekAndReveal | Defined$ You | PeekAmount$ 4 | NoReveal$ True | RememberPeeked$ True | SubAbility$ DBPlay
-SVar:DBPlay:DB$ Play | ValidZone$ Library | Valid$ Card.IsRemembered+red+instant,sorcery | ValidSA$ Spell.cmcEQ1 | Optional$ True | WithoutManaCost$ True | Controller$ You | Amount$ 1 | ForgetPlayed$ True | SubAbility$ DBRest
+SVar:DBPlay:DB$ Play | ValidZone$ Library | Valid$ Instant.IsRemembered+Red+cmcEQ1,Sorcery.IsRemembered+Red+cmcEQ1 | Optional$ True | WithoutManaCost$ True | Controller$ You | Amount$ 1 | ForgetPlayed$ True | SubAbility$ DBRest
 SVar:DBRest:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Library | Destination$ Library | LibraryPosition$ -1 | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Haste\nWhen CARDNAME enters, look at the top four cards of your library. You may cast a red instant or sorcery spell with mana value 1 from among them without paying its mana cost. Then put the rest on the bottom of your library in any order.
