@@ -1,0 +1,7 @@
+Name:Endless Helpless Souls
+ManaCost:no cost
+Colors:green,white
+Types:Creature Horror
+PT:4/6
+K:Flying,Vigilance
+Oracle:Flying, vigilance.

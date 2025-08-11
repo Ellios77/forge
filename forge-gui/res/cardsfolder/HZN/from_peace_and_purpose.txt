@@ -1,0 +1,8 @@
+Name:From Peace and Purpose
+ManaCost:1 G W W U
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile all creatures until CARDNAME leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZoneAll | Origin$ Battlefield | Destination$ Exile | ChangeType$ Creature | Duration$ UntilHostLeavesPlay | SpellDescription$ Exile all creatures until CARDNAME leaves the battlefield.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigInvestigate | TriggerDescription$ At the beginning of your upkeep, investigate.
+SVar:TrigInvestigate:DB$ Token | TokenAmount$ 1 | TokenOwner$ You | TokenScript$ c_a_clue_draw
+Oracle:When From Peace and Purpose enters, exile all creatures until From Peace and Purpose leaves the battlefield.\nAt the beginning of your upkeep, investigate. (Create a colorless Clue artifact token with "{2}, Sacrifice this artifact: Draw a card.")

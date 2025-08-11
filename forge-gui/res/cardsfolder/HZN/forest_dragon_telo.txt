@@ -1,0 +1,10 @@
+# Mimic ability implemented with temporary effects; proper persistent shape changes may require engine support.
+Name:Forest Dragon Telo
+ManaCost:G U R
+Types:Creature Elf Shapeshifter
+PT:3/3
+A:AB$ GenericChoice | Cost$ 2 | SorcerySpeed$ True | Choices$ DBShape1,DBShape2 | SpellDescription$ Mimic {2} — Choose one. • CARDNAME gains flying and double strike until end of turn. • CARDNAME gains hexproof until end of turn and "{T}: Put two +1/+1 counters on CARDNAME." Activate only as a sorcery.
+SVar:DBShape1:DB$ Pump | Defined$ Self | AddKeyword$ Flying,Double Strike | SpellDescription$ CARDNAME gains flying and double strike until end of turn.
+SVar:DBShape2:DB$ Pump | Defined$ Self | AddKeyword$ Hexproof | AddAbility$ ABPutCounters | SpellDescription$ CARDNAME gains hexproof and "{T}: Put two +1/+1 counters on CARDNAME.".
+SVar:ABPutCounters:AB$ PutCounter | Cost$ T | CounterType$ P1P1 | CounterNum$ 2 | Defined$ Self | SpellDescription$ Put two +1/+1 counters on CARDNAME.
+Oracle:Mimic {2} ({2}: This takes the shape of your choice. Mimic only as a sorcery.)\n[shape 1] Flying, double strike\n[shape 2] Hexproof\n{T}: Put two +1/+1 counters on Forest Dragon Telo.\n3/3

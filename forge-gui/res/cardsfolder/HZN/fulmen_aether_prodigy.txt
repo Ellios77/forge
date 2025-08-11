@@ -1,0 +1,12 @@
+Name:Fulmen, Aether Prodigy
+ManaCost:1 U R
+Types:Legendary Planeswalker Fulmen
+Loyalty:3
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | SubAbility$ DBDiscard | SpellDescription$ Draw a card, then discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose
+A:AB$ DealDamage | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Any | TgtPrompt$ Select up to two targets | TargetMin$ 0 | TargetMax$ 2 | DividedAsYouChoose$ 2 | NumDmg$ 2 | SubAbility$ DBDraw | SpellDescription$ CARDNAME deals 2 damage divided as you choose among one or two targets. Draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Triggers$ CastTrig | Duration$ Turn | SpellDescription$ Until end of turn, whenever you cast an instant or sorcery spell, copy it. You may choose new targets for the copy.
+SVar:CastTrig:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | Execute$ TrigCopy | TriggerZones$ Command | TriggerDescription$ Whenever you cast an instant or sorcery spell, copy it. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:[+1]: Draw a card, then discard a card.\n[-2]: Fulmen, Aether Prodigy deals 2 damage divided as you choose among one or two targets. Draw a card.\n[-6]: Until end of turn, whenever you cast an instant or sorcery spell, copy it. You may choose new targets for the copy.

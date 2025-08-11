@@ -1,0 +1,7 @@
+Name:End of All Things
+ManaCost:G W U
+Types:Instant Revelation
+A:SP$ ChangeZone | Origin$ Stack,Battlefield | Destination$ Exile | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Card,Emblem,Permanent.nonLand | TargetType$ Activated,Triggered,Permanent.nonLand | TgtPrompt$ Choose up to one target activated ability, triggered ability, or nonland permanent | SpellDescription$ Exile up to one target activated ability, triggered ability, or nonland permanent. | SubAbility$ DBCoalesce
+K:Flashback:5 G W U
+SVar:DBCoalesce:DB$ Token | ConditionDefined$ Self | ConditionPresent$ Card.wasCastFromGraveyard | TokenScript$ HZN/end_of_all_things | TokenOwner$ You | TokenAmount$ 1 | TokenTapped$ True
+Oracle:Exile up to one target activated ability, triggered ability, or nonland permanent.\nCoalesce {5}{G}{W}{U} (You may cast this from your graveyard for {5}{G}{W}{U}. If you do, it enters as a Horror creature after it resolves. Exile it if it would leave the battlefield or not resolve.)\nEnd of All Things enters tapped.\n5/4
