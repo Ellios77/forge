@@ -8,5 +8,5 @@ K:Flying
 K:Haste
 SVar:Bound:Count$CardManaCost
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigAbound | TriggerDescription$ Whenever CARDNAME attacks, abound. (You may cast a nonland card that costs less than this from your hand without paying its mana cost.)
-SVar:TrigAbound:DB$ Play | Valid$ Card.nonLand+cmcLTBound | ValidZone$ Hand | WithoutManaCost$ True | Amount$ 1 | Optional$ True | Controller$ You
+SVar:TrigAbound:DB$ Play | Valid$ Card.nonLand+cmcLTBound+YouOwn | ValidZone$ Hand | WithoutManaCost$ True | Amount$ 1 | Optional$ True | Controller$ You
 Oracle:This spell costs {1} less to cast for each permanent you control that's a Dragon or a Hound.\nFlying, haste\nWhenever Gold Retriever attacks, abound. (You may cast a nonland card that costs less than this from your hand without paying its mana cost.)
