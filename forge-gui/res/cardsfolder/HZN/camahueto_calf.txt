@@ -1,0 +1,6 @@
+Name:Camahueto Calf
+ManaCost:G
+Types:Creature Ox
+PT:1/1
+A:AB$ ChangeZone | Cost$ T Sac<1/CARDNAME> | ValidTgts$ Land.YouGraveyard | TgtPrompt$ Select target land card in your graveyard | Origin$ Graveyard | Destination$ Battlefield | SpellDescription$ Return target land card from your graveyard to the battlefield.
+Oracle:{T}, Sacrifice CARDNAME: Return target land card from your graveyard to the battlefield.

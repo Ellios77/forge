@@ -1,0 +1,7 @@
+Name:Dazzling Dreamspinner
+ManaCost:1 G G
+Types:Creature Elf Druid
+PT:2/2
+A:AB$ Mana | Cost$ tapXType<2/Elf> | Produced$ G | Amount$ 2 | SpellDescription$ Add {G}{G}.
+A:AB$ Token | Cost$ 6 G G | TokenAmount$ 1 | TokenScript$ HZN/g_8_8_elemental | TokenOwner$ You | SpellDescription$ Create an 8/8 green Elemental creature token.
+Oracle:Tap two untapped Elves you control: Add {G}{G}.\n{6}{G}{G}: Create an 8/8 green Elemental creature token.

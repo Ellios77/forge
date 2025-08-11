@@ -1,0 +1,8 @@
+Name:Duskwood Revolutionary
+ManaCost:G G
+Types:Creature Elf Warrior
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl+Other+!Token+Elf,Warrior | Execute$ TrigPutCounter | TriggerDescription$ Each other nontoken Elf and/or Warrior you control enters with an additional +1/+1 counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCard | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Token | Cost$ G G T SubCounter<2/P1P1/Creature/creature you control> | TokenAmount$ 2 | TokenScript$ g_1_1_elf_warrior | TokenOwner$ You | SpellDescription$ Create two 1/1 green Elf Warrior creature tokens.
+Oracle:Each other nontoken Elf and/or Warrior you control enters with an additional +1/+1 counter on it.\n{G}{G}, {T}, Remove two +1/+1 counters from among creatures you control: Create two 1/1 green Elf Warrior creature tokens.
