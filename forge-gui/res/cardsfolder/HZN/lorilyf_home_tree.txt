@@ -9,11 +9,11 @@ SVar:Mark2:DB$ PutCounter | Defined$ Self | CounterType$ R2 | CounterNum$ 1 | Su
 A:AB$ ChangeZone | Cost$ 2 G | SorcerySpeed$ True | ActivationLimit$ 1 | CheckSVar$ used3 | SVarCompare$ EQ0 | Origin$ Library | Destination$ Hand | ChangeType$ Creature.Elf | ChangeNum$ 1 | Reveal$ True | Shuffle$ True | SubAbility$ Mark3 | SpellDescription$ Search your library for an Elf card, reveal it, put it into your hand, then shuffle.
 SVar:Mark3:DB$ PutCounter | Defined$ Self | CounterType$ R3 | CounterNum$ 1 | SubAbility$ AddRealm
 SVar:AddRealm:DB$ PutCounter | Defined$ Self | CounterType$ QUEST | CounterNum$ 1
-S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ RealmCount | SVarCompare$ GE3 | AddAbility$ FavorTrig | Description$ Favor — Whenever you cast an Elf spell, draw a card.
-SVar:RealmCount:Count$SelfCounters.QUEST
-SVar:used1:Count$SelfCounters.R1
-SVar:used2:Count$SelfCounters.R2
-SVar:used3:Count$SelfCounters.R3
-SVar:FavorTrig:Trigger$ SpellCast | ValidCard$ Elf | ValidActivatingPlayer$ You | Execute$ DBDraw | TriggerDescription$ Whenever you cast an Elf spell, draw a card.
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ RealmCount | SVarCompare$ GE3 | AddTrigger$ FavorTrig | Description$ Favor — Whenever you cast an Elf spell, draw a card.
+SVar:RealmCount:Count$CardCounters.QUEST
+SVar:used1:Count$CardCounters.R1
+SVar:used2:Count$CardCounters.R2
+SVar:used3:Count$CardCounters.R3
+SVar:FavorTrig:Mode$ SpellCast | ValidCard$ Elf | ValidActivatingPlayer$ You | Execute$ DBDraw | TriggerDescription$ Whenever you cast an Elf spell, draw a card.
 SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
 Oracle:(Activate each ability only once as a sorcery. You gain the realm's favor after activating them all.)\n{G}: You may play an additional land this turn.\n{1}{G}: Search your library for a basic Forest card, reveal it, put it into your hand, then shuffle.\n{2}{G}: Search your library for an Elf card, reveal it, put it into your hand, then shuffle.\nFavor — Whenever you cast an Elf spell, draw a card.
