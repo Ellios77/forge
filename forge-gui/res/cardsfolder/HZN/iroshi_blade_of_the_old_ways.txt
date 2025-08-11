@@ -1,0 +1,14 @@
+Name:Iroshi, Blade of the Old Ways
+ManaCost:2 G G
+Types:Legendary Planeswalker Iroshi
+Loyalty:3
+K:Flash
+S:Mode$ CastWithFlash | ValidCard$ Card.Self+ThisTurnEntered | ValidSA$ Activated.Loyalty | Caster$ You | Description$ As long as CARDNAME entered this turn, you may activate their loyalty abilities any time you could cast an instant.
+A:AB$ ChangeZone | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select a creature you control to return | RememberChanged$ True | SubAbility$ DBDraw | SpellDescription$ You may return a creature you control to its owner's hand. If you do, draw a card.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Token | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | TokenAmount$ 1 | TokenScript$ g_2_2_ninja | TokenOwner$ You | SpellDescription$ Create a 2/2 green Ninja creature token.
+A:AB$ Pump | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage | SpellDescription$ Target creature you control deals damage equal to its power to target creature or planeswalker.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | AILogic$ PowerDmg | TgtPrompt$ Select target creature or planeswalker | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower
+Oracle:Flash\nAs long as Iroshi, Blade of the Old Ways entered this turn, you may activate their loyalty abilities any time you could cast an instant.\n[+1]: You may return a creature you control to its owner's hand. If you do, draw a card.\n[−1]: Create a 2/2 green Ninja creature token.\n[−2]: Target creature you control deals damage equal to its power to target creature or planeswalker.

@@ -1,0 +1,11 @@
+Name:Animara, Last of the Fell
+ManaCost:1 R W B
+Types:Legendary Artifact Creature Vampire
+PT:3/2
+K:First Strike
+K:Haste
+T:Mode$ Phase | Phase$ End of Turn | CheckSVar$ LifeLostAny | SVarCompare$ GE1 | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of each end step, if a player lost life this turn, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:LifeLostAny:PlayerCountPlayers$LifeLostThisTurn
+DeckHas:Ability$Counters
+Oracle:First strike, haste\nAt the beginning of each end step, if a player lost life this turn, put a +1/+1 counter on Animara, Last of the Fell.

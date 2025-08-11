@@ -1,0 +1,12 @@
+Name:Lorilyf, Home-Tree
+ManaCost:G
+Types:Legendary Enchantment Realm
+T:Mode$ SpellCast | ValidCard$ Card.Elf | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | CheckSVar$ RealmCounters | SVarCompare$ GE3 | TriggerDescription$ Whenever you cast an Elf spell, draw a card.
+A:AB$ Effect | Cost$ G | SorcerySpeed$ True | GameActivationLimit$ 1 | StaticAbilities$ Exploration | SubAbility$ DBPutCounter | SpellDescription$ You may play an additional land this turn.
+SVar:Exploration:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 1 | Description$ You may play an additional land this turn.
+A:AB$ ChangeZone | Cost$ 1 G | SorcerySpeed$ True | GameActivationLimit$ 1 | Origin$ Library | Destination$ Hand | ChangeType$ Land.Forest+Basic | ChangeNum$ 1 | Reveal$ True | Shuffle$ True | SubAbility$ DBPutCounter | SpellDescription$ Search your library for a basic Forest card, reveal it, put it into your hand, then shuffle.
+A:AB$ ChangeZone | Cost$ 2 G | SorcerySpeed$ True | GameActivationLimit$ 1 | Origin$ Library | Destination$ Hand | ChangeType$ Card.Elf | ChangeNum$ 1 | Reveal$ True | Shuffle$ True | SubAbility$ DBPutCounter | SpellDescription$ Search your library for an Elf card, reveal it, put it into your hand, then shuffle.
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ QUEST | CounterNum$ 1
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:RealmCounters:Count$CardCounters.QUEST
+Oracle:(Activate each ability only once as a sorcery. You gain the realm's favor after activating them all.)\n{G}: You may play an additional land this turn.\n{1}{G}: Search your library for a basic Forest card, reveal it, put it into your hand, then shuffle.\n{2}{G}: Search your library for an Elf card, reveal it, put it into your hand, then shuffle.\nFavor — Whenever you cast an Elf spell, draw a card.
