@@ -2,7 +2,7 @@ Name:Evaldi's Muse
 ManaCost:2 G G
 Types:Creature Wurm
 PT:4/3
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl+!Token | Execute$ TrigGain | TriggerDescription$ Whenever CARDNAME or another nontoken creature you control enters, you gain 2 life.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl+!token | Execute$ TrigGain | TriggerDescription$ Whenever CARDNAME or another nontoken creature you control enters, you gain 2 life.
 SVar:TrigGain:DB$ GainLife | DefinedPlayer$ You | LifeAmount$ 2
 T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME leaves the battlefield, create two 1/1 green and blue Elf creature tokens.
 SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ gu_1_1_elf | TokenOwner$ You
