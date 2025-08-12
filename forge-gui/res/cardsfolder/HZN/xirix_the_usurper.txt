@@ -2,9 +2,9 @@ Name:Xirix, the Usurper
 ManaCost:1 B G U
 Types:Legendary Planeswalker Xirix
 Loyalty:4
-S:Mode$ CastWithFlash | ValidCard$ Card.Self | ValidSA$ Activated.Loyalty | Caster$ You | Condition$ IsExtraTurn | Description$ You may activate loyalty abilities of CARDNAME during extra turns any time you could cast an instant.
+S:Mode$ CastWithFlash | ValidCard$ Card.Self | ValidSA$ Activated.Loyalty | Caster$ You | Condition$ ExtraTurn | Description$ You may activate loyalty abilities of CARDNAME during extra turns any time you could cast an instant.
 A:AB$ Dig | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | DigNum$ 3 | ChangeNum$ 1 | DestinationZone$ Hand | DestinationZone2$ Graveyard | NoReveal$ True | SpellDescription$ Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
-A:AB$ DestroyAll | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidCards$ Permanent.greatestCMC_NonLandPermanent+nonSelf | SpellDescription$ Destroy each nonland, non-Xirix permanent with the greatest mana value among non-Xirix permanents on the battlefield.
-A:AB$ ChangeZone | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent | TgtPrompt$ Select target permanent card from a graveyard | Origin$ Graveyard | Destination$ Battlefield | Controller$ You | Ultimate$ True | SpellDescription$ Put target permanent card from a graveyard onto the battlefield under your control.
+A:AB$ DestroyAll | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidCards$ Permanent.nonLand+!Self+cmcEQX | SpellDescription$ Destroy each nonland, non-Xirix permanent with the greatest mana value among non-Xirix permanents on the battlefield.
+SVar:X:Count$Valid Permanent.nonLand+!Self$GreatestCMC
+A:AB$ ChangeZone | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent | TgtPrompt$ Select target permanent card from a graveyard | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | Ultimate$ True | SpellDescription$ Put target permanent card from a graveyard onto the battlefield under your control.
 Oracle:You may activate loyalty abilities of Xirix, the Usurper during extra turns any time you could cast an instant.\n[+1]: Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.\n[-2]: Destroy each nonland, non-Xirix permanent with the greatest mana value among non-Xirix permanents on the battlefield.\n[-6]: Put target permanent card from a graveyard onto the battlefield under your control.
-# NOTE: [-2] ability uses highest mana value among all nonland permanents; if Xirix has the highest mana value alone, no permanents are destroyed.
