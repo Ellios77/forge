@@ -1,0 +1,6 @@
+Name:Scrap, the Second Myr
+ManaCost:3
+Types:Legendary Artifact Creature Myr
+PT:2/2
+S:Mode$ Continuous | Affected$ Card.Self | EffectZone$ Battlefield | GainsAbilitiesOf$ Artifact.Creature+Other+YouCtrl | GainsAbilitiesOfZones$ Battlefield | Description$ CARDNAME has all activated abilities of other artifact creatures you control.
+Oracle:Scrap, the Second Myr has all activated abilities of other artifact creatures you control.

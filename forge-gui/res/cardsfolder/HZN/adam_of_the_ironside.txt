@@ -1,0 +1,12 @@
+Name:Adam of the Ironside
+ManaCost:3
+Types:Legendary Artifact Creature Construct
+PT:2/2
+# First mate ability requires engine support.
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Type$ Creature | SpellDescription$ As CARDNAME enters, choose a creature type.
+S:Mode$ Continuous | Affected$ Card.Self | RemoveType$ Construct | AddType$ ChosenType | Description$ CARDNAME becomes the chosen type.
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | References$ X | Description$ CARDNAME gets +1/+1 for each other creature you control of the chosen type.
+SVar:X:Count$Valid Creature.ChosenType+Other+YouCtrl
+Oracle:First mate—Your starting deck contains twelve or more creature cards and they all share a creature type. (If this card outside the game is your chosen first mate, you may swap it with a card in your opening hand.)\nAs CARDNAME enters, choose a creature type. CARDNAME becomes that type.\nCARDNAME gets +1/+1 for each other creature you control of the chosen type.
+# First mate ability not implemented; engine support needed.

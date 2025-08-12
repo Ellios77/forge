@@ -1,0 +1,10 @@
+Name:Plasma Enforcer
+ManaCost:3
+Types:Artifact Creature Construct
+PT:0/0
+K:Sunburst
+A:AB$ PutCounter | Cost$ Sac<1/Artifact.Other/another artifact> | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on CARDNAME.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME dies, create a 1/1 colorless Servo artifact creature token for each +1/+1 counter on it.
+SVar:TrigToken:DB$ Token | TokenAmount$ X | TokenScript$ c_1_1_a_servo | TokenOwner$ You | References$ X
+SVar:X:Count$CardCounters.P1P1
+Oracle:Sunburst (This enters with a +1/+1 counter on it for each color of mana spent to cast it.)\nSacrifice another artifact: Put a +1/+1 counter on CARDNAME.\nWhen CARDNAME dies, create a 1/1 colorless Servo artifact creature token for each +1/+1 counter on CARDNAME.

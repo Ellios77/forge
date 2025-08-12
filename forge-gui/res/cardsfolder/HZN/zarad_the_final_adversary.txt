@@ -1,0 +1,10 @@
+Name:Zarad, the Final Adversary
+ManaCost:7 W B
+Types:Legendary Creature Human Horror
+PT:7/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each creature that died this turn.
+SVar:X:Count$ThisTurnEntered_Graveyard_from_Battlefield_Creature
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigReanimate | TriggerDescription$ At the beginning of your upkeep, put target creature card from a graveyard onto the battlefield under your control.
+SVar:TrigReanimate:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature | TgtPrompt$ Select target creature card from a graveyard | Controller$ You
+A:AB$ Pump | Cost$ 1 Sac<1/Creature.Other/another creature> | Defined$ Self | KW$ Indestructible | SpellDescription$ CARDNAME gains indestructible until end of turn.
+Oracle:This spell costs {1} less to cast for each creature that died this turn.\nAt the beginning of your upkeep, put target creature card from a graveyard onto the battlefield under your control.\n{1}, Sacrifice another creature: Zarad, the Final Adversary gains indestructible until end of turn.

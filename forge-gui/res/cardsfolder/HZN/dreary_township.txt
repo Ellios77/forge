@@ -1,0 +1,7 @@
+Name:Dreary Township
+ManaCost:no cost
+Types:Land Plains Swamp
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+K:Cycling:2
+Oracle:({T}: Add {W} or {B}.)\nDreary Township enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)
