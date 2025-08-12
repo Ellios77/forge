@@ -1,0 +1,7 @@
+Name:Warfaring Epunamun
+ManaCost:B R
+Types:Creature Spirit Warrior
+PT:3/1
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigCopy | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell from your graveyard, you may sacrifice a creature. If you do, copy that spell. You may choose new targets for the copy.
+SVar:TrigCopy:AB$ CopySpellAbility | Cost$ Sac<1/Creature> | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:Whenever you cast a spell from your graveyard, you may sacrifice a creature. If you do, copy that spell. You may choose new targets for the copy.

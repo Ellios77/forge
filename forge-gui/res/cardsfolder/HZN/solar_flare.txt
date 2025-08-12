@@ -1,0 +1,6 @@
+Name:Solar Flare
+ManaCost:R G
+Types:Instant
+A:SP$ DealDamage | NumDmg$ 3 | ValidTgts$ Any | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 3 damage to any target. You gain 3 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+Oracle:Solar Flare deals 3 damage to any target. You gain 3 life.

@@ -1,0 +1,11 @@
+Name:Glimpse in the Static
+ManaCost:1 W U
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target creature an opponent controls until CARDNAME leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | Imprint$ True | Duration$ UntilHostLeavesPlay
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ At the beginning of your upkeep, target player creates a token that's a copy of the exiled card, then exiles that token.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ Imprinted | Controller$ Targeted | RememberTokens$ True | ValidTgts$ Player | TgtPrompt$ Select target player | SubAbility$ DBExileToken
+SVar:DBExileToken:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:PlayMain1:TRUE
+Oracle:When Glimpse in the Static enters, exile target creature an opponent controls until Glimpse in the Static leaves the battlefield.\nAt the beginning of your upkeep, target player creates a token that's a copy of the exiled card, then exiles that token.

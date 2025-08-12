@@ -1,0 +1,9 @@
+Name:Pixie Procurer
+ManaCost:2 G U
+Types:Creature Faerie Rogue
+PT:2/2
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ When CARDNAME enters, copy target activated ability, triggered ability, or spell with mana value 2 or less. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)
+SVar:TrigCopy:DB$ CopySpellAbility | ValidTgts$ Card,Emblem,Spell.cmcLE2 | TargetType$ Activated,Triggered,Spell | TgtPrompt$ Select target activated ability, triggered ability, or spell with mana value 2 or less | MayChooseTarget$ True
+Oracle:Flash\nFlying\nWhen Pixie Procurer enters, copy target activated ability, triggered ability, or spell with mana value 2 or less. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)

@@ -1,0 +1,6 @@
+Name:Hop of Life
+ManaCost:1 G U
+Types:Sorcery
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SetPower$ 2 | SetToughness$ 2 | SpellDescription$ Create a token that's a copy of target creature you control, except it has base power and toughness 2/2.
+K:Retrace
+Oracle:Create a token that's a copy of target creature you control, except it has base power and toughness 2/2.\nRetrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)
