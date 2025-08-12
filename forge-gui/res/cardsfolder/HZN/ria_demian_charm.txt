@@ -2,8 +2,8 @@ Name:Ria-Demian Charm
 ManaCost:1 B R
 Types:Instant
 A:SP$ Charm | Choices$ DestroyMono,DamageAll,DiscardAll
-SVar:DestroyMono:DB$ Destroy | ValidTgts$ Creature.Monocolored | TgtPrompt$ Select target monocolored creature | SpellDescription$ Destroy target monocolored creature.
+SVar:DestroyMono:DB$ Destroy | ValidTgts$ Creature.MonoColor | TgtPrompt$ Select target monocolored creature | SpellDescription$ Destroy target monocolored creature.
 SVar:DamageAll:DB$ DamageAll | NumDmg$ 2 | ValidCards$ Creature | SpellDescription$ CARDNAME deals 2 damage to each creature.
-SVar:DiscardAll:DB$ Discard | Defined$ Player | NumCards$ 2 | SubAbility$ DBLoseLife | SpellDescription$ Each player discards two cards and loses 2 life.
+SVar:DiscardAll:DB$ Discard | Defined$ Player | NumCards$ 2 | Mode$ TgtChoose | SubAbility$ DBLoseLife | SpellDescription$ Each player discards two cards and loses 2 life.
 SVar:DBLoseLife:DB$ LoseLife | Defined$ Player | LifeAmount$ 2
 Oracle:Choose one —\n• Destroy target monocolored creature.\n• Ria-Demian Charm deals 2 damage to each creature.\n• Each player discards two cards and loses 2 life.
