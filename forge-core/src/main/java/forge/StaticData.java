@@ -91,6 +91,8 @@ public class StaticData {
         {
             final Map<String, CardRules> regularCards = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
             final Map<String, CardRules> variantsCards = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            final Map<String, CardRules> customRegularCards = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            final Map<String, CardRules> customVariantsCards = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
             if (!loadNonLegalCards) {
                 for (CardEdition e : editions) {
@@ -127,9 +129,9 @@ public class StaticData {
                     final String cardName = card.getName();
                     card.setCustom();
                     if(card.isVariant()) { //Append loaded custom cards to the respective list.
-                        variantsCards.put(cardName, card);
+                        customVariantsCards.put(cardName, card);
                     } else {
-                        regularCards.put(cardName, card);
+                        customRegularCards.put(cardName, card);
                     }
                 }
             }
@@ -140,6 +142,11 @@ public class StaticData {
 
             commonCards = new CardDb(regularCards, editions, filtered, cardArtPreference);
             variantCards = new CardDb(variantsCards, editions, filtered, cardArtPreference);
+
+            if (customCardReader != null) {
+                commonCards.registerModuleRules("custom", customRegularCards);
+                variantCards.registerModuleRules("custom", customVariantsCards);
+            }
 
             //must initialize after establish field values for the sake of card image logic
             commonCards.initialize(false, false, enableUnknownCards);
