@@ -150,10 +150,6 @@ public final class CardDb implements ICardDatabase, IDeckGenPool {
             return requestInfo + NameSetSeparator + artIndex;
         }
 
-        public static String compose(String cardName, String setCode, String collectorNumber) {
-            return compose(cardName, setCode, null, collectorNumber);
-        }
-
         public static String compose(String cardName, String setCode, String module, String collectorNumber) {
             String requestInfo = compose(cardName, setCode, module);
             collectorNumber = preprocessCollectorNumber(collectorNumber);
@@ -688,7 +684,7 @@ public final class CardDb implements ICardDatabase, IDeckGenPool {
 
     @Override
     public PaperCard getCard(final String cardName, String setCode, String collectorNumber) {
-        String reqInfo = CardRequest.compose(cardName, setCode, collectorNumber);
+        String reqInfo = CardRequest.compose(cardName, setCode, null, collectorNumber);
         CardRequest request = CardRequest.fromString(reqInfo);
         return tryGetCard(request);
     }

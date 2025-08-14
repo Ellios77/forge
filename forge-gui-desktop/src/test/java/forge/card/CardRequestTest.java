@@ -67,25 +67,25 @@ public class CardRequestTest {
     }
 
     public void testComposeCardNameSetAndCollectorNumber() {
-        String requestInfo = CardRequest.compose(cardName, edition, collNr);
+        String requestInfo = CardRequest.compose(cardName, edition, null, collNr);
         String expCN = "[" + collNr + "]";
         String expected = cardName + sep + edition + sep + expCN;
         assertEquals(requestInfo, expected);
 
         // collNr only one bracket
-        requestInfo = CardRequest.compose(cardName, edition, "[" + collNr);
+        requestInfo = CardRequest.compose(cardName, edition, null, "[" + collNr);
         assertEquals(requestInfo, expected);
 
-        requestInfo = CardRequest.compose(cardName, edition, collNr + "]");
+        requestInfo = CardRequest.compose(cardName, edition, null, collNr + "]");
         assertEquals(requestInfo, expected);
 
         // collNr with leading spaces, as possible result from a wrong parsing in a deck
         // file
-        requestInfo = CardRequest.compose(cardName, edition, "\t\t 175   ");
+        requestInfo = CardRequest.compose(cardName, edition, null, "\t\t 175   ");
         assertEquals(requestInfo, expected);
 
         // collNr is null
-        requestInfo = CardRequest.compose(cardName, edition, null);
+        requestInfo = CardRequest.compose(cardName, edition, null, null);
         assertEquals(requestInfo, cardName + sep + edition + sep);
     }
 
