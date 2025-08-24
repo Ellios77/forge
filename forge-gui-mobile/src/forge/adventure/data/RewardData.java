@@ -114,8 +114,6 @@ public class RewardData implements Serializable {
                     return false;
             } else if(Arrays.asList(configData.restrictedEditions).contains(input.getEdition()))
                 return false;
-            if(input.getRules().isCustom())
-                return false;
             return !Arrays.asList(configData.restrictedCards).contains(input.getName());
         });
         //Filter AI cards for enemies.
