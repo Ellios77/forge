@@ -8,12 +8,18 @@ import forge.adventure.pointofintrest.PointOfInterestChanges;
 import forge.deck.Deck;
 import forge.item.BoosterPack;
 import forge.item.PaperCard;
+import forge.item.PaperCardPredicates;
 import forge.item.SealedTemplate;
 import forge.item.generation.BoosterGenerator;
 import forge.item.generation.UnOpenedProduct;
+import forge.card.CardEdition;
 import forge.model.CardBlock;
 import forge.model.FModel;
 import forge.util.Aggregates;
+import forge.util.MyRandom;
+import java.util.stream.Collectors;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -131,10 +137,21 @@ public class AdventureEventController implements Serializable {
     }
 
     public Deck generateBooster(String setCode) {
-        List<PaperCard> cards = BoosterGenerator.getBoosterPack(StaticData.instance().getBoosters().get(setCode));
+        CardEdition edition = FModel.getMagicDb().getEditions().get(setCode);
+        SealedTemplate template = StaticData.instance().getBoosters().get(setCode);
+        if (template == null) {
+            template = SealedTemplate.genericDraftBooster;
+        }
+        if (!StaticData.instance().getEditions().contains(setCode)) {
+            List<Pair<String, Integer>> slots = template.getSlots().stream()
+                    .map(p -> ImmutablePair.of(p.getLeft() + " " + setCode, p.getRight()))
+                    .collect(Collectors.toList());
+            template = new SealedTemplate(setCode, slots);
+        }
+        List<PaperCard> cards = BoosterGenerator.getBoosterPack(template);
         Deck output = new Deck();
         output.getMain().add(cards);
-        String editionName = FModel.getMagicDb().getEditions().get(setCode).getName();
+        String editionName = edition != null ? edition.getName() : setCode;
         output.setName(editionName + " Booster");
         output.setComment(setCode);
         return output;
