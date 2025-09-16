@@ -1077,6 +1077,25 @@ public class AdventurePlayer implements Serializable, SaveFileContent {
         return items.random();
     }
 
+    public boolean hasEquippedItem() {
+        for (Long id : equippedItems.values()) {
+            ItemData item = getEquippedItem(id);
+            if (item == null)
+                continue;
+            if (isHardorInsaneDifficulty()) {
+                return true;
+            } else {
+                switch (item.equipmentSlot) {
+                    // limit to these for easy and normal
+                    case "Boots", "Body", "Neck" -> {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public ItemData getEquippedAbility1() {
         for (Long id : equippedItems.values()) {
             ItemData data = getEquippedItem(id);
@@ -1419,6 +1438,7 @@ public class AdventurePlayer implements Serializable, SaveFileContent {
      */
     public int copyDeck() {
         for (int i = 0; i < MAX_DECK_COUNT; i++) {
+            if (i >= getDeckCount()) addDeck();
             if (isEmptyDeck(i)) {
                 decks.set(i, (Deck) deck.copyTo(deck.getName() + " (" + Forge.getLocalizer().getMessage("lblCopy") + ")"));
                 return i;
