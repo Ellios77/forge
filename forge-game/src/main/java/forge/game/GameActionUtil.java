@@ -19,8 +19,9 @@ package forge.game;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+
+import forge.card.ColorSet;
 import forge.card.GamePieceType;
-import forge.card.MagicColor;
 import forge.card.mana.ManaCost;
 import forge.game.ability.AbilityFactory;
 import forge.game.ability.AbilityUtils;
@@ -632,7 +633,7 @@ public final class GameActionUtil {
                 }
             } else if (o.equals("Conspire")) {
                 final String conspireCost = "tapXType<2/Creature.SharesColorWith/" +
-                    "creature that shares a color with " + host.getName() + ">";
+                    "creature that shares a color with " + host.getDisplayName() + ">";
                 final Cost cost = new Cost(conspireCost, false);
                 String str = "Pay for Conspire? " + cost.toSimpleString();
 
@@ -743,7 +744,7 @@ public final class GameActionUtil {
                 for (KeywordInterface ki : c.getKeywords()) {
                     if (kw.equals(ki.getOriginal())) {
                         final Cost cost = new Cost(ManaCost.ONE, false);
-                        String str = "Choose Amount for " + c.getName() + ": " + cost.toSimpleString();
+                        String str = "Choose Amount for " + c.getDisplayName() + ": " + cost.toSimpleString();
 
                         int v = pc.chooseNumberForKeywordCost(sa, cost, ki, str, Integer.MAX_VALUE);
 
@@ -787,7 +788,7 @@ public final class GameActionUtil {
         eff.setOwner(controller);
 
         eff.setImageKey(sourceCard.getImageKey());
-        eff.setColor(MagicColor.COLORLESS);
+        eff.setColor(ColorSet.C);
         eff.setGamePieceType(GamePieceType.EFFECT);
         // try to get the SpellAbility from the mana ability
         //eff.setEffectSource((SpellAbility)null);
@@ -878,14 +879,12 @@ public final class GameActionUtil {
         } else if (abMana.isComboMana()) {
             // amount is already taken care of in resolve method for combination mana, just append baseMana
             sb.append(baseMana);
+        } else if (StringUtils.isNumeric(baseMana)) {
+            sb.append(amount * Integer.parseInt(baseMana));
         } else {
-            if (StringUtils.isNumeric(baseMana)) {
-                sb.append(amount * Integer.parseInt(baseMana));
-            } else {
-                sb.append(baseMana);
-                for (int i = 1; i < amount; i++) {
-                    sb.append(" ").append(baseMana);
-                }
+            sb.append(baseMana);
+            for (int i = 1; i < amount; i++) {
+                sb.append(" ").append(baseMana);
             }
         }
         return sb.toString();
@@ -993,9 +992,6 @@ public final class GameActionUtil {
             oldCard.setBackSide(false);
             oldCard.setState(oldCard.getFaceupCardStateName(), true);
             oldCard.unanimateBestow();
-            if (ability.isDisturb() || ability.hasParam("CastTransformed")) {
-                oldCard.undoIncrementTransformedTimestamp();
-            }
 
             if (ability.hasParam("Prototype")) {
                 oldCard.removeCloneState(oldCard.getPrototypeTimestamp());

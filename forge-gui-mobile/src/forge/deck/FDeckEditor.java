@@ -30,6 +30,7 @@ import forge.itemmanager.ItemManager.ContextMenuBuilder;
 import forge.itemmanager.ItemManagerConfig;
 import forge.itemmanager.filters.ItemFilter;
 import forge.localinstance.properties.ForgePreferences.FPref;
+import forge.localinstance.skin.FSkinProp;
 import forge.menu.*;
 import forge.model.FModel;
 import forge.screens.FScreen;
@@ -65,8 +66,8 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
             return gameType == null ? null : gameType.getDeckFormat();
         }
 
-        public ItemPool<PaperCard> getCardPool(boolean wantUnique) {
-            return wantUnique ? FModel.getUniqueCardsNoAlt() : FModel.getAllCardsNoAlt();
+        public ItemPool<PaperCard> getCardPool() {
+            return FModel.getAllCardsNoAlt();
         }
         protected Predicate<PaperCard> getCardFilter() { return null; }
 
@@ -171,10 +172,10 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
         @Override public boolean hasCommander() { return deckFormat.hasCommander(); }
 
         @Override
-        public ItemPool<PaperCard> getCardPool(boolean wantUnique) {
+        public ItemPool<PaperCard> getCardPool() {
             if(this.itemPoolSupplier != null)
                 return itemPoolSupplier.get();
-            return super.getCardPool(wantUnique);
+            return super.getCardPool();
         }
 
         @Override
@@ -409,18 +410,7 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
     }
 
     public static FImage iconFromDeckSection(DeckSection deckSection) {
-        return switch (deckSection) {
-            case Main -> MAIN_DECK_ICON;
-            case Sideboard -> SIDEBOARD_ICON;
-            case Commander -> FSkinImage.COMMAND;
-            case Avatar -> FSkinImage.AVATAR;
-            case Conspiracy -> FSkinImage.CONSPIRACY;
-            case Planes -> FSkinImage.PLANAR;
-            case Schemes -> FSkinImage.SCHEME;
-            case Attractions -> FSkinImage.ATTRACTION;
-            case Contraptions -> FSkinImage.CONTRAPTION;
-            default -> FSkinImage.HDSIDEBOARD;
-        };
+        return FSkin.getImages().get(FSkinProp.iconFromDeckSection(deckSection, Forge.hdbuttons));
     }
 
     private final DeckEditorConfig editorConfig;
@@ -1723,7 +1713,7 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
 
             //Clone the pool to ensure we don't mutate it by adding to or removing from this page.
             //Can override this if that behavior is desired.
-            ItemPool<PaperCard> cardPool = CardPool.createFrom(parentScreen.getEditorConfig().getCardPool(cardManager.getWantUnique()), PaperCard.class);
+            ItemPool<PaperCard> cardPool = CardPool.createFrom(parentScreen.getEditorConfig().getCardPool(), PaperCard.class);
 
             if(editorConfig.usePlayerInventory() && currentDeck != null) {
                 //Remove any items from the pool that are in the deck.
@@ -1876,7 +1866,7 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
                                 sortedOptions.add(option);
                             }
                         }
-                        GuiChoose.oneOrNone(Forge.getLocalizer().getMessage("lblSelectPreferredArt") + " " + card.getName(), sortedOptions, result -> {
+                        GuiChoose.oneOrNone(Forge.getLocalizer().getMessage("lblSelectPreferredArt") + " " + card.getDisplayName(), sortedOptions, result -> {
                             if (result != null) {
                                 if (result != card) {
                                     cardManager.replaceAll(card, result);
@@ -1896,8 +1886,8 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
                 menu.addItem(new FCheckBoxMenuItem(Forge.getLocalizer().getMessage("lblUniqueCardsOnly"), cardManager.getWantUnique(), e -> {
                     boolean wantUnique = !cardManager.getWantUnique();
                     cardManager.setWantUnique(wantUnique);
-                    refresh();
                     cardManager.getConfig().setUniqueCardsOnly(wantUnique);
+                    cardManager.refresh();
                 }));
             }
         }
@@ -2114,7 +2104,7 @@ public class FDeckEditor extends TabPageScreen<FDeckEditor> {
             }
             final Localizer localizer = Forge.getLocalizer();
             String lblReplaceCard = localizer.getMessage("lblReplace");
-            String prompt = localizer.getMessage("lblSelectReplacementCard") + " " + card.getName();
+            String prompt = localizer.getMessage("lblSelectReplacementCard") + " " + card.getDisplayName();
             String promptQuantity = String.format("%s - %s %s", card, lblReplaceCard, localizer.getMessage("lblHowMany"));
             //First have the player choose which card to swap in.
             GuiChoose.oneOrNone(prompt, sortedOptions, replacement -> {

@@ -174,6 +174,8 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     private CardZoneTable changeZoneTable;
     private Map<Player, Integer> loseLifeMap;
 
+    private String name = "";
+
     public CardCollection getLastStateBattlefield() {
         return lastStateBattlefield;
     }
@@ -684,6 +686,10 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
         return isAlternativeCost(AlternativeCost.Prowl);
     }
 
+    public final boolean isSneak() {
+        return isAlternativeCost(AlternativeCost.Sneak);
+    }
+
     public final boolean isSurged() {
         return isAlternativeCost(AlternativeCost.Surge);
     }
@@ -1019,12 +1025,12 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     public String getStackDescription() {
         String text = getHostCard().getView().getText();
         if (stackDescription.equals(text) && !text.isEmpty()) {
-            return getHostCard().getName() + " - " + text;
+            return getHostCard().getDisplayName() + " - " + text;
         }
         if (stackDescription.isEmpty()) {
             return "";
         }
-        return TextUtil.fastReplace(stackDescription, "CARDNAME", getHostCard().getName());
+        return TextUtil.fastReplace(stackDescription, "CARDNAME", getHostCard().getDisplayName());
     }
     public void setStackDescription(final String s) {
         originalStackDescription = s;
@@ -1119,11 +1125,11 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             if (node.getHostCard() != null && !desc.isEmpty()) {
                 ITranslatable nameSource = getHostName(node);
                 desc = CardTranslation.translateMultipleDescriptionText(desc, nameSource);
-                String translatedName = CardTranslation.getTranslatedName(nameSource);
+                String translatedName = nameSource.getTranslatedName();
                 desc = TextUtil.fastReplace(desc, "CARDNAME", translatedName);
                 desc = TextUtil.fastReplace(desc, "NICKNAME", Lang.getInstance().getNickName(translatedName));
                 if (node.getOriginalHost() != null) {
-                    desc = TextUtil.fastReplace(desc, "ORIGINALHOST", node.getOriginalHost().getName());
+                    desc = TextUtil.fastReplace(desc, "ORIGINALHOST", node.getOriginalHost().getDisplayName());
                 }
                 sb.append(desc);
             }
@@ -1246,6 +1252,9 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             clone.mayChooseNewTargets = false;
 
             clone.triggeringObjects = AbilityKey.newMap(this.triggeringObjects);
+            if (!lki) {
+                clone.replacingObjects = AbilityKey.newMap();
+            }
 
             clone.setPayCosts(getPayCosts().copy());
             if (manaPart != null) {
@@ -1945,7 +1954,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
 
         resetTargets();
         targetChosen.add(card);
-        setStackDescription(getHostCard().getName() + " - targeting " + card);
+        setStackDescription(getHostCard().getDisplayName() + " - targeting " + card);
     }
 
     /**
@@ -2674,5 +2683,13 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     }
     public void clearOptionalKeywordAmount() {
         optionalKeywordAmount.clear();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
