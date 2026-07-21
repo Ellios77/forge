@@ -104,6 +104,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     private StaticAbility grantorStatic;
 
     private CardCollection splicedCards = null;
+    private CardCollection reprisedCards = null;
 
     private boolean basicSpell = true;
     private Trigger triggerObj;
@@ -1636,6 +1637,21 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             splicedCards = new CardCollection();
         }
         splicedCards.add(splicedCard);
+    }
+
+    public CardCollection getReprisedCards() {
+        return reprisedCards;
+    }
+
+    public boolean isReprising() {
+        return reprisedCards != null && !reprisedCards.isEmpty();
+    }
+
+    public void addReprisedCard(Card reprisedCard) {
+        if (reprisedCards == null) {
+            reprisedCards = new CardCollection();
+        }
+        reprisedCards.add(reprisedCard);
     }
 
     public CardCollection knownDetermineDefined(final String defined) {

@@ -3763,6 +3763,23 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
         return chosenCards;
     }
 
+    @Override
+    public List<Card> chooseCardForReprise(SpellAbility sa, List<Card> cards) {
+        GameEntityViewMap<Card, CardView> gameCacheReprise = GameEntityView.getMap(cards);
+        List<CardView> chosen = getGui().many(
+                "Choose a card to reprise",
+                "Chosen card",
+                0,
+                1,
+                gameCacheReprise.getTrackableKeys(),
+                sa.getHostCard().getView()
+        );
+
+        List<Card> chosenCards = new CardCollection();
+        gameCacheReprise.addToList(chosen, chosenCards);
+        return chosenCards;
+    }
+
     /*
      * (non-Javadoc)
      *

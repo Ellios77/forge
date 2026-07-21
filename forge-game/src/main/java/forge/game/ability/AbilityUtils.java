@@ -18,6 +18,7 @@ import forge.game.cost.Cost;
 import forge.game.cost.CostAdjustment;
 import forge.game.keyword.Keyword;
 import forge.game.keyword.KeywordInterface;
+import forge.game.keyword.KeywordWithCost;
 import forge.game.keyword.KeywordWithCostAndType;
 import forge.game.mana.Mana;
 import forge.game.mana.ManaConversionMatrix;
@@ -3149,6 +3150,65 @@ public class AbilityUtils {
             addSpliceEffect(newSA, c);
         }
         return newSA;
+    }
+
+    /**
+     * Adds the effects of one reprised card from the caster's graveyard to an
+     * instant or sorcery spell. Reprise is deliberately limited to one card,
+     * unlike splice.
+     */
+    public static SpellAbility addRepriseEffect(final SpellAbility sa) {
+        final Card source = sa.getHostCard();
+        final Player player = sa.getActivatingPlayer();
+
+        if (!sa.isSpell() || source.isCopiedSpell()
+                || (!source.isInstant() && !source.isSorcery())) {
+            return sa;
+        }
+
+        final CardCollection reprises = CardLists.filter(player.getCardsIn(ZoneType.Graveyard),
+                card -> card.hasKeyword(Keyword.REPRISE));
+        if (reprises.isEmpty()) {
+            return sa;
+        }
+
+        final List<Card> chosen = player.getController().chooseCardForReprise(sa, reprises);
+        if (chosen.isEmpty()) {
+            return sa;
+        }
+
+        final Card card = chosen.get(0);
+        final SpellAbility newSA = sa.copy();
+        addRepriseEffect(newSA, card);
+        return newSA;
+    }
+
+    public static void addRepriseEffect(final SpellAbility sa, final Card card) {
+        Cost repriseCost = null;
+        for (final KeywordInterface inst : card.getKeywords(Keyword.REPRISE)) {
+            if (inst instanceof KeywordWithCost reprise) {
+                repriseCost = reprise.getCost();
+                break;
+            }
+        }
+        if (repriseCost == null) {
+            return;
+        }
+
+        final SpellAbility firstSpell = card.getFirstSpellAbility();
+        final Map<String, String> params = Maps.newHashMap(firstSpell.getMapParams());
+        final ApiType api = AbilityRecordType.getRecordType(params).getApiTypeOf(params);
+        final AbilitySub subAbility = (AbilitySub) AbilityFactory.getAbility(AbilityRecordType.SubAbility, api, params,
+                null, card.getCurrentState(), card.getCurrentState());
+        subAbility.setActivatingPlayer(sa.getActivatingPlayer());
+        subAbility.setHostCard(sa.getHostCard());
+        sa.appendSubAbility(subAbility);
+
+        sa.setBasicSpell(false);
+        sa.getPayCosts().add(new Cost("ExileFromGrave<1/Card.CardUID_" + card.getId() + ">", false));
+        sa.getPayCosts().add(repriseCost);
+        sa.setDescription(sa.getDescription() + " (Reprising " + card + ")");
+        sa.addReprisedCard(card);
     }
 
     public static void addSpliceEffect(final SpellAbility sa, final Card c) {

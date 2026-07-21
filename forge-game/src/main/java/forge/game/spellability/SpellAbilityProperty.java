@@ -65,6 +65,8 @@ public class SpellAbilityProperty {
             return sa.isEternalize();
         } else if (property.equals("Flashback")) {
             return sa.isFlashback();
+        } else if (property.equals("Reprise") || property.equals("Reprising")) {
+            return sa.isReprising();
         } else if (property.equals("Harmonize")) {
             return sa.isHarmonize();
         } else if (property.equals("Jumpstart")) {

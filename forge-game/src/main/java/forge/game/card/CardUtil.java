@@ -55,7 +55,7 @@ public final class CardUtil {
     public static final ImmutableList<String> modifiableKeywords = ImmutableList.<String>builder().add(
             "Enchant", "Protection", "Cumulative upkeep", "Equip", "Buyback",
             "Cycling", "Echo", "Kicker", "Flashback", "Madness", "Morph",
-            "Affinity", "Entwine", "Splice", "Ninjutsu",
+            "Affinity", "Entwine", "Splice", "Reprise", "Ninjutsu",
             "Transmute", "Replicate", "Recover", "Squad", "Suspend", "Aura swap",
             "Fortify", "Transfigure", "Champion", "Evoke", "Prowl", "Freerunning",
             "Reinforce", "Unearth", "Level up", "Miracle", "Overload", "Cleave",
