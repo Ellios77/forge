@@ -3205,7 +3205,7 @@ public class AbilityUtils {
         sa.appendSubAbility(subAbility);
 
         sa.setBasicSpell(false);
-        sa.getPayCosts().add(new Cost("ExileFromGrave<1/CardUID_" + card.getId() + ">", false));
+        sa.getPayCosts().add(new Cost("ExileFromGrave<1/Card.CardUID_" + card.getId() + ">", false));
         sa.getPayCosts().add(repriseCost);
         sa.setDescription(sa.getDescription() + " (Reprising " + card + ")");
         sa.addReprisedCard(card);
