@@ -610,6 +610,7 @@ public class PlaySpellAbility {
             }
 
             ability = AbilityUtils.addSpliceEffects(ability);
+            ability = AbilityUtils.addRepriseEffect(ability);
         }
 
         // used to rollback
